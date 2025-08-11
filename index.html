@@ -1,97 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Luca Cavallotto</title>
-    <style>
-        /* Base styles (default values for light theme) */
-        body {
-            background-color: white; /* Default light background */
-            margin: 0;
-            padding: 0;
-            font-family: 'Times New Roman', serif; /* Or your preferred elegant serif font */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden; /* Hides scrollbars if content overflows */
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="3" fill="black"/></svg>') 5 5, auto;
-        }
-        .content {
-            text-align: center;
-            color: black; /* Default dark text */
-            font-size: 4vw; /* Responsive font size */
-            font-weight: normal; /* Removes default bold for a refined look */
-            letter-spacing: -0.05em; /* Reduce letter spacing for a compact look */
-            line-height: 1.2;
-        }
-
-        /* Animation for the text (initial appearance) */
-        .animated-text span {
-            display: inline-block;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards; /* Each letter appears */
-        }
-
-        /* Delays for each letter to create a staggered appearance */
-        .animated-text span:nth-child(1) { animation-delay: 0.1s; }
-        .animated-text span:nth-child(2) { animation-delay: 0.2s; }
-        .animated-text span:nth-child(3) { animation-delay: 0.3s; }
-        .animated-text span:nth-child(4) { animation-delay: 0.4s; }
-        .animated-text span:nth-child(5) { animation-delay: 0.5s; } /* Space character */
-        .animated-text span:nth-child(6) { animation-delay: 0.6s; }
-        .animated-text span:nth-child(7) { animation-delay: 0.7s; }
-        .animated-text span:nth-child(8) { animation-delay: 0.8s; }
-        .animated-text span:nth-child(9) { animation-delay: 0.9s; }
-        .animated-text span:nth-child(10) { animation-delay: 1.0s; }
-        .animated-text span:nth-child(11) { animation-delay: 1.1s; }
-        .animated-text span:nth-child(12) { animation-delay: 1.2s; }
-        .animated-text span:nth-child(13) { animation-delay: 1.3s; }
-        .animated-text span:nth-child(14) { animation-delay: 1.4s; }
-        .animated-text span:nth-child(15) { animation-delay: 1.5s; }
-
-        /* Keyframes for the initial fadeIn animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); } /* Starts invisible and slightly below */
-            to { opacity: 1; transform: translateY(0); } /* Ends fully visible at its position */
-        }
-
-        /* Micro-interaction: Hover effect for the name (REMOVED) */
-        /* .animated-text {
-            transition: color 0.3s ease-in-out;
-            cursor: pointer;
-        }
-
-        .animated-text:hover {
-            color: #555;
-        } */
-
-        /* Media queries for responsive font size on smaller screens */
-        @media (max-width: 768px) {
-            .content {
-                font-size: 6vw;
-            }
-        }
-
-        /* --- Dark Theme Styles --- */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: black; /* Dark background */
-                cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="3" fill="white"/></svg>') 5 5, auto; /* Example: white circle cursor */
-            }
-            .content {
-                color: white; /* Light text */
-            }
-            /* .animated-text:hover { /* Hover effect for name in dark mode (REMOVED) */
-            /* color: #CCC;
-            /* } */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luca Cavallotto</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-    <div class="content">
-        <h1 class="animated-text">
-            <span>L</span><span>u</span><span>c</span><span>a</span><span>&nbsp;</span><span>C</span><span>a</span><span>v</span><span>a</span><span>l</span><span>l</span><span>o</span><span>t</span><span>t</span><span>o</span>
-        </h1>
+  <nav>
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">Luca Cavallotto</a>
+      <ul class="nav-links">
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+      </ul>
     </div>
+  </nav>
+
+  <main class="index-content">
+    Luca Cavallotto
+  </main>
+
+  <footer>
+    <div class="footer-wrap">
+      <p>© 2025 Luca Cavallotto · All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
