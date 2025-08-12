@@ -245,3 +245,28 @@ footer {
   .contact-card i { font-size: 1.6rem; margin-bottom: 0.5rem; }
   .contact-card h2 { margin-bottom: 0.2rem; }
 }
+
+.index-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+}
+
+.main-title {
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.subtitle-typing {
+  margin-top: 0.5rem;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  color: var(--muted);
+  height: 1.5em; /* prevents layout shift */
+  overflow: hidden;
+  white-space: nowrap;
+  /* removed border-right to hide cursor */
+}
