@@ -288,6 +288,13 @@ footer {
   font-size: 0.9rem;
 }
 
+.contacts-grid a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
 /* ===== Responsive ===== */
 
 /* Tablets (≤1024px) */
