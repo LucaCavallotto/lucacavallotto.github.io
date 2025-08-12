@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const phrases = [
     "Computer Science student",
+    "Programmer",
     "Runner",
     "Dreamer",
     "Motorsport enthusiast",
@@ -11,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "Minimalist designer",
     "Human-centered designer",
     "Detail addict",
-    "Challenge seeker"
+    "Challenge seeker",
+    "AI enthusiast",
   ];
 
   const el = document.getElementById("typing-text");
