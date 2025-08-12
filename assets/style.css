@@ -329,3 +329,74 @@ footer {
     margin-bottom: 0.2rem;
   }
 }
+/* Ensure dropdown positions correctly */
+.nav-wrap { position: relative; }
+
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Hamburger icon (3 lines) */
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle .hamburger { position: relative; }
+.nav-toggle .hamburger::before { position: absolute; top: -6px; }
+.nav-toggle .hamburger::after  { position: absolute; top:  6px; }
+
+/* X animation when open */
+.nav-toggle.is-open .hamburger { transform: rotate(45deg); }
+.nav-toggle.is-open .hamburger::before { transform: rotate(90deg); top: 0; }
+.nav-toggle.is-open .hamburger::after  { opacity: 0; }
+
+/* Mobile dropdown */
+@media (max-width: 768px) {
+  .nav-toggle { display: inline-flex; }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 1.2rem;
+    right: 1.2rem;
+    display: none; /* hidden by default */
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0.9rem 1rem;
+    list-style: none;
+    background: color-mix(in srgb, var(--bg) 95%, transparent);
+    backdrop-filter: saturate(180%) blur(14px);
+    border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .nav-links.open { display: flex; }
+
+  /* Larger tap targets; keep your colors */
+  .nav-links a {
+    padding: 0.5rem 0.2rem;
+    display: block;
+    color: var(--text);
+  }
+
+  /* Hide the desktop underline bar on mobile */
+  .nav-links a.active::after { display: none; }
+}
