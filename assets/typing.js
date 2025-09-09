@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Detail addict",
     "Challenge seeker",
     "AI enthusiast",
+    "Ferrari fan"
   ];
 
   const el = document.getElementById("typing-text");
