@@ -1,0 +1,50 @@
+[
+  {
+    "title": "RaceTechAssistant",
+    "description": "A simple website to calculate fuel and optimize setups for Assetto Corsa Competizione races.",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/RaceTechAssistant",
+        "class": "me-3"
+      },
+      {
+        "text": "Try it Live",
+        "url": "https://lucacavallotto.github.io/RaceTechAssistant/",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "title": "Maratona",
+    "description": "A collection of web-based tools for runners, including pace zone calculators, race pace estimators, and more running performance utilities.",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/Maratona",
+        "class": "me-3"
+      },
+      {
+        "text": "Try it Live",
+        "url": "https://lucacavallotto.github.io/Maratona/",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "title": "Quizium",
+    "description": "A modern, interactive web application that allows users to take quizzes on a variety of subjects.",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/Quizium",
+        "class": "me-3"
+      },
+      {
+        "text": "Try it Live",
+        "url": "https://lucacavallotto.github.io/Quizium/",
+        "class": ""
+      }
+    ]
+  }
+]
