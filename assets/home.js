@@ -1,7 +1,7 @@
 /* ===== home.js — Homepage logic ===== */
 
 // -------------------------------------------------------------------
-// 1. App of the Day  (deterministic daily seed)
+// 1. Project of the Day  (deterministic daily seed)
 // -------------------------------------------------------------------
 function getDailyIndex(count) {
   const day = Math.floor(Date.now() / 86_400_000); // unique int per day
@@ -21,7 +21,7 @@ function buildCarouselItem(project, isFirst, isAppOfDay) {
   if (isAppOfDay) {
     const eyebrow = document.createElement("div");
     eyebrow.className = "carousel-eyebrow";
-    eyebrow.textContent = "App of the Day";
+    eyebrow.textContent = "👑 Project of the Day";
     card.appendChild(eyebrow);
   }
 
