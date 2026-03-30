@@ -46,5 +46,21 @@
         "class": ""
       }
     ]
+  },
+  {
+    "title": "TripleCrown",
+    "description": "News & Race Calendar",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/TripleCrown",
+        "class": "me-3"
+      },
+      {
+        "text": "Try it Live",
+        "url": "https://lucacavallotto.github.io/TripleCrown/",
+        "class": ""
+      }
+    ]
   }
 ]
