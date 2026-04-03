@@ -266,10 +266,12 @@ footer {
 .footer-wrap {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 1.2rem;
+  padding: 1rem 1.2rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.4rem;
   color: var(--muted);
   font-size: 0.8rem;
   text-align: center;
@@ -291,10 +293,6 @@ footer {
 }
 
 /* ===== Contacts Page ===== */
-.contacts-grid {
-  /* Align with other pages: no extra margins */
-}
-
 .contacts-grid a {
   text-decoration: none;
   color: inherit;
@@ -487,4 +485,290 @@ footer {
   overflow: hidden;
   white-space: nowrap;
   /* removed border-right to hide cursor */
+}
+
+/* ===== Home: Hero section ===== */
+.home-hero {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.2rem;
+}
+
+.home-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ===== Home: Shared section layout ===== */
+.home-section {
+  padding: 4rem 1.2rem;
+}
+
+.home-section-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.home-section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0.4rem 0 1.2rem;
+}
+
+.home-section-body {
+  font-size: 1.05rem;
+  line-height: 1.78;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+/* ===== Scroll reveal animation ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Carousel overrides ===== */
+.carousel-home {
+  position: relative;
+  margin-top: 1.6rem;
+}
+
+/* Minimalist indicators */
+.carousel-home .carousel-indicators {
+  position: static;
+  margin: 1.4rem 0 0;
+  gap: 6px;
+  justify-content: center;
+}
+
+.carousel-home .carousel-indicators [data-bs-target] {
+  width: 20px;
+  height: 3px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--text) 25%, transparent);
+  border: none;
+  transition: background 0.25s ease, width 0.25s ease;
+  margin: 0;
+  opacity: 1;
+}
+
+.carousel-home .carousel-indicators .active {
+  background: var(--text);
+  width: 32px;
+}
+
+/* Carousel project card */
+.carousel-project-card {
+  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+  border-radius: 14px;
+  padding: 2rem 2.2rem;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  justify-content: space-between;
+  position: relative;
+  /* Necessary for absolute positioning of eyebrow */
+}
+
+.carousel-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.carousel-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.carousel-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.carousel-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carousel-card-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.6rem;
+}
+
+.carousel-link-primary {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 40%, transparent);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.carousel-link-primary:hover {
+  color: var(--muted);
+  border-color: transparent;
+}
+
+.carousel-link-ghost {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.carousel-link-ghost:hover {
+  color: var(--text);
+}
+
+/* Minimalist prev/next controls */
+.carousel-ctrl {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.carousel-ctrl:hover {
+  opacity: 1;
+  background: color-mix(in srgb, var(--text) 8%, var(--bg));
+}
+
+.carousel-control-prev.carousel-ctrl {
+  left: -20px;
+}
+
+.carousel-control-next.carousel-ctrl {
+  right: -20px;
+}
+
+.carousel-ctrl-icon {
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1;
+  display: block;
+}
+
+/* ===== CTA button ===== */
+.cta-wrap {
+  margin-top: 2.2rem;
+  text-align: left;
+}
+
+.btn-outline-custom {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--text) 30%, transparent);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+}
+
+.btn-outline-custom:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+
+/* ===== Social links section ===== */
+.home-social {
+  padding-bottom: 6rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.4rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.social-link:hover {
+  opacity: 1;
+}
+
+.social-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* ===== Responsive: mobile carousel controls ===== */
+@media (max-width: 640px) {
+  .carousel-control-prev.carousel-ctrl {
+    left: 0;
+  }
+
+  .carousel-control-next.carousel-ctrl {
+    right: 0;
+  }
+
+  .carousel-project-card {
+    padding: 1.4rem 1.2rem;
+    height: 220px;
+  }
+
+  .home-section {
+    padding: 3.5rem 1rem;
+  }
 }
