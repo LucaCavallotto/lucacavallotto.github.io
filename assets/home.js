@@ -18,16 +18,21 @@ function buildCarouselItem(project, isFirst, isAppOfDay) {
   const card = document.createElement("div");
   card.className = "carousel-project-card";
 
-  if (isAppOfDay) {
-    const eyebrow = document.createElement("div");
-    eyebrow.className = "carousel-eyebrow";
-    eyebrow.textContent = "👑 Project of the Day";
-    card.appendChild(eyebrow);
-  }
+  const header = document.createElement("div");
+  header.className = "carousel-card-header";
 
   const title = document.createElement("h2");
   title.className = "carousel-card-title";
   title.textContent = project.title;
+  header.appendChild(title);
+
+  if (isAppOfDay) {
+    const eyebrow = document.createElement("div");
+    eyebrow.className = "carousel-eyebrow";
+    eyebrow.textContent = "👑 Project of the Day";
+    header.appendChild(eyebrow);
+  }
+  card.appendChild(header);
 
   const desc = document.createElement("p");
   desc.className = "carousel-card-desc";
@@ -47,7 +52,6 @@ function buildCarouselItem(project, isFirst, isAppOfDay) {
     links.appendChild(a);
   });
 
-  card.appendChild(title);
   card.appendChild(desc);
   card.appendChild(links);
   item.appendChild(card);

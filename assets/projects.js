@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((projects) => {
         // Clear the static entries if any
         projectsGrid.innerHTML = "";
-        
+
         projects.forEach((project) => {
           const colDiv = document.createElement("div");
           colDiv.className = "col-12 col-lg-6";

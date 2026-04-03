@@ -266,10 +266,12 @@ footer {
 .footer-wrap {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 1.2rem;
+  padding: 1rem 1.2rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.4rem;
   color: var(--muted);
   font-size: 0.8rem;
   text-align: center;
@@ -504,7 +506,7 @@ footer {
 
 /* ===== Home: Shared section layout ===== */
 .home-section {
-  padding: 5rem 1.2rem;
+  padding: 4rem 1.2rem;
 }
 
 .home-section-inner {
@@ -579,6 +581,15 @@ footer {
   flex-direction: column;
   gap: 0.7rem;
   justify-content: space-between;
+  position: relative;
+  /* Necessary for absolute positioning of eyebrow */
+}
+
+.carousel-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 .carousel-eyebrow {
@@ -587,6 +598,7 @@ footer {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
+  flex-shrink: 0;
 }
 
 .carousel-card-title {
@@ -713,6 +725,7 @@ footer {
 
 .social-links {
   display: flex;
+  justify-content: center;
   gap: 1.6rem;
   flex-wrap: wrap;
   margin-top: 1.4rem;
