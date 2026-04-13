@@ -9,13 +9,20 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((projects) => {
       projectsGrid.innerHTML = "";
 
-      projects.forEach((project) => {
+      const getDailyIndex = (count) => Math.floor(Date.now() / 86_400_000) % count;
+      const todayIdx = getDailyIndex(projects.length);
+
+      projects.forEach((project, idx) => {
         const colDiv = document.createElement("div");
         colDiv.className = "col-12 col-lg-6";
+        colDiv.style.marginBottom = "2rem"; // add small bottom margin to avoid grid overlap for POTD label
 
         // Use the exact same card class as the carousel
         const cardDiv = document.createElement("div");
         cardDiv.className = "carousel-project-card";
+        if (idx === todayIdx) {
+          cardDiv.classList.add("potd-card");
+        }
 
         /* ── Header: icon + title ── */
         const header = document.createElement("div");
