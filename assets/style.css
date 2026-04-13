@@ -228,14 +228,6 @@ h1 {
   text-decoration: underline;
 }
 
-.project-card {
-  height: 200px;
-  /* Fixed height for uniform project cards */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  /* Distributes content to use available space */
-}
 
 /* ===== Pills ===== */
 .pills {
@@ -540,21 +532,60 @@ footer {
   transform: translateY(0);
 }
 
-/* ===== Carousel overrides ===== */
-.carousel-home {
+/* ===== Custom slider ===== */
+
+/* Outer wrapper */
+.carousel-outer {
   position: relative;
   margin-top: 1.6rem;
 }
 
+/* Clip window — hides off-screen cards */
+.custom-slider {
+  overflow: hidden;
+  border-radius: 16px;
+  padding-top: 16px;
+  margin-top: -16px;
+  padding-bottom: 24px;
+  margin-bottom: -24px;
+}
+
+/* Sliding track — flex row of cards */
+.custom-slider-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Desktop: 2 cards visible at once */
+@media (min-width: 641px) {
+  .carousel-project-card {
+    flex: 0 0 calc(50% - 0.5rem);
+    min-width: calc(50% - 0.5rem);
+  }
+}
+
+/* Mobile: 1 card visible at once */
+@media (max-width: 640px) {
+  .carousel-project-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+}
+
 /* Minimalist indicators */
-.carousel-home .carousel-indicators {
+.carousel-outer .carousel-indicators {
   position: static;
   margin: 1.4rem 0 0;
   gap: 6px;
   justify-content: center;
+  bottom: auto;
+  left: auto;
+  right: auto;
 }
 
-.carousel-home .carousel-indicators [data-bs-target] {
+.carousel-outer .carousel-indicators button {
   width: 20px;
   height: 3px;
   border-radius: 999px;
@@ -563,60 +594,115 @@ footer {
   transition: background 0.25s ease, width 0.25s ease;
   margin: 0;
   opacity: 1;
+  padding: 0;
 }
 
-.carousel-home .carousel-indicators .active {
+.carousel-outer .carousel-indicators .active {
   background: var(--text);
   width: 32px;
 }
 
-/* Carousel project card */
+/* ===== App Store-style card shared atoms ===== */
+
+/* Icon block: rounded square with emoji */
+.card-icon-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--text) 6%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+
+/* Gold border and overlapping text for Project of the Day */
+.potd-card {
+  border: 1px solid #d4af37 !important;
+}
+
+.potd-card::before {
+  content: "Project of the Day";
+  position: absolute;
+  top: -10px;
+  left: 1.6rem;
+  background: var(--bg);
+  color: #d4af37;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 2;
+  border-radius: 3px;
+}
+
+/* ===== Carousel project card ===== */
 .carousel-project-card {
   background: var(--bg);
-  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
-  border-radius: 14px;
-  padding: 2rem 2.2rem;
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  border-radius: 16px;
+  padding: 1.6rem 1.8rem;
+  /* Fixed height — content clips/truncates, never stretches the card */
   height: 240px;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
-  justify-content: space-between;
+  gap: 0.8rem;
   position: relative;
-  /* Necessary for absolute positioning of eyebrow */
+  transition: box-shadow 0.2s ease;
 }
 
+.carousel-project-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+/* Remove hover effects and shadows on Projects Page */
+.projects-grid .carousel-project-card {
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+.projects-grid .carousel-project-card:hover {
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Header: icon square + title side-by-side */
 .carousel-card-header {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-}
-
-.carousel-eyebrow {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
+  align-items: center;
+  gap: 0.9rem;
   flex-shrink: 0;
 }
 
 .carousel-card-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
   margin: 0;
+  line-height: 1.25;
 }
 
+/* Description — fills available space, clamps to 2 lines */
 .carousel-card-desc {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.55;
   color: var(--muted);
   margin: 0;
   flex: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -624,43 +710,43 @@ footer {
 
 .carousel-card-links {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 0.6rem;
+  gap: 0.75rem;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .carousel-link-primary {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--bg);
+  background: var(--text);
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--text) 40%, transparent);
-  padding-bottom: 1px;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  transition: opacity 0.18s ease;
+  white-space: nowrap;
 }
 
 .carousel-link-primary:hover {
-  color: var(--muted);
-  border-color: transparent;
+  opacity: 0.8;
 }
 
 .carousel-link-ghost {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
 .carousel-link-ghost:hover {
   color: var(--text);
 }
 
-/* Minimalist prev/next controls */
+/* ── Prev/Next controls — static buttons in the CTA row ── */
 .carousel-ctrl {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
   width: 40px;
   height: 40px;
   background: color-mix(in srgb, var(--bg) 90%, transparent);
@@ -672,19 +758,13 @@ footer {
   opacity: 0.75;
   transition: opacity 0.2s ease, background 0.2s ease;
   backdrop-filter: blur(8px);
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .carousel-ctrl:hover {
   opacity: 1;
   background: color-mix(in srgb, var(--text) 8%, var(--bg));
-}
-
-.carousel-control-prev.carousel-ctrl {
-  left: -20px;
-}
-
-.carousel-control-next.carousel-ctrl {
-  right: -20px;
 }
 
 .carousel-ctrl-icon {
@@ -694,10 +774,20 @@ footer {
   display: block;
 }
 
+/* Arrow pair wrapper */
+.carousel-cta-arrows {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 /* ===== CTA button ===== */
 .cta-wrap {
   margin-top: 2.2rem;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .btn-outline-custom {
@@ -753,19 +843,15 @@ footer {
   flex-shrink: 0;
 }
 
-/* ===== Responsive: mobile carousel controls ===== */
+/* ===== Responsive: mobile carousel ===== */
 @media (max-width: 640px) {
-  .carousel-control-prev.carousel-ctrl {
-    left: 0;
-  }
-
-  .carousel-control-next.carousel-ctrl {
-    right: 0;
-  }
-
   .carousel-project-card {
     padding: 1.4rem 1.2rem;
-    height: 220px;
+  }
+
+
+  .potd-card::before {
+    left: 1.4rem;
   }
 
   .home-section {

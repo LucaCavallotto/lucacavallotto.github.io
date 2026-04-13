@@ -1,24 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const phrases = [
-    "Computer Science student",
-    "Programmer",
-    "Runner",
-    "Dreamer",
-    "Motorsport enthusiast",
-    "Technology lover",
-    "Problem solver",
-    "Lifelong learner",
-    "Coffee-powered coder",
-    "Minimalist designer",
-    "Human-centered designer",
-    "Detail addict",
-    "Challenge seeker",
-    "AI enthusiast",
-    "Ferrari fan"
-  ];
-
   const el = document.getElementById("typing-text");
-  let currentPhraseIndex = -1; // start with no phrase
+  if (!el) return;
+
+  let phrases = [];
+  let currentPhraseIndex = -1;
   let charIndex = 0;
   let isDeleting = false;
   const typingSpeed = 100;
@@ -26,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const delayBetween = 1500;
 
   function getRandomIndex() {
+    if (phrases.length <= 1) return 0;
     let newIndex;
     do {
       newIndex = Math.floor(Math.random() * phrases.length);
@@ -34,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function type() {
+    if (phrases.length === 0) return;
+
     if (currentPhraseIndex === -1) {
       currentPhraseIndex = getRandomIndex();
     }
@@ -59,5 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(type, speed);
   }
 
-  type();
+  // Fetch phrases from JSON and start animation
+  fetch("phrases.json")
+    .then(response => response.json())
+    .then(data => {
+      phrases = data;
+      type();
+    })
+    .catch(error => console.error("Error loading phrases:", error));
 });
