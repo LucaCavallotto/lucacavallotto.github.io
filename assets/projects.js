@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
       projects.forEach((project, idx) => {
         const colDiv = document.createElement("div");
         colDiv.className = "col-12 col-lg-6";
-        colDiv.style.marginBottom = "2rem"; // add small bottom margin to avoid grid overlap for POTD label
 
         // Use the exact same card class as the carousel
         const cardDiv = document.createElement("div");
@@ -61,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
           a.rel = "noopener";
           a.textContent = link.text;
           if (link.text === "View on GitHub") a.className = "carousel-link-ghost";
-          if (link.text === "Try it Live")    a.className = "carousel-link-primary";
+          if (link.text === "Try it Live") a.className = "carousel-link-primary";
           linksDiv.appendChild(a);
         });
 
