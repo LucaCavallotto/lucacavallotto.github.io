@@ -676,23 +676,8 @@ footer {
   flex-direction: column;
   gap: 0.8rem;
   position: relative;
-  transition: box-shadow 0.2s ease;
 }
 
-.carousel-project-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-}
-
-/* Remove hover effects and shadows on Projects Page */
-.projects-grid .carousel-project-card {
-  box-shadow: none !important;
-  transition: none !important;
-}
-
-.projects-grid .carousel-project-card:hover {
-  box-shadow: none !important;
-  transform: none !important;
-}
 
 /* Header: icon square + title side-by-side */
 .carousel-card-header {
