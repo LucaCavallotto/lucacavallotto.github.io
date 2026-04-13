@@ -211,10 +211,10 @@ async function initCarousel() {
       const icon = document.getElementById("play-pause-icon");
       if (isManualPause) {
         pauseAutoplay();
-        if (icon) icon.textContent = "▶"; // Play icon
+        if (icon) icon.innerHTML = '<i class="bi bi-play-fill"></i>';
       } else {
         resumeAutoplay();
-        if (icon) icon.textContent = "⏸"; // Pause icon
+        if (icon) icon.innerHTML = '<i class="bi bi-pause"></i>';
       }
     });
 
