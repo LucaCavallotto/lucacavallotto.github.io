@@ -62,9 +62,10 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
+
+
 
 /* ===== Navbar ===== */
 nav {
@@ -237,7 +238,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 0.6rem;
+  margin-top: 0.4rem;
 }
 
 .pill {
@@ -392,10 +393,11 @@ footer {
     top: calc(100% + 8px);
     left: 1.2rem;
     right: 1.2rem;
-    
+
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* reset centering from desktop view */
+    align-items: flex-start;
+    /* reset centering from desktop view */
     gap: 0.8rem;
     padding: 0.9rem 1rem;
     list-style: none;
@@ -672,23 +674,8 @@ footer {
   flex-direction: column;
   gap: 0.8rem;
   position: relative;
-  transition: box-shadow 0.2s ease;
 }
 
-.carousel-project-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-}
-
-/* Remove hover effects and shadows on Projects Page */
-.projects-grid .carousel-project-card {
-  box-shadow: none !important;
-  transition: none !important;
-}
-
-.projects-grid .carousel-project-card:hover {
-  box-shadow: none !important;
-  transform: none !important;
-}
 
 /* Header: icon square + title side-by-side */
 .carousel-card-header {
