@@ -62,8 +62,11 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card .skill-category:first-of-type {
+  margin-top: 0.5rem;
 }
 
 /* ===== Navbar ===== */
@@ -237,7 +240,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 0.6rem;
+  margin-top: 0.4rem;
 }
 
 .pill {
@@ -392,10 +395,11 @@ footer {
     top: calc(100% + 8px);
     left: 1.2rem;
     right: 1.2rem;
-    
+
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* reset centering from desktop view */
+    align-items: flex-start;
+    /* reset centering from desktop view */
     gap: 0.8rem;
     padding: 0.9rem 1rem;
     list-style: none;
