@@ -647,7 +647,7 @@ footer {
 }
 
 .potd-card::before {
-  content: "Project of the Day";
+  content: "👑 Project of the Day";
   position: absolute;
   top: -10px;
   left: 1.6rem;
