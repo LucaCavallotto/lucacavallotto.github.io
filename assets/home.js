@@ -4,7 +4,7 @@
 // 1. Project of the Day  (deterministic daily seed)
 // -------------------------------------------------------------------
 function getDailyIndex(count) {
-  const day = Math.floor(Date.now() / 86_400_000); // unique int per day
+  const day = Math.floor(Date.now() / 86_400_000);
   return day % count;
 }
 
@@ -59,7 +59,99 @@ function buildCarouselItem(project, isFirst, isAppOfDay) {
 }
 
 // -------------------------------------------------------------------
-// 3. Populate carousel from projects.json
+// 3. Build indicator dots for a given container
+// -------------------------------------------------------------------
+function buildIndicators(container, count) {
+  container.innerHTML = "";
+  for (let idx = 0; idx < count; idx++) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.dataset.bsTarget = "#featuredCarousel";
+    btn.dataset.bsSlideTo = String(idx);
+    btn.setAttribute("aria-label", `Slide ${idx + 1}`);
+    if (idx === 0) {
+      btn.classList.add("active");
+      btn.setAttribute("aria-current", "true");
+    }
+    container.appendChild(btn);
+  }
+}
+
+// -------------------------------------------------------------------
+// 4. Sync indicator dots to the active index
+// -------------------------------------------------------------------
+function syncIndicators(activeIdx) {
+  const wrap = document.getElementById("carousel-indicators");
+  if (!wrap) return;
+  wrap.querySelectorAll("button").forEach((btn, i) => {
+    btn.classList.toggle("active", i === activeIdx);
+    if (i === activeIdx) btn.setAttribute("aria-current", "true");
+    else btn.removeAttribute("aria-current");
+  });
+}
+
+// -------------------------------------------------------------------
+// 5. Autoplay controller
+// -------------------------------------------------------------------
+function createAutoplay(carouselEl, intervalMs) {
+  let timer = null;
+  let paused = false;
+
+  function getBS() {
+    return bootstrap.Carousel.getInstance(carouselEl);
+  }
+
+  function tick() {
+    if (paused) return;
+    const bs = getBS();
+    if (bs) bs.next();
+  }
+
+  function start() {
+    if (timer) return;
+    timer = setInterval(tick, intervalMs);
+  }
+
+  function stop() {
+    clearInterval(timer);
+    timer = null;
+  }
+
+  function pause() {
+    paused = true;
+    stop();
+  }
+
+  function resume() {
+    paused = false;
+    start();
+  }
+
+  return { start, stop, pause, resume };
+}
+
+// -------------------------------------------------------------------
+// 6. Touch-swipe helper
+// -------------------------------------------------------------------
+function addSwipeSupport(el, onPrev, onNext) {
+  let startX = null;
+
+  el.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  el.addEventListener("touchend", (e) => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) {
+      dx < 0 ? onNext() : onPrev();
+    }
+    startX = null;
+  }, { passive: true });
+}
+
+// -------------------------------------------------------------------
+// 7. Populate carousel from projects.json
 // -------------------------------------------------------------------
 async function initCarousel() {
   const carouselInner = document.getElementById("featured-carousel-inner");
@@ -71,41 +163,59 @@ async function initCarousel() {
 
     const todayIdx = getDailyIndex(projects.length);
     const appOfDay = projects[todayIdx];
-
-    // Pick 2 other distinct projects
     const others = projects.filter((_, i) => i !== todayIdx);
-    // Always show exactly 2 others (or fewer if not enough projects)
     const featured = [appOfDay, ...others.slice(0, 2)];
 
     featured.forEach((project, idx) => {
-      const isAppOfDay = idx === 0;
-      const item = buildCarouselItem(project, idx === 0, isAppOfDay);
-      carouselInner.appendChild(item);
+      carouselInner.appendChild(buildCarouselItem(project, idx === 0, idx === 0));
     });
 
-    // Build indicator buttons now that we know count
+    // Indicators
     const indicatorWrap = document.getElementById("carousel-indicators");
-    if (indicatorWrap) {
-      featured.forEach((_, idx) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.dataset.bsTarget = "#featuredCarousel";
-        btn.dataset.bsSlideTo = String(idx);
-        btn.setAttribute("aria-label", `Slide ${idx + 1}`);
-        if (idx === 0) {
-          btn.classList.add("active");
-          btn.setAttribute("aria-current", "true");
-        }
-        indicatorWrap.appendChild(btn);
+    if (indicatorWrap) buildIndicators(indicatorWrap, featured.length);
+
+    // Bootstrap instance (no built-in interval)
+    const carouselEl = document.getElementById("featuredCarousel");
+    const bsCarousel = new bootstrap.Carousel(carouselEl, {
+      interval: false,
+      ride: false,
+    });
+
+    // ── Autoplay ──
+    const autoplay = createAutoplay(carouselEl, 5000);
+    autoplay.start();
+
+    // Pause on hover over the whole section block
+    const section = carouselEl.closest(".home-section") || carouselEl;
+    section.addEventListener("mouseenter", () => autoplay.pause());
+    section.addEventListener("mouseleave", () => autoplay.resume());
+
+    // Pause on manual button click, resume after 8 s
+    const ctaArrows = document.querySelector(".carousel-cta-arrows");
+    if (ctaArrows) {
+      ctaArrows.addEventListener("click", () => {
+        autoplay.pause();
+        setTimeout(() => autoplay.resume(), 8000);
       });
     }
+
+    // Sync dots on slide event
+    carouselEl.addEventListener("slide.bs.carousel", (e) => syncIndicators(e.to));
+
+    // Touch-swipe on the card area
+    addSwipeSupport(
+      carouselEl,
+      () => { bsCarousel.prev(); autoplay.pause(); setTimeout(() => autoplay.resume(), 8000); },
+      () => { bsCarousel.next(); autoplay.pause(); setTimeout(() => autoplay.resume(), 8000); }
+    );
+
   } catch (err) {
     console.error("Failed to load projects:", err);
   }
 }
 
 // -------------------------------------------------------------------
-// 4. Intersection Observer — reveal animations
+// 8. Intersection Observer — reveal animations
 // -------------------------------------------------------------------
 function initReveal() {
   const observer = new IntersectionObserver(
@@ -113,18 +223,17 @@ function initReveal() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target); // fire once
+          observer.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.12 }
   );
-
   document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 }
 
 // -------------------------------------------------------------------
-// 5. Boot
+// 9. Boot
 // -------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   initCarousel();

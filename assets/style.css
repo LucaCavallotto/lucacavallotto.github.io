@@ -541,20 +541,32 @@ footer {
 }
 
 /* ===== Carousel overrides ===== */
-.carousel-home {
+
+/* Outer wrapper — allows arrows to visually overflow the card */
+.carousel-outer {
   position: relative;
   margin-top: 1.6rem;
+  overflow: visible;
 }
 
-/* Minimalist indicators */
-.carousel-home .carousel-indicators {
+.carousel-home {
+  position: relative;
+  overflow: visible;
+}
+
+/* Minimalist indicators — works whether inside or sibling of carousel-home */
+.carousel-outer .carousel-indicators {
   position: static;
   margin: 1.4rem 0 0;
   gap: 6px;
   justify-content: center;
+  /* Override Bootstrap's absolute positioning */
+  bottom: auto;
+  left: auto;
+  right: auto;
 }
 
-.carousel-home .carousel-indicators [data-bs-target] {
+.carousel-outer .carousel-indicators button {
   width: 20px;
   height: 3px;
   border-radius: 999px;
@@ -563,9 +575,10 @@ footer {
   transition: background 0.25s ease, width 0.25s ease;
   margin: 0;
   opacity: 1;
+  padding: 0;
 }
 
-.carousel-home .carousel-indicators .active {
+.carousel-outer .carousel-indicators .active {
   background: var(--text);
   width: 32px;
 }
@@ -582,7 +595,6 @@ footer {
   gap: 0.7rem;
   justify-content: space-between;
   position: relative;
-  /* Necessary for absolute positioning of eyebrow */
 }
 
 .carousel-card-header {
@@ -656,11 +668,9 @@ footer {
   color: var(--text);
 }
 
-/* Minimalist prev/next controls */
+/* ── Prev/Next controls — static buttons in the CTA row ── */
 .carousel-ctrl {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
   width: 40px;
   height: 40px;
   background: color-mix(in srgb, var(--bg) 90%, transparent);
@@ -672,19 +682,13 @@ footer {
   opacity: 0.75;
   transition: opacity 0.2s ease, background 0.2s ease;
   backdrop-filter: blur(8px);
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .carousel-ctrl:hover {
   opacity: 1;
   background: color-mix(in srgb, var(--text) 8%, var(--bg));
-}
-
-.carousel-control-prev.carousel-ctrl {
-  left: -20px;
-}
-
-.carousel-control-next.carousel-ctrl {
-  right: -20px;
 }
 
 .carousel-ctrl-icon {
@@ -694,10 +698,20 @@ footer {
   display: block;
 }
 
+/* Arrow pair wrapper */
+.carousel-cta-arrows {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 /* ===== CTA button ===== */
 .cta-wrap {
   margin-top: 2.2rem;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .btn-outline-custom {
@@ -753,19 +767,19 @@ footer {
   flex-shrink: 0;
 }
 
-/* ===== Responsive: mobile carousel controls ===== */
+/* ===== Responsive: mobile carousel ===== */
 @media (max-width: 640px) {
-  .carousel-control-prev.carousel-ctrl {
-    left: 0;
-  }
-
-  .carousel-control-next.carousel-ctrl {
-    right: 0;
-  }
-
   .carousel-project-card {
-    padding: 1.4rem 1.2rem;
-    height: 220px;
+    padding: 1.6rem 1.4rem;
+    height: auto;
+    min-height: 200px;
+  }
+
+  /* Full description visible on mobile — no truncation */
+  .carousel-card-desc {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
   }
 
   .home-section {
