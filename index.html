@@ -62,9 +62,9 @@
         <h2 class="home-section-title">Projects</h2>
 
         <div class="carousel-outer">
-          <div id="featuredCarousel" class="carousel slide carousel-home" data-bs-ride="false">
-            <!-- Slides injected by home.js -->
-            <div class="carousel-inner" id="featured-carousel-inner"></div>
+          <div id="featuredCarousel" class="custom-slider">
+            <!-- Cards injected by home.js -->
+            <div class="custom-slider-track" id="featured-carousel-inner"></div>
           </div>
 
           <!-- Indicators injected by home.js -->
@@ -74,15 +74,18 @@
         <!-- CTA + carousel arrows in one bottom row -->
         <div class="cta-wrap">
           <a href="projects.html" class="btn-outline-custom">View All Projects →</a>
-          <div class="carousel-cta-arrows">
-            <button class="carousel-ctrl" type="button" data-bs-target="#featuredCarousel"
-              data-bs-slide="prev" aria-label="Previous project">
-              <span class="carousel-ctrl-icon">&#8592;</span>
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            <button class="carousel-ctrl" id="carousel-play-pause" type="button" aria-label="Toggle Auto-play">
+              <span class="carousel-ctrl-icon" id="play-pause-icon">⏸</span>
             </button>
-            <button class="carousel-ctrl" type="button" data-bs-target="#featuredCarousel"
-              data-bs-slide="next" aria-label="Next project">
-              <span class="carousel-ctrl-icon">&#8594;</span>
-            </button>
+            <div class="carousel-cta-arrows">
+              <button class="carousel-ctrl" id="carousel-prev" type="button" aria-label="Previous project">
+                <span class="carousel-ctrl-icon">&#8592;</span>
+              </button>
+              <button class="carousel-ctrl" id="carousel-next" type="button" aria-label="Next project">
+                <span class="carousel-ctrl-icon">&#8594;</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

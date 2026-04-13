@@ -1,5 +1,6 @@
 [
   {
+    "icon": "🏎️",
     "title": "RaceTechAssistant",
     "description": "A simple website to calculate fuel and optimize setups for Assetto Corsa Competizione races.",
     "links": [
@@ -16,6 +17,7 @@
     ]
   },
   {
+    "icon": "🏃",
     "title": "Maratona",
     "description": "A collection of web-based tools for runners, including pace zone calculators, race pace estimators, and more running performance utilities.",
     "links": [
@@ -32,6 +34,7 @@
     ]
   },
   {
+    "icon": "🧠",
     "title": "Quizium",
     "description": "A modern, interactive web application that allows users to take quizzes on a variety of subjects.",
     "links": [
@@ -48,6 +51,7 @@
     ]
   },
   {
+    "icon": "🏁",
     "title": "TripleCrown",
     "description": "News & Race Calendar",
     "links": [
@@ -64,6 +68,7 @@
     ]
   },
   {
+    "icon": "✨",
     "title": "Prompt-Library",
     "description": "A structured collection of reusable AI prompts",
     "links": [
