@@ -250,6 +250,15 @@ h1 {
   border: 1px solid var(--border);
   line-height: 1;
   white-space: nowrap;
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.pill:hover {
+  transform: scale(1.08); /* slight enlargement */
+  color: var(--pill-text); /* ensure text color remains same */
+  text-decoration: none !important;
 }
 
 /* ===== Footer ===== */
