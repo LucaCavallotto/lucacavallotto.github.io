@@ -1,0 +1,75 @@
+/* ===== Skills Page ===== */
+.skill-category {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 1.5rem;
+}
+
+.skills-page .card:hover {
+  transform: none;
+  /* Remove hover transform on Skills page */
+  box-shadow: none;
+  /* Remove hover shadow on Skills page */
+}
+
+/* ===== Contacts Page ===== */
+.contacts-grid a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.contact-card {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+  border-radius: 12px;
+  padding: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contact-card i {
+  font-size: 1.8rem;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.contact-card h2 {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.contact-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1.2rem;
+  }
+
+  .contact-card i {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-card h2 {
+    margin-bottom: 0.2rem;
+  }
+}

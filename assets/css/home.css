@@ -1,0 +1,287 @@
+/* ===== Index / Hero content ===== */
+.index-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+}
+
+.main-title {
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.subtitle-typing {
+  margin-top: 0.5rem;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  color: var(--muted);
+  height: 1.5em;
+  /* prevents layout shift */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ===== Home: Hero section ===== */
+.home-hero {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.2rem;
+}
+
+.home-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ===== Home: Shared section layout ===== */
+.home-section {
+  padding: 4rem 1.2rem;
+}
+
+.home-section-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.home-section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0.4rem 0 1.2rem;
+}
+
+.home-section-body {
+  font-size: 1.05rem;
+  line-height: 1.78;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+
+/* ===== Custom slider (Carousel) ===== */
+.carousel-outer {
+  position: relative;
+  margin-top: 1.6rem;
+}
+
+.custom-slider {
+  overflow: hidden;
+  border-radius: 16px;
+  padding-top: 16px;
+  margin-top: -16px;
+  padding-bottom: 24px;
+  margin-bottom: -24px;
+}
+
+.custom-slider-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+@media (min-width: 641px) {
+  .carousel-project-card {
+    flex: 0 0 calc(50% - 0.5rem);
+    min-width: calc(50% - 0.5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-project-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+}
+
+.carousel-outer .carousel-indicators {
+  position: static;
+  margin: 1.4rem 0 0;
+  gap: 6px;
+  justify-content: center;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.carousel-outer .carousel-indicators button {
+  width: 20px;
+  height: 3px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--text) 25%, transparent);
+  border: none;
+  transition: background 0.25s ease, width 0.25s ease;
+  margin: 0;
+  opacity: 1;
+  padding: 0;
+  cursor: pointer;
+}
+
+.carousel-outer .carousel-indicators .active {
+  background: var(--text);
+  width: 32px;
+}
+
+.carousel-project-card {
+  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  border-radius: 16px;
+  padding: 1.6rem 1.8rem;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.carousel-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-shrink: 0;
+}
+
+.carousel-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.carousel-card-desc {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carousel-card-links {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.carousel-link-primary {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--text);
+  text-decoration: none;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  transition: opacity 0.18s ease;
+  white-space: nowrap;
+}
+
+.carousel-link-primary:hover {
+  opacity: 0.8;
+}
+
+.carousel-link-ghost {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.carousel-link-ghost:hover {
+  color: var(--text);
+}
+
+.carousel-ctrl {
+  position: static;
+  width: 40px;
+  height: 40px;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(8px);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.carousel-ctrl:hover {
+  opacity: 1;
+  background: color-mix(in srgb, var(--text) 8%, var(--bg));
+}
+
+.carousel-ctrl-icon {
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1;
+  display: block;
+}
+
+.carousel-cta-arrows {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.cta-wrap {
+  margin-top: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.potd-card {
+  border: 1px solid #d4af37 !important;
+}
+
+.potd-card::before {
+  content: "👑 Project of the Day";
+  position: absolute;
+  top: -10px;
+  left: 1.6rem;
+  background: var(--bg);
+  color: #d4af37;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 2;
+  border-radius: 3px;
+}
+
+
+@media (max-width: 640px) {
+  .carousel-project-card {
+    padding: 1.4rem 1.2rem;
+  }
+  .potd-card::before {
+    left: 1.4rem;
+  }
+  .home-section {
+    padding: 3.5rem 1rem;
+  }
+}

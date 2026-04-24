@@ -49,7 +49,7 @@ Adaptive themes handled via `prefers-color-scheme`.
 - **Glassmorphism**: Applied to the navigation bar and footers using `backdrop-filter: blur()`.
 - **Interactivity**: 
     - **Hover Effects**: Subtle scaling (`transform: translateY(-2px)`) and shadow transitions.
-    - **Reveal Animations**: Scroll-triggered entry transitions using Intersection Observer logic in `home.js`.
+    - **Reveal Animations**: Scroll-triggered entry transitions using Intersection Observer logic.
 - **Components**: 
     - **Cards**: Minimalist borders with high border-radius (12px-16px).
     - **Pills**: Pill-shaped badges for skill tags with hover scaling.
@@ -61,17 +61,29 @@ Adaptive themes handled via `prefers-color-scheme`.
 ```text
 /
 ├── assets/
-│   ├── home.js          # Logic for home page (Reveal, Carousel, Intersection Observer)
-│   ├── nav.js           # Navigation bar toggle and active state logic
-│   ├── projects.js      # Dynanic rendering of projects from projects.json
-│   ├── style.css        # Unified design system and component styles (massive)
-│   └── typing.js        # Typing animation logic for hero section
-├── index.html           # Landing page
-├── projects.html        # Projects showcase page
-├── skills.html          # Professional skills and experience page
-├── contacts.html        # Contact links and information
-├── projects.json        # Source of truth for project data
-└── phrases.json         # Array of strings for the typing animation
+│   ├── css/
+│   │   ├── base.css          # Variables, reset, and core typography
+│   │   ├── layout.css        # Navbar, footer, and container structures
+│   │   ├── components.css    # Shared UI: Cards, pills, and buttons
+│   │   ├── home.css          # Homepage-specific hero and carousel styles
+│   │   └── pages.css         # Page-specific overrides (Contacts, Skills)
+│   └── js/
+│       ├── modules/
+│       │   ├── api.js        # Data fetching logic
+│       │   ├── ui.js         # Shared UI (Reveal, Swipe)
+│       │   ├── carousel.js   # Slider/Carousel logic
+│       │   ├── typing.js     # Typing animation logic
+│       │   ├── components.js # Shared UI component builders
+│       │   └── navbar.js     # Nav toggle and active state
+│       └── main.js           # App entry point & page-specific init
+├── data/
+│   ├── phrases.json          # Typing phrases
+│   └── projects.json         # Portfolio projects
+├── pages/
+│   ├── contacts.html         # Contact page
+│   ├── projects.html         # Projects showcase page
+│   └── skills.html           # Professional skills page
+├── index.html                # Landing page
 ```
 
 ---
