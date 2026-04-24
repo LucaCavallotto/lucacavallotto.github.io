@@ -2,7 +2,7 @@
   {
     "icon": "🏎️",
     "title": "RaceTechAssistant",
-    "description": "A simple website to calculate fuel and optimize setups for Assetto Corsa Competizione races.",
+    "description": "Simple fuel and setup strategy tools for sim racing",
     "links": [
       {
         "text": "View on GitHub",
@@ -19,16 +19,16 @@
   {
     "icon": "🏃",
     "title": "Maratona",
-    "description": "A collection of web-based tools for runners, including pace zone calculators, race pace estimators, and more running performance utilities.",
+    "description": "A calculator for training zones, paces, and distances for runners",
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/Maratona",
+        "url": "https://github.com/LucaCavallotto/maratona",
         "class": "me-3"
       },
       {
         "text": "Try it Live",
-        "url": "https://lucacavallotto.github.io/Maratona/",
+        "url": "https://lucacavallotto.github.io/maratona/",
         "class": ""
       }
     ]
@@ -36,7 +36,7 @@
   {
     "icon": "🧠",
     "title": "Quizium",
-    "description": "A modern, interactive web application that allows users to take quizzes on a variety of subjects.",
+    "description": "The ultimate tool to test your knowledge and create custom quizzes with ease",
     "links": [
       {
         "text": "View on GitHub",
@@ -53,7 +53,7 @@
   {
     "icon": "🏁",
     "title": "TripleCrown",
-    "description": "News & Race Calendar",
+    "description": "The all-in-one racing dashboard for schedules and news",
     "links": [
       {
         "text": "View on GitHub",
@@ -70,7 +70,7 @@
   {
     "icon": "✨",
     "title": "Prompt-Library",
-    "description": "A structured collection of reusable AI prompts",
+    "description": "Simple Python CLI tool to automatically rename iPhone photos and videos based on their creation date",
     "links": [
       {
         "text": "View on GitHub",
