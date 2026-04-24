@@ -65,17 +65,6 @@
   max-width: 640px;
 }
 
-/* ===== Scroll reveal animation ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* ===== Custom slider (Carousel) ===== */
 .carousel-outer {
@@ -284,40 +273,6 @@
   border-radius: 3px;
 }
 
-/* ===== Social links section ===== */
-.home-social {
-  padding-bottom: 6rem;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.6rem;
-  flex-wrap: wrap;
-  margin-top: 1.4rem;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  color: var(--text);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-}
-
-.social-link:hover {
-  opacity: 1;
-}
-
-.social-icon {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-}
 
 @media (max-width: 640px) {
   .carousel-project-card {
