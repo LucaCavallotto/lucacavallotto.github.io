@@ -45,6 +45,10 @@ body {
   /* account for fixed nav */
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text);
+}
+
 /* ===== Utilities ===== */
 .text-muted {
   color: var(--muted) !important;
