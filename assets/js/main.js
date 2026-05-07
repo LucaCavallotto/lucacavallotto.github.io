@@ -51,10 +51,13 @@ function initProjectsPage(projects) {
 
   projects.forEach((project, idx) => {
     const colDiv = document.createElement("div");
-    colDiv.className = "col-12 col-md-6 col-xl-4";
+    colDiv.className = "col-12 col-md-6 col-xl-4 reveal"; // Added reveal class
 
     const card = buildProjectCard(project, idx === todayIdx);
     colDiv.appendChild(card);
     container.appendChild(colDiv);
   });
+
+  // Re-initialize reveal for the new content
+  initReveal();
 }

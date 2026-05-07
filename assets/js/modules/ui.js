@@ -11,7 +11,9 @@ export function initReveal() {
     }),
     { threshold: 0.12 }
   );
-  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  
+  // Only observe elements that are NOT already visible
+  document.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => observer.observe(el));
 }
 
 /**
