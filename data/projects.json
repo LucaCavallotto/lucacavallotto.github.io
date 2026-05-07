@@ -82,7 +82,7 @@
   {
     "icon": "💰",
     "title": "Expense Tracker",
-    "description": "Simple expense tracker with native CSV support and beautiful analytics. Secure, local, and 100% serverless",
+    "description": "A local personal finance manager powered by your CSV files",
     "links": [
       {
         "text": "View on GitHub",
