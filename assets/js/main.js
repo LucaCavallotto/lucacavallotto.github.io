@@ -51,7 +51,7 @@ function initProjectsPage(projects) {
 
   projects.forEach((project, idx) => {
     const colDiv = document.createElement("div");
-    colDiv.className = "col-12 col-lg-6";
+    colDiv.className = "col-12 col-md-6 col-xl-4";
 
     const card = buildProjectCard(project, idx === todayIdx);
     colDiv.appendChild(card);
