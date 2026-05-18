@@ -133,11 +133,14 @@ nav {
     top: 100%;
     left: 0;
     width: 100%;
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
     backdrop-filter: saturate(180%) blur(14px);
-    -webkit-backdrop-filter: saturate(180%) blur(14px);
-    border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Border only when fully open — gone the instant close starts */
+  .nav-collapse.show {
+    border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
   }
 
   .nav-collapse.collapsing {
@@ -145,10 +148,9 @@ nav {
     top: 100%;
     left: 0;
     width: 100%;
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
     backdrop-filter: saturate(180%) blur(14px);
     -webkit-backdrop-filter: saturate(180%) blur(14px);
-    border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   }
 
@@ -183,7 +185,8 @@ main {
 }
 
 .hero {
-  padding: 2.8rem 0 1.6rem; /* Slightly more bottom padding for better transition */
+  padding: 2.8rem 0 1.6rem;
+  /* Slightly more bottom padding for better transition */
 }
 
 .eyebrow {
@@ -191,19 +194,22 @@ main {
   color: var(--muted);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 0.4rem; /* Ensure space below eyebrow */
+  margin-bottom: 0.4rem;
+  /* Ensure space below eyebrow */
 }
 
 h1 {
   font-size: clamp(1.8rem, 4.5vw, 3rem);
-  margin: 0; /* Reset margins */
+  margin: 0;
+  /* Reset margins */
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
 .subtitle {
   color: var(--muted);
-  margin: 0.8rem 0 0; /* Standardized top margin */
+  margin: 0.8rem 0 0;
+  /* Standardized top margin */
   font-size: 1.1rem;
   line-height: 1.5;
 }
