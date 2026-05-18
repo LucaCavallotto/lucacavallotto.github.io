@@ -27,13 +27,15 @@
   <nav>
     <div class="nav-wrap">
       <a class="brand" href="../index.html">Luca Cavallotto</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+      <button class="nav-toggle" id="navToggle" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
         <span class="hamburger"></span>
       </button>
+      <div class="collapse nav-collapse" id="navLinks">
+        <ul class="nav-links">
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 

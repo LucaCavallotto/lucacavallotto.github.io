@@ -101,17 +101,25 @@ nav {
   top: 6px;
 }
 
-.nav-toggle.is-open .hamburger {
+.nav-toggle[aria-expanded="true"] .hamburger {
   transform: rotate(45deg);
 }
 
-.nav-toggle.is-open .hamburger::before {
+.nav-toggle[aria-expanded="true"] .hamburger::before {
   transform: rotate(90deg);
   top: 0;
 }
 
-.nav-toggle.is-open .hamburger::after {
+.nav-toggle[aria-expanded="true"] .hamburger::after {
   opacity: 0;
+}
+
+/* Desktop overrides for Bootstrap's .collapse */
+@media (min-width: 769px) {
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+  }
 }
 
 /* Mobile dropdown */
@@ -120,37 +128,35 @@ nav {
     display: inline-flex;
   }
 
-  .nav-links {
+  .nav-collapse {
     position: absolute;
-    top: calc(100% + 8px);
-    left: 1.2rem;
-    right: 1.2rem;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    /* reset centering from desktop view */
-    gap: 0.8rem;
-    padding: 0.9rem 1rem;
-    list-style: none;
-    background: color-mix(in srgb, var(--bg) 95%, transparent);
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
     backdrop-filter: saturate(180%) blur(14px);
-    border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
-    border-radius: 12px;
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-
-    /* Animation initial state */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-12px);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   }
 
-  .nav-links.open {
-    /* Animation visible state */
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  .nav-collapse.collapsing {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem 1.2rem;
   }
 
   .nav-links a {
