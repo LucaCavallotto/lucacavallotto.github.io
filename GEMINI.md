@@ -66,7 +66,7 @@ Adaptive themes handled via `prefers-color-scheme`.
 │   │   ├── layout.css        # Navbar, footer, and container structures
 │   │   ├── components.css    # Shared UI: Cards, pills, and buttons
 │   │   ├── home.css          # Homepage-specific hero and carousel styles
-│   │   └── pages.css         # Page-specific overrides (Contacts, Skills)
+│   │   └── pages.css         # Page-specific overrides (Skills)
 │   └── js/
 │       ├── modules/
 │       │   ├── api.js        # Data fetching logic
@@ -80,7 +80,6 @@ Adaptive themes handled via `prefers-color-scheme`.
 │   ├── phrases.json          # Typing phrases
 │   └── projects.json         # Portfolio projects
 ├── pages/
-│   ├── contacts.html         # Contact page
 │   ├── projects.html         # Projects showcase page
 │   └── skills.html           # Professional skills page
 ├── index.html                # Landing page

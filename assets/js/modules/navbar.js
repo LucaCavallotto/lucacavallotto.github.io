@@ -1,9 +1,44 @@
 /**
- * Initializes the navigation bar logic: mobile toggle and active link state.
+ * Initializes the navigation bar logic: mobile toggle, active link state, and dynamic dynamic rendering.
  */
 export function initNavbar() {
+  const isInsidePages = window.location.pathname.includes('/pages/');
+
+  // 1. Dynamic Brand Link path adjustment
+  const brand = document.querySelector('nav .brand');
+  if (brand) {
+    brand.href = isInsidePages ? '../index.html' : 'index.html';
+  }
+
+  // 2. Dynamic Links injection
   const navMain = document.getElementById('navLinks');
-  
+  if (navMain) {
+    navMain.innerHTML = "";
+
+    const ul = document.createElement("ul");
+    ul.className = "nav-links";
+
+    const menuItems = [
+      { text: "Skills", url: "pages/skills.html" },
+      { text: "Projects", url: "pages/projects.html" }
+    ];
+
+    menuItems.forEach(item => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.textContent = item.text;
+      
+      // Calculate correct relative prefix
+      a.href = isInsidePages ? `../${item.url}` : item.url;
+      
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+
+    navMain.appendChild(ul);
+  }
+
+  // 3. Mobile collapse interaction
   const closeMenu = () => {
     if (navMain && navMain.classList.contains('show') && window.bootstrap) {
       const bsCollapse = window.bootstrap.Collapse.getInstance(navMain) || new window.bootstrap.Collapse(navMain);
@@ -33,7 +68,7 @@ export function initNavbar() {
     });
   }
 
-  // Active state management
+  // 4. Active state management
   const currentPath = window.location.pathname;
   const links = document.querySelectorAll(".nav-links a");
 
@@ -54,3 +89,4 @@ export function initNavbar() {
     }
   });
 }
+
