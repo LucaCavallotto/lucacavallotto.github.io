@@ -1,0 +1,138 @@
+{
+  "technicalSkills": [
+    {
+      "category": "Programming",
+      "skills": [
+        { "name": "Java", "url": "https://en.wikipedia.org/wiki/Java_(programming_language)" },
+        { "name": "C", "url": "https://en.wikipedia.org/wiki/C_(programming_language)" },
+        { "name": "Python", "url": "https://en.wikipedia.org/wiki/Python_(programming_language)" },
+        { "name": "RISC-V Assembly", "url": "https://en.wikipedia.org/wiki/RISC-V" },
+        { "name": "ARM Assembly", "url": "https://en.wikipedia.org/wiki/ARM_architecture_family" },
+        { "name": "Unix", "url": "https://en.wikipedia.org/wiki/Unix" },
+        { "name": "ANTLR", "url": "https://en.wikipedia.org/wiki/ANTLR" }
+      ]
+    },
+    {
+      "category": "Web Development",
+      "skills": [
+        { "name": "HTML / CSS", "url": "https://en.wikipedia.org/wiki/HTML" },
+        { "name": "JavaScript", "url": "https://en.wikipedia.org/wiki/JavaScript" },
+        { "name": "AJAX", "url": "https://en.wikipedia.org/wiki/Ajax_(programming)" },
+        { "name": "Bootstrap", "url": "https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)" },
+        { "name": "Handlebars", "url": "https://handlebarsjs.com" },
+        { "name": "Node.js", "url": "https://en.wikipedia.org/wiki/Node.js" },
+        { "name": "Spring Boot", "url": "https://en.wikipedia.org/wiki/Spring_Boot" }
+      ]
+    },
+    {
+      "category": "Software Engineering",
+      "skills": [
+        { "name": "Agile Unified Process", "url": "https://en.wikipedia.org/wiki/Agile_Unified_Process" },
+        { "name": "UML Modeling", "url": "https://en.wikipedia.org/wiki/Unified_Modeling_Language" },
+        { "name": "GRASP & GoF Design Patterns", "url": "https://en.wikipedia.org/wiki/Design_Patterns" },
+        { "name": "MVC Architecture", "url": "https://en.wikipedia.org/wiki/Model–view–controller" },
+        { "name": "Testing (Unity, JUnit)", "url": "https://en.wikipedia.org/wiki/Software_testing" },
+        { "name": "Versioning (Git/GitHub)", "url": "https://en.wikipedia.org/wiki/Git" },
+        { "name": "Makefiles", "url": "https://en.wikipedia.org/wiki/Make_(software)" }
+      ]
+    },
+    {
+      "category": "Databases",
+      "skills": [
+        { "name": "ER Modeling", "url": "https://en.wikipedia.org/wiki/Entity–relationship_model" },
+        { "name": "PostgreSQL", "url": "https://en.wikipedia.org/wiki/PostgreSQL" },
+        { "name": "MongoDB", "url": "https://en.wikipedia.org/wiki/MongoDB" },
+        { "name": "SQL", "url": "https://en.wikipedia.org/wiki/SQL" },
+        { "name": "Extended SQL", "url": "https://en.wikipedia.org/wiki/SQL" }
+      ]
+    },
+    {
+      "category": "AI & Data Analysis",
+      "skills": [
+        { "name": "Search Algorithms Basics", "url": "https://en.wikipedia.org/wiki/Search_algorithm" },
+        { "name": "Machine Learning Basics", "url": "https://en.wikipedia.org/wiki/Machine_learning" },
+        { "name": "Pandas", "url": "https://en.wikipedia.org/wiki/Pandas_(software)" },
+        { "name": "NumPy", "url": "https://en.wikipedia.org/wiki/NumPy" },
+        { "name": "Matplotlib", "url": "https://en.wikipedia.org/wiki/Matplotlib" },
+        { "name": "Jupyter", "url": "https://en.wikipedia.org/wiki/Project_Jupyter" },
+        { "name": "R", "url": "https://en.wikipedia.org/wiki/R_(programming_language)" },
+        { "name": "Hadoop", "url": "https://en.wikipedia.org/wiki/Apache_Hadoop" },
+        { "name": "Spark", "url": "https://en.wikipedia.org/wiki/Apache_Spark" }
+      ]
+    },
+    {
+      "category": "UX/UI & Design",
+      "skills": [
+        { "name": "User-Centered Design", "url": "https://en.wikipedia.org/wiki/User-centered_design" },
+        { "name": "Information Architecture", "url": "https://en.wikipedia.org/wiki/Information_architecture" },
+        { "name": "Interaction Design", "url": "https://en.wikipedia.org/wiki/Interaction_design" },
+        { "name": "Accessibility (WCAG)", "url": "https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines" },
+        { "name": "Prototyping (Figma)", "url": "https://en.wikipedia.org/wiki/Figma_(software)" }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master’s Degree in Computer Engineering",
+      "institution": "Politecnico di Torino",
+      "period": "Sep 2025 – Present",
+      "details": "Relevant coursework: Big Data Processing, Data Science and Database Technology, Computer Architectures, Computer Networks"
+    },
+    {
+      "degree": "Bachelor’s Degree in Computer Science",
+      "institution": "Università degli Studi di Torino",
+      "period": "Sep 2022 – Nov 2025",
+      "details": "Final grade: 101/110<br>Relevant courses: Programmazione (I, II e III), Architettura degli Elaboratori, Sistemi Operativi, Basi di Dati, Linguaggi Formali e Traduttori, Algoritmi e Strutture Dati, Interazione Uomo-Macchina e Tecnologie Web, Reti, Sviluppo Applicazioni Software e Sistemi Intelligenti"
+    },
+    {
+      "degree": "High School Diploma (Computer Science)",
+      "institution": "Istituto Tecnico Statale G.B. Pininfarina",
+      "period": "Sep 2017 – Jul 2022",
+      "details": "Final grade: 96/100<br>Five-year technical diploma; Equivalent to A-levels"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Software Developer Intern",
+      "company": "Università degli Studi di Torino",
+      "period": "Apr 2025 – Oct 2025",
+      "details": "Developed a Java-based ANTLR4 parser with full pipeline: parsing, semantic analysis, and code generation."
+    },
+    {
+      "role": "Intern",
+      "company": "Sorint",
+      "period": "Nov 2021 – Apr 2022",
+      "details": "Linux course covering VM setup, shell scripting, permissions, processes, and basic networking/security."
+    },
+    {
+      "role": "Software Programmer",
+      "company": "Accenture",
+      "period": "Feb 2021 – Mar 2021",
+      "details": "Built a booking management web app (HTML, CSS, JavaScript, PHP) with Figma prototyping."
+    }
+  ],
+  "languages": [
+    {
+      "name": "Italian",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Fluent (B2 First – Score 166, Jun 2021)"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Motorsport",
+      "details": ""
+    },
+    {
+      "name": "Running",
+      "details": "Competitive amateur races"
+    },
+    {
+      "name": "Video Editing",
+      "details": "Filmora and DaVinci Resolve"
+    }
+  ]
+}
