@@ -81,8 +81,10 @@
 }
 
 .pill:hover {
-  transform: scale(1.08); /* slight enlargement */
-  color: var(--pill-text); /* ensure text color remains same */
+  transform: scale(1.08);
+  /* slight enlargement */
+  color: var(--pill-text);
+  /* ensure text color remains same */
   text-decoration: none !important;
 }
 

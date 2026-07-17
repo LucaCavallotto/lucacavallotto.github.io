@@ -277,9 +277,11 @@
   .carousel-project-card {
     padding: 1.4rem 1.2rem;
   }
+
   .potd-card::before {
     left: 1.4rem;
   }
+
   .home-section {
     padding: 3.5rem 1rem;
   }

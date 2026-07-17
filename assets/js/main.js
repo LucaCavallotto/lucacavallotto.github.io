@@ -3,7 +3,7 @@ import { initReveal } from './modules/ui.js';
 import { fetchData } from './modules/api.js';
 import { initTyping } from './modules/typing.js';
 import { initCarousel } from './modules/carousel.js';
-import { 
+import {
   buildProjectCard,
   buildTechnicalSkillsCard,
   buildEducationCard,
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       fetchData('data/projects.json'),
       fetchData('data/skills.json')
     ]);
-    
+
     // Initialize components
     initTyping(phrases);
     initCarousel(projects);
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     function handleRoute() {
       const hash = window.location.hash || '#home';
       const views = ['#home', '#skills', '#projects'];
-      
+
       // Hide all views
       views.forEach(view => {
         const el = document.getElementById('view-' + view.substring(1));
