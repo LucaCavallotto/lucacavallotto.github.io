@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="assets/css/layout.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/home.css" />
-  
+  <link rel="stylesheet" href="assets/css/pages.css" />  
   <!-- Favicons & Touch Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png" />
@@ -28,7 +28,7 @@
 <body>
   <nav>
     <div class="nav-wrap">
-      <a class="brand" href="index.html">Luca Cavallotto</a>
+      <a class="brand" href="#home">Luca Cavallotto</a>
       <button class="nav-toggle" id="navToggle" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
         <span class="hamburger"></span>
       </button>
@@ -40,7 +40,8 @@
 
   <main>
 
-    <!-- ① Hero -->
+    <div id="view-home" class="page-view">
+      <!-- ① Hero -->
     <section class="home-hero">
       <div class="home-hero-inner">
         <div class="main-title">Luca Cavallotto</div>
@@ -75,7 +76,7 @@
           determination to my work that I do to the track.
         </p>
         <div class="cta-wrap">
-          <a href="pages/skills.html" class="btn-outline-custom">View My Skills →</a>
+          <a href="#skills" class="btn-outline-custom">View My Skills →</a>
         </div>
       </div>
     </section>
@@ -98,7 +99,7 @@
 
         <!-- CTA + carousel arrows in one bottom row -->
         <div class="cta-wrap">
-          <a href="pages/projects.html" class="btn-outline-custom">View All Projects →</a>
+          <a href="#projects" class="btn-outline-custom">View All Projects →</a>
           <div style="display: flex; gap: 1rem; align-items: center;">
             <button class="carousel-ctrl" id="carousel-play-pause" type="button" aria-label="Toggle Auto-play">
               <span class="carousel-ctrl-icon" id="play-pause-icon"><i class="bi bi-pause"></i></span>
@@ -115,6 +116,49 @@
         </div>
       </div>
     </section>
+    </div>
+
+    <!-- ④ Skills & Background -->
+    <div id="view-skills" class="page-view" style="display: none;">
+      <section id="skills" class="container skills-page" style="padding-top: 5rem; padding-bottom: 5rem;">
+      <div class="hero" style="text-align: center; margin-bottom: 3rem;">
+        <div class="eyebrow">Profile</div>
+        <h2 class="home-section-title" style="margin-bottom: 1rem;">Skills & Background</h2>
+        <p class="subtitle" style="color: var(--muted); max-width: 600px; margin: 0 auto;">Computer Engineering student driven by curiosity. I love building digital experiences, exploring new technologies, and continuously learning.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center" id="skills-container">
+        <!-- Skills injected here -->
+        <div class="col-12 d-flex justify-content-center align-items-center py-5" style="min-height: 300px;">
+          <div class="spinner-border" role="status" style="width: 3rem; height: 3rem; color: var(--muted); opacity: 0.6;">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- ⑤ All Projects Grid -->
+    <div id="view-projects" class="page-view" style="display: none;">
+      <section id="projects" class="container" style="padding-bottom: 5rem;">
+      <div class="hero" style="text-align: center; margin-bottom: 3rem;">
+        <div class="eyebrow">Portfolio</div>
+        <h2 class="home-section-title" style="margin-bottom: 1rem;">Projects</h2>
+        <p class="subtitle" style="color: var(--muted); max-width: 600px; margin: 0 auto;">Explore my personal projects on GitHub.</p>
+      </div>
+
+      <div class="row g-4 projects-grid justify-content-center" id="projects-grid">
+        <!-- Projects injected here -->
+        <div class="col-12 d-flex justify-content-center align-items-center py-5" style="min-height: 300px;">
+          <div class="spinner-border" role="status" style="width: 3rem; height: 3rem; color: var(--muted); opacity: 0.6;">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+  </main>
 
   <footer>
     <div class="footer-wrap">

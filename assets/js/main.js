@@ -17,41 +17,60 @@ document.addEventListener("DOMContentLoaded", async () => {
   initNavbar();
   initReveal();
 
-  // Page-specific logic
-  const path = window.location.pathname;
-  
-  // Home page (index.html or root)
-  if (path === "/" || path.endsWith("index.html")) {
-    try {
-      const [phrases, projects] = await Promise.all([
-        fetchData('data/phrases.json'),
-        fetchData('data/projects.json')
-      ]);
-      initTyping(phrases);
-      initCarousel(projects);
-    } catch (err) {
-      console.error("Error initializing Home page:", err);
-    }
-  }
+  try {
+    const [phrases, projects, skillsData] = await Promise.all([
+      fetchData('data/phrases.json'),
+      fetchData('data/projects.json'),
+      fetchData('data/skills.json')
+    ]);
+    
+    // Initialize components
+    initTyping(phrases);
+    initCarousel(projects);
+    initProjectsPage(projects);
+    initSkillsPage(skillsData);
 
-  // Projects page
-  if (path.endsWith("projects.html")) {
-    try {
-      const projects = await fetchData('data/projects.json');
-      initProjectsPage(projects);
-    } catch (err) {
-      console.error("Error initializing Projects page:", err);
-    }
-  }
+    // Routing logic
+    function handleRoute() {
+      const hash = window.location.hash || '#home';
+      const views = ['#home', '#skills', '#projects'];
+      
+      // Hide all views
+      views.forEach(view => {
+        const el = document.getElementById('view-' + view.substring(1));
+        if (el) el.style.display = 'none';
+      });
 
-  // Skills page
-  if (path.endsWith("skills.html")) {
-    try {
-      const skillsData = await fetchData('data/skills.json');
-      initSkillsPage(skillsData);
-    } catch (err) {
-      console.error("Error initializing Skills page:", err);
+      // Show active view
+      const activeView = views.includes(hash) ? hash : '#home';
+      const activeEl = document.getElementById('view-' + activeView.substring(1));
+      if (activeEl) {
+        activeEl.style.display = 'block';
+      }
+
+      // Re-initialize reveal animations for the shown view
+      initReveal();
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+
+      // Update navbar active state
+      const links = document.querySelectorAll(".nav-links a, .brand");
+      links.forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === activeView || (activeView === '#home' && href === '#home')) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
     }
+
+    window.addEventListener('hashchange', handleRoute);
+    handleRoute();
+
+  } catch (err) {
+    console.error("Error initializing page:", err);
   }
 });
 

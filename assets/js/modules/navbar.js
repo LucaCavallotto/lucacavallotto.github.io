@@ -2,12 +2,10 @@
  * Initializes the navigation bar logic: mobile toggle, active link state, and dynamic dynamic rendering.
  */
 export function initNavbar() {
-  const isInsidePages = window.location.pathname.includes('/pages/');
-
   // 1. Dynamic Brand Link path adjustment
   const brand = document.querySelector('nav .brand');
   if (brand) {
-    brand.href = isInsidePages ? '../index.html' : 'index.html';
+    brand.href = '#home';
   }
 
   // 2. Dynamic Links injection
@@ -19,17 +17,15 @@ export function initNavbar() {
     ul.className = "nav-links";
 
     const menuItems = [
-      { text: "Skills", url: "pages/skills.html" },
-      { text: "Projects", url: "pages/projects.html" }
+      { text: "Skills", url: "#skills" },
+      { text: "Projects", url: "#projects" }
     ];
 
     menuItems.forEach(item => {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.textContent = item.text;
-      
-      // Calculate correct relative prefix
-      a.href = isInsidePages ? `../${item.url}` : item.url;
+      a.href = item.url;
       
       li.appendChild(a);
       ul.appendChild(li);
@@ -67,26 +63,5 @@ export function initNavbar() {
       if (e.key === 'Escape') closeMenu();
     });
   }
-
-  // 4. Active state management
-  const currentPath = window.location.pathname;
-  const links = document.querySelectorAll(".nav-links a");
-
-  links.forEach(link => {
-    const href = link.getAttribute("href");
-    const normalizedHref = href ? href.replace("../", "") : "";
-    
-    if (currentPath === "/" || currentPath.endsWith("index.html")) {
-      if (normalizedHref === "index.html" || normalizedHref === "/") {
-        link.classList.add("active");
-      } else {
-        link.classList.remove("active");
-      }
-    } else if (href && currentPath.endsWith(normalizedHref)) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
 }
 
