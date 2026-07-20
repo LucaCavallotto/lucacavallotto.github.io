@@ -73,3 +73,72 @@
     margin-bottom: 0.2rem;
   }
 }
+
+/* ===== Projects Toolbar ===== */
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.search-clear-btn:hover {
+  color: var(--text);
+}
+
+.glass-input, .glass-select {
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+  color: var(--text);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.glass-input {
+  padding-right: 2.2rem; /* space for clear button */
+  width: 100%;
+}
+
+.glass-input:focus, .glass-select:focus {
+  background: color-mix(in srgb, var(--text) 8%, transparent);
+  border-color: color-mix(in srgb, var(--text) 30%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 10%, transparent);
+  color: var(--text);
+  outline: none;
+}
+
+.glass-input::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.glass-select option {
+  background: var(--bg);
+  color: var(--text);
+}
+.year-header {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+

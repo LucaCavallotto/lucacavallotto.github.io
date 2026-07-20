@@ -171,7 +171,49 @@
             projects on GitHub.</p>
         </div>
 
-        <div class="row g-4 projects-grid justify-content-center" id="projects-grid">
+        <!-- Toolbar -->
+        <div class="projects-toolbar mb-4">
+          <div class="d-flex gap-2 justify-content-center align-items-center">
+            <div class="search-input-wrapper flex-grow-1" style="max-width: 400px;">
+              <input type="text" id="project-search" class="form-control glass-input" placeholder="Search projects...">
+              <button type="button" id="project-search-clear" class="search-clear-btn" aria-label="Clear search" style="display: none;">
+                <i class="bi bi-x"></i>
+              </button>
+            </div>
+            <button class="btn-outline-custom" style="padding: 0.6rem 1rem;" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">
+              <i class="bi bi-sliders"></i> Filters
+            </button>
+          </div>
+
+          <div class="collapse" id="filterCollapse">
+            <div class="pt-4 pb-0">
+              <div class="row g-3 justify-content-center align-items-center">
+              <div class="col-12 col-md-4">
+                <select id="project-tag-filter" class="form-select glass-select" aria-label="Filter by Label">
+                  <option value="">All Labels</option>
+                  <!-- Tags injected by JS -->
+                </select>
+              </div>
+              <div class="col-12 col-md-4">
+                <select id="project-year-filter" class="form-select glass-select" aria-label="Filter by Year">
+                  <option value="">All Years</option>
+                  <!-- Years injected by JS -->
+                </select>
+              </div>
+              <div class="col-12 col-md-4">
+                <select id="project-sort" class="form-select glass-select" aria-label="Sort By">
+                  <option value="name" selected>Sort by: Name (A-Z)</option>
+                  <option value="newest">Sort by: Newest</option>
+                  <option value="oldest">Sort by: Oldest</option>
+                  <option value="label">Sort by: Label</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="row g-4 projects-grid" id="projects-grid">
           <!-- Projects injected here -->
           <div class="col-12 d-flex justify-content-center align-items-center py-5" style="min-height: 300px;">
             <div class="spinner-border" role="status"
