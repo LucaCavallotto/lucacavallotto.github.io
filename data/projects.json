@@ -4,6 +4,7 @@
     "title": "RaceTechAssistant",
     "description": "Simple fuel and setup strategy tools for sim racing",
     "tag": "Personal",
+    "release_date": "2025-09-08",
     "links": [
       {
         "text": "View on GitHub",
@@ -22,6 +23,7 @@
     "title": "Maratona",
     "description": "A calculator for training zones, paces, and distances for runners",
     "tag": "Personal",
+    "release_date": "2025-09-30",
     "links": [
       {
         "text": "View on GitHub",
@@ -40,6 +42,7 @@
     "title": "Quizium",
     "description": "The ultimate tool to test your knowledge and create custom quizzes with ease",
     "tag": "Personal",
+    "release_date": "2025-10-11",
     "links": [
       {
         "text": "View on GitHub",
@@ -58,6 +61,7 @@
     "title": "TripleCrown",
     "description": "The all-in-one racing dashboard for schedules and news",
     "tag": "Personal",
+    "release_date": "2026-03-24",
     "links": [
       {
         "text": "View on GitHub",
@@ -76,6 +80,7 @@
     "title": "Prompt-Library",
     "description": "Collection of reusable AI prompts, organized by use case",
     "tag": "Personal",
+    "release_date": "2026-04-02",
     "links": [
       {
         "text": "View on GitHub",
@@ -89,6 +94,7 @@
     "title": "Expense Tracker",
     "description": "A local personal finance manager powered by your CSV files",
     "tag": "Personal",
+    "release_date": "2026-04-27",
     "links": [
       {
         "text": "View on GitHub",
