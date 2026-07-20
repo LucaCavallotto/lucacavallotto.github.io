@@ -90,13 +90,24 @@
         </div>
       </section>
 
-      <!-- Featured Projects Carousel -->
+      <!-- Featured Projects -->
       <section class="home-section reveal">
         <div class="home-section-inner">
-          <div class="eyebrow">Featured</div>
-          <h2 class="home-section-title">Projects</h2>
+          <div class="row align-items-center mb-4">
+            <div class="col-md-6 mb-4 mb-md-0">
+              <div class="eyebrow">Featured</div>
+              <h2 class="home-section-title">Projects</h2>
+              <p class="home-section-body" style="margin-top: 1rem;">
+                Here are some of my personal projects.
+                Check out the project of the day, browse through some other casual projects below, or click to see all projects.
+              </p>
+            </div>
+            <div class="col-md-6" id="project-of-the-day-container">
+              <!-- Project of the Day injected by carousel.js -->
+            </div>
+          </div>
 
-          <div class="carousel-outer">
+          <div class="carousel-outer" style="margin-top: 2rem;">
             <div id="featuredCarousel" class="custom-slider">
               <!-- Cards injected by carousel.js -->
               <div class="custom-slider-track" id="featured-carousel-inner"></div>
