@@ -87,13 +87,16 @@ document.addEventListener("DOMContentLoaded", async () => {
               a.target = "_blank";
               a.rel = "noopener";
               a.textContent = link.text;
-              a.className = "btn-outline-custom";
-              if (link.text === "Try it Live") {
-                a.style.background = "var(--text)";
-                a.style.color = "var(--bg)";
-                // Reset hover styles for "Try it Live"
-                a.onmouseenter = () => { a.style.background = "var(--bg)"; a.style.color = "var(--text)"; };
-                a.onmouseleave = () => { a.style.background = "var(--text)"; a.style.color = "var(--bg)"; };
+              if (link.text === "View on GitHub") {
+                a.className = "carousel-link-ghost";
+                // Optionally make it larger since it's the detail view
+                a.style.fontSize = "1rem";
+              } else if (link.text === "Try it Live") {
+                a.className = "carousel-link-primary";
+                a.style.fontSize = "1rem";
+                a.style.padding = "0.5rem 1.25rem";
+              } else {
+                a.className = "btn-outline-custom";
               }
               linksContainer.appendChild(a);
             });
@@ -218,42 +221,51 @@ function initProjectsPage(projects) {
       return;
     }
 
-    const groupByYear = (sortType === "newest" || sortType === "oldest");
+    const isGrouped = (sortType === "newest" || sortType === "oldest" || sortType === "label");
 
-    if (groupByYear) {
-      // Group projects by year
+    if (isGrouped) {
+      // Group projects by key
       const grouped = {};
       filteredProjects.forEach(project => {
-        const year = project.release_year || "Unknown";
-        if (!grouped[year]) grouped[year] = [];
-        grouped[year].push(project);
+        let groupKey;
+        if (sortType === "label") {
+          groupKey = project.tag || "Uncategorized";
+        } else {
+          groupKey = project.release_year || "Unknown";
+        }
+        if (!grouped[groupKey]) grouped[groupKey] = [];
+        grouped[groupKey].push(project);
       });
 
-      // Sort years based on sortType
-      const sortedYears = Object.keys(grouped).sort((a, b) => {
-        if (sortType === "oldest") return a - b;
+      // Sort group keys based on sortType
+      const sortedKeys = Object.keys(grouped).sort((a, b) => {
+        if (sortType === "label") {
+          return a.localeCompare(b);
+        } else if (sortType === "oldest") {
+          return a - b;
+        }
         return b - a; // newest by default
       });
 
-      sortedYears.forEach((year, index) => {
+      sortedKeys.forEach((key, index) => {
         // Group Wrapper
         const groupWrapper = document.createElement("div");
         groupWrapper.className = "col-12 reveal";
         groupWrapper.style.marginBottom = "2rem"; // More space between different year/project couples
 
-        // Add Year Header
+        // Add Header (Year or Label)
         const header = document.createElement("h3");
         header.className = "year-header";
         if (index === 0) header.style.marginTop = "0";
-        header.textContent = year;
+        header.textContent = key;
         groupWrapper.appendChild(header);
 
         // Nested Row for Projects
         const projectsRow = document.createElement("div");
         projectsRow.className = "row g-4";
 
-        // Render projects for this year
-        grouped[year].forEach(project => {
+        // Render projects for this group
+        grouped[key].forEach(project => {
           const colDiv = document.createElement("div");
           colDiv.className = "col-12 col-md-6 col-xl-4";
           const card = buildProjectCard(project, project.title === potdTitle);
