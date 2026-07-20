@@ -3,6 +3,7 @@
     "icon": "🏎️",
     "title": "RaceTechAssistant",
     "description": "Simple fuel and setup strategy tools for sim racing",
+    "tag": "Personal",
     "links": [
       {
         "text": "View on GitHub",
@@ -20,6 +21,7 @@
     "icon": "🏃",
     "title": "Maratona",
     "description": "A calculator for training zones, paces, and distances for runners",
+    "tag": "Personal",
     "links": [
       {
         "text": "View on GitHub",
@@ -37,6 +39,7 @@
     "icon": "🧠",
     "title": "Quizium",
     "description": "The ultimate tool to test your knowledge and create custom quizzes with ease",
+    "tag": "Personal",
     "links": [
       {
         "text": "View on GitHub",
@@ -54,6 +57,7 @@
     "icon": "🏁",
     "title": "TripleCrown",
     "description": "The all-in-one racing dashboard for schedules and news",
+    "tag": "Personal",
     "links": [
       {
         "text": "View on GitHub",
@@ -71,6 +75,7 @@
     "icon": "✨",
     "title": "Prompt-Library",
     "description": "Collection of reusable AI prompts, organized by use case",
+    "tag": "Personal",
     "links": [
       {
         "text": "View on GitHub",
@@ -83,6 +88,7 @@
     "icon": "💰",
     "title": "Expense Tracker",
     "description": "A local personal finance manager powered by your CSV files",
+    "tag": "Personal",
     "links": [
       {
         "text": "View on GitHub",

@@ -25,6 +25,14 @@ export function buildProjectCard(project, isAppOfDay) {
 
   header.appendChild(iconWrap);
   header.appendChild(title);
+
+  if (project.tag) {
+    const tagEl = document.createElement("span");
+    tagEl.className = "carousel-card-tag";
+    tagEl.textContent = project.tag;
+    card.appendChild(tagEl);
+  }
+
   card.appendChild(header);
 
   const desc = document.createElement("p");
@@ -104,7 +112,7 @@ export function buildEducationCard(educationList) {
 
   educationList.forEach((edu) => {
     const li = document.createElement("li");
-    
+
     const strong = document.createElement("strong");
     strong.textContent = edu.degree;
     li.appendChild(strong);
