@@ -100,14 +100,25 @@
   color: var(--text);
 }
 
-.glass-input, .glass-select {
-  background: color-mix(in srgb, var(--text) 5%, transparent);
+.glass-input, .glass-select, .glass-btn {
+  background: var(--bg);
   border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
   color: var(--text);
-  backdrop-filter: blur(8px);
   border-radius: 8px;
   padding: 0.6rem 1rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.glass-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.glass-btn:hover, .glass-btn:active {
+  background: color-mix(in srgb, var(--text) 5%, var(--bg));
+  border-color: color-mix(in srgb, var(--text) 30%, transparent);
 }
 
 .glass-input {
@@ -116,7 +127,7 @@
 }
 
 .glass-input:focus, .glass-select:focus {
-  background: color-mix(in srgb, var(--text) 8%, transparent);
+  background: var(--bg);
   border-color: color-mix(in srgb, var(--text) 30%, transparent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 10%, transparent);
   color: var(--text);
