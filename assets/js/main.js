@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Routing logic
     function handleRoute() {
       const hash = window.location.hash || '#home';
-      const views = ['#home', '#skills', '#projects'];
+      const views = ['#home', '#skills', '#projects', '#project-detail'];
 
       // Hide all views
       views.forEach(view => {
@@ -41,11 +41,88 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (el) el.style.display = 'none';
       });
 
+      let activeView = '#home';
+
+      if (hash.startsWith('#project/')) {
+        activeView = '#project-detail';
+        const projectId = hash.split('/')[1];
+        const project = projects.find(p => p.id === projectId);
+        if (project) {
+          // Populate project detail view
+          document.getElementById('project-detail-icon').textContent = project.icon || "📁";
+          document.getElementById('project-detail-title').textContent = project.title;
+          
+          const tagContainer = document.getElementById('project-detail-tag-container');
+          const tagEl = document.getElementById('project-detail-tag');
+          if (project.tag) {
+            tagEl.textContent = project.tag;
+            tagContainer.style.display = 'block';
+          } else {
+            tagContainer.style.display = 'none';
+          }
+          
+          const dateContainer = document.getElementById('project-detail-date-container');
+          const dateEl = document.getElementById('project-detail-date');
+          if (project.release_date) {
+            // Format YYYY-MM-DD to DD/MM/YYYY
+            const parts = project.release_date.split('-');
+            if (parts.length === 3) {
+              dateEl.textContent = `${parts[2]}/${parts[1]}/${parts[0]}`;
+            } else {
+              dateEl.textContent = project.release_date;
+            }
+            dateContainer.style.display = 'block';
+          } else {
+            dateContainer.style.display = 'none';
+          }
+          
+          document.getElementById('project-detail-description').textContent = project.description_long || project.description_short;
+          
+          const linksContainer = document.getElementById('project-detail-links');
+          linksContainer.innerHTML = '';
+          if (project.links) {
+            project.links.forEach(link => {
+              const a = document.createElement("a");
+              a.href = link.url;
+              a.target = "_blank";
+              a.rel = "noopener";
+              a.textContent = link.text;
+              a.className = "btn-outline-custom";
+              if (link.text === "Try it Live") {
+                a.style.background = "var(--text)";
+                a.style.color = "var(--bg)";
+                // Reset hover styles for "Try it Live"
+                a.onmouseenter = () => { a.style.background = "var(--bg)"; a.style.color = "var(--text)"; };
+                a.onmouseleave = () => { a.style.background = "var(--text)"; a.style.color = "var(--bg)"; };
+              }
+              linksContainer.appendChild(a);
+            });
+          }
+        } else {
+          // Fallback if project not found
+          activeView = '#projects';
+        }
+      } else {
+        activeView = views.includes(hash) ? hash : '#home';
+      }
+
       // Show active view
-      const activeView = views.includes(hash) ? hash : '#home';
       const activeEl = document.getElementById('view-' + activeView.substring(1));
       if (activeEl) {
         activeEl.style.display = 'block';
+      }
+
+      // Hide or show global nav and footer based on view
+      const navEl = document.querySelector('nav');
+      const footerEl = document.querySelector('footer');
+      if (activeView === '#project-detail') {
+        if (navEl) navEl.style.display = 'none';
+        if (footerEl) footerEl.style.display = 'none';
+        document.body.style.paddingTop = '0';
+      } else {
+        if (navEl) navEl.style.display = '';
+        if (footerEl) footerEl.style.display = '';
+        document.body.style.paddingTop = '';
       }
 
       // Re-initialize reveal animations for the shown view
@@ -58,11 +135,21 @@ document.addEventListener("DOMContentLoaded", async () => {
       const links = document.querySelectorAll(".nav-links a, .brand");
       links.forEach(link => {
         const href = link.getAttribute("href");
-        if (href === activeView || (activeView === '#home' && href === '#home')) {
+        if (href === hash || (hash.startsWith('#project/') && href === '#projects')) {
+          link.classList.add("active");
+        } else if (href === activeView) {
           link.classList.add("active");
         } else {
           link.classList.remove("active");
         }
+      });
+    }
+
+    // Attach back button listener for project detail view
+    const backBtn = document.getElementById('project-detail-back');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        window.location.hash = '#projects';
       });
     }
 

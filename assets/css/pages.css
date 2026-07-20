@@ -153,3 +153,25 @@
   width: 100%;
 }
 
+/* Project Detail View */
+#view-project-detail {
+  min-height: calc(100vh - 100px);
+}
+
+.project-detail-header h1 {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  font-size: 3rem;
+}
+
+@media (min-width: 768px) {
+  .project-detail-header h1 {
+    font-size: 4rem;
+  }
+}
+
+.project-detail-body p {
+  white-space: pre-wrap;
+}
+

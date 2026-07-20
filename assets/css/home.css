@@ -145,6 +145,12 @@
   flex-direction: column;
   gap: 0.8rem;
   position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.carousel-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px color-mix(in srgb, var(--text) 5%, transparent);
 }
 
 .carousel-card-header {

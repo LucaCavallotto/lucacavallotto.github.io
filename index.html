@@ -225,6 +225,35 @@
       </section>
     </div>
 
+    <!-- Project Detail View -->
+    <div id="view-project-detail" class="page-view" style="display: none;">
+      <section class="container" style="padding-top: 5rem; padding-bottom: 5rem; max-width: 800px;">
+        <button id="project-detail-back" class="glass-btn mb-5" style="border-radius: 999px;">
+          <i class="bi bi-arrow-left"></i> Back to Projects
+        </button>
+        
+        <div class="project-detail-header mb-5">
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <div id="project-detail-icon" style="font-size: 4rem; line-height: 1;"></div>
+            <h1 id="project-detail-title" class="home-section-title" style="margin-bottom: 0;"></h1>
+          </div>
+          
+          <div class="d-flex flex-column gap-2 mb-4" style="color: var(--muted); font-size: 1rem;">
+            <div id="project-detail-tag-container"><strong style="color: var(--text);">Tag:</strong> <span id="project-detail-tag"></span></div>
+            <div id="project-detail-date-container"><strong style="color: var(--text);">Release Date:</strong> <span id="project-detail-date"></span></div>
+          </div>
+        </div>
+        
+        <div class="project-detail-body mb-5" style="font-size: 1.15rem; line-height: 1.7; color: var(--text);">
+          <p id="project-detail-description"></p>
+        </div>
+
+        <div id="project-detail-links" class="d-flex flex-wrap gap-3">
+          <!-- Links injected here -->
+        </div>
+      </section>
+    </div>
+
   </main>
 
   <footer>

@@ -37,7 +37,7 @@ export function buildProjectCard(project, isAppOfDay) {
 
   const desc = document.createElement("p");
   desc.className = "carousel-card-desc";
-  desc.textContent = project.description;
+  desc.textContent = project.description_short;
   card.appendChild(desc);
 
   const links = document.createElement("div");
@@ -50,9 +50,18 @@ export function buildProjectCard(project, isAppOfDay) {
     a.textContent = link.text;
     if (link.text === "View on GitHub") a.className = "carousel-link-ghost";
     if (link.text === "Try it Live") a.className = "carousel-link-primary";
+    
+    // Prevent clicking the link from triggering the card click
+    a.addEventListener("click", (e) => e.stopPropagation());
     links.appendChild(a);
   });
   card.appendChild(links);
+
+  // Make the entire card clickable
+  card.style.cursor = "pointer";
+  card.addEventListener("click", () => {
+    window.location.hash = "#project/" + project.id;
+  });
 
   return card;
 }

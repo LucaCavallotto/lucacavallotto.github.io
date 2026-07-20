@@ -1,8 +1,7 @@
 [
   {
-    "icon": "🏎️",
+    "icon": "\ud83c\udfce\ufe0f",
     "title": "RaceTechAssistant",
-    "description": "Simple fuel and setup strategy tools for sim racing",
     "tag": "Personal",
     "release_date": "2025-09-08",
     "links": [
@@ -16,12 +15,14 @@
         "url": "https://lucacavallotto.github.io/RaceTechAssistant/",
         "class": ""
       }
-    ]
+    ],
+    "id": "racetechassistant",
+    "description_short": "Simple fuel and setup strategy tools for sim racing",
+    "description_long": "A premium, responsive engineering assistant for sim racers to calculate optimal fuel strategy and precise tyre cold pressure adjustments. Designed with a retro-futuristic engineering-style interface, harmonized dark-mode color scheme, and smooth interactive micro-animations."
   },
   {
-    "icon": "🏃",
+    "icon": "\ud83c\udfc3",
     "title": "Maratona",
-    "description": "A calculator for training zones, paces, and distances for runners",
     "tag": "Personal",
     "release_date": "2025-09-30",
     "links": [
@@ -35,12 +36,14 @@
         "url": "https://lucacavallotto.github.io/maratona/",
         "class": ""
       }
-    ]
+    ],
+    "id": "maratona",
+    "description_short": "A calculator for training zones, paces, and distances for runners",
+    "description_long": "Welcome to Maratona! This is your comprehensive running calculator designed to quickly help you plan your training and race strategies."
   },
   {
-    "icon": "🧠",
+    "icon": "\ud83e\udde0",
     "title": "Quizium",
-    "description": "The ultimate tool to test your knowledge and create custom quizzes with ease",
     "tag": "Personal",
     "release_date": "2025-10-11",
     "links": [
@@ -54,12 +57,14 @@
         "url": "https://lucacavallotto.github.io/Quizium/",
         "class": ""
       }
-    ]
+    ],
+    "id": "quizium",
+    "description_short": "The ultimate tool to test your knowledge and create custom quizzes with ease",
+    "description_long": "The ultimate tool to test your knowledge and create custom quizzes with ease (This is a placeholder for the long description. You can edit this in projects.json to provide rich, detailed information about the project, its features, and the technologies used.)"
   },
   {
-    "icon": "🏁",
+    "icon": "\ud83c\udfc1",
     "title": "TripleCrown",
-    "description": "The all-in-one racing dashboard for schedules and news",
     "tag": "Personal",
     "release_date": "2026-03-24",
     "links": [
@@ -73,12 +78,14 @@
         "url": "https://lucacavallotto.github.io/TripleCrown/",
         "class": ""
       }
-    ]
+    ],
+    "id": "triplecrown",
+    "description_short": "The all-in-one racing dashboard for schedules and news",
+    "description_long": "The all-in-one racing dashboard for schedules and news."
   },
   {
-    "icon": "✨",
+    "icon": "\u2728",
     "title": "Prompt-Library",
-    "description": "Collection of reusable AI prompts, organized by use case",
     "tag": "Personal",
     "release_date": "2026-04-02",
     "links": [
@@ -87,12 +94,14 @@
         "url": "https://github.com/LucaCavallotto/Prompt-Library",
         "class": "me-3"
       }
-    ]
+    ],
+    "id": "prompt-library",
+    "description_short": "Collection of reusable AI prompts, organized by use case",
+    "description_long": "A collection of high-performance prompts for coding, note-taking and architectural tasks."
   },
   {
-    "icon": "💰",
+    "icon": "\ud83d\udcb0",
     "title": "Expense Tracker",
-    "description": "A local personal finance manager powered by your CSV files",
     "tag": "Personal",
     "release_date": "2026-04-27",
     "links": [
@@ -106,6 +115,9 @@
         "url": "https://lucacavallotto.github.io/expense-tracker/",
         "class": ""
       }
-    ]
+    ],
+    "id": "expense-tracker",
+    "description_short": "A local personal finance manager powered by your CSV files",
+    "description_long": "A modular, browser-based personal finance manager that works directly with your local CSV files. This application puts you in control of your data—no cloud required, no sign-ups, just privacy-focused financial tracking."
   }
 ]
