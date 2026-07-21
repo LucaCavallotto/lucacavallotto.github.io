@@ -84,7 +84,6 @@
     "description_long": "The all-in-one racing dashboard for schedules and news."
   },
   {
-    "icon": "\u2728",
     "title": "Prompt-Library",
     "tag": "Personal",
     "release_date": "2026-04-02",
@@ -119,5 +118,20 @@
     "id": "expense-tracker",
     "description_short": "A local personal finance manager powered by your CSV files",
     "description_long": "A modular, browser-based personal finance manager that works directly with your local CSV files. This application puts you in control of your data—no cloud required, no sign-ups, just privacy-focused financial tracking."
+  },
+  {
+    "title": "Running Data Analysis",
+    "tag": "Personal",
+    "release_date": "2026-07-21",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/running-data-analysis",
+        "class": "me-3"
+      }
+    ],
+    "id": "running-data-analysis",
+    "description_short": "Analysis of my personal running data",
+    "description_long": "A comprehensive analysis of my personal running data recorded in the last years to understand my training and performance trends over time."
   }
 ]

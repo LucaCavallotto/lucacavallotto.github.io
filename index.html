@@ -81,7 +81,7 @@
             diploma at ITIS G.B. Pininfarina, which allowed me to build a solid technical foundation in the sector since
             high school. <br />
             Passionate about <strong>technology</strong>, <strong>video editing</strong>, <strong>motorsport</strong>,
-            and <strong>competitive running</strong>, I bring the same
+            and <strong>running</strong>, I bring the same
             determination to my work that I do to the track.
           </p>
           <div class="cta-wrap">
@@ -99,7 +99,8 @@
               <h2 class="home-section-title">Projects</h2>
               <p class="home-section-body" style="margin-top: 1rem;">
                 Here are some of my personal projects.
-                Check out the project of the day, browse through some other casual projects below, or click to see all projects.
+                Check out the project of the day, browse through some other casual projects below, or click to see all
+                projects.
               </p>
             </div>
             <div class="col-md-6" id="project-of-the-day-container">
@@ -176,11 +177,13 @@
           <div class="d-flex gap-2 justify-content-center align-items-center">
             <div class="search-input-wrapper flex-grow-1" style="max-width: 400px;">
               <input type="text" id="project-search" class="form-control glass-input" placeholder="Search projects...">
-              <button type="button" id="project-search-clear" class="search-clear-btn" aria-label="Clear search" style="display: none;">
+              <button type="button" id="project-search-clear" class="search-clear-btn" aria-label="Clear search"
+                style="display: none;">
                 <i class="bi bi-x"></i>
               </button>
             </div>
-            <button class="glass-btn" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">
+            <button class="glass-btn" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse"
+              aria-expanded="false" aria-controls="filterCollapse">
               <i class="bi bi-sliders"></i> Filters
             </button>
           </div>
@@ -188,29 +191,29 @@
           <div class="collapse" id="filterCollapse">
             <div class="pt-4 pb-0">
               <div class="row g-3 justify-content-center align-items-center">
-              <div class="col-12 col-md-4">
-                <select id="project-tag-filter" class="form-select glass-select" aria-label="Filter by Label">
-                  <option value="">All Labels</option>
-                  <!-- Tags injected by JS -->
-                </select>
-              </div>
-              <div class="col-12 col-md-4">
-                <select id="project-year-filter" class="form-select glass-select" aria-label="Filter by Year">
-                  <option value="">All Years</option>
-                  <!-- Years injected by JS -->
-                </select>
-              </div>
-              <div class="col-12 col-md-4">
-                <select id="project-sort" class="form-select glass-select" aria-label="Sort By">
-                  <option value="name" selected>Sort by: Name (A-Z)</option>
-                  <option value="newest">Sort by: Newest</option>
-                  <option value="oldest">Sort by: Oldest</option>
-                  <option value="label">Sort by: Label</option>
-                </select>
+                <div class="col-12 col-md-4">
+                  <select id="project-tag-filter" class="form-select glass-select" aria-label="Filter by Label">
+                    <option value="">All Labels</option>
+                    <!-- Tags injected by JS -->
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <select id="project-year-filter" class="form-select glass-select" aria-label="Filter by Year">
+                    <option value="">All Years</option>
+                    <!-- Years injected by JS -->
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <select id="project-sort" class="form-select glass-select" aria-label="Sort By">
+                    <option value="name" selected>Sort by: Name (A-Z)</option>
+                    <option value="newest">Sort by: Newest</option>
+                    <option value="oldest">Sort by: Oldest</option>
+                    <option value="label">Sort by: Label</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
 
         <div class="row g-4 projects-grid" id="projects-grid">
@@ -231,19 +234,21 @@
         <button id="project-detail-back" class="glass-btn mb-5" style="border-radius: 999px;">
           <i class="bi bi-arrow-left"></i> Back to Projects
         </button>
-        
+
         <div class="project-detail-header mb-5">
           <div class="d-flex align-items-center gap-3 mb-4">
             <div id="project-detail-icon" style="font-size: 4rem; line-height: 1;"></div>
             <h1 id="project-detail-title" class="home-section-title" style="margin-bottom: 0;"></h1>
           </div>
-          
+
           <div class="d-flex flex-column gap-2 mb-4" style="color: var(--muted); font-size: 1rem;">
-            <div id="project-detail-tag-container"><strong style="color: var(--text);">Tag:</strong> <span id="project-detail-tag"></span></div>
-            <div id="project-detail-date-container"><strong style="color: var(--text);">Release Date:</strong> <span id="project-detail-date"></span></div>
+            <div id="project-detail-tag-container"><strong style="color: var(--text);">Tag:</strong> <span
+                id="project-detail-tag"></span></div>
+            <div id="project-detail-date-container"><strong style="color: var(--text);">Release Date:</strong> <span
+                id="project-detail-date"></span></div>
           </div>
         </div>
-        
+
         <div class="project-detail-body mb-5" style="font-size: 1.15rem; line-height: 1.7; color: var(--text);">
           <p id="project-detail-description"></p>
         </div>

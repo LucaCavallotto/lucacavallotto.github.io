@@ -4,6 +4,7 @@ import { fetchData } from './modules/api.js';
 import { initTyping } from './modules/typing.js';
 import { initCarousel } from './modules/carousel.js';
 import {
+  DEFAULT_PROJECT_ICON,
   buildProjectCard,
   buildTechnicalSkillsCard,
   buildEducationCard,
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const project = projects.find(p => p.id === projectId);
         if (project) {
           // Populate project detail view
-          document.getElementById('project-detail-icon').textContent = project.icon || "📁";
+          document.getElementById('project-detail-icon').textContent = (project.icon && project.icon.trim()) ? project.icon : DEFAULT_PROJECT_ICON;
           document.getElementById('project-detail-title').textContent = project.title;
           
           const tagContainer = document.getElementById('project-detail-tag-container');

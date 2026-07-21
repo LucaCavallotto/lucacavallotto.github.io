@@ -1,3 +1,5 @@
+export const DEFAULT_PROJECT_ICON = "📁";
+
 /**
  * Builds a project card element.
  * @param {any} project - Project data.
@@ -16,7 +18,7 @@ export function buildProjectCard(project, isAppOfDay) {
   iconWrap.className = "card-icon-wrap";
   const iconEl = document.createElement("div");
   iconEl.className = "card-icon";
-  iconEl.textContent = project.icon || "📁";
+  iconEl.textContent = (project.icon && project.icon.trim()) ? project.icon : DEFAULT_PROJECT_ICON;
   iconWrap.appendChild(iconEl);
 
   const title = document.createElement("h2");
