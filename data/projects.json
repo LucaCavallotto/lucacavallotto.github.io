@@ -1,6 +1,6 @@
 [
   {
-    "icon": "\ud83c\udfce\ufe0f",
+    "icon": "🏎️",
     "title": "RaceTechAssistant",
     "tag": "Personal",
     "release_date": "2025-09-08",
@@ -21,7 +21,7 @@
     "description_long": "A premium, responsive engineering assistant for sim racers to calculate optimal fuel strategy and precise tyre cold pressure adjustments. Designed with a retro-futuristic engineering-style interface, harmonized dark-mode color scheme, and smooth interactive micro-animations."
   },
   {
-    "icon": "\ud83c\udfc3",
+    "icon": "🏃",
     "title": "Maratona",
     "tag": "Personal",
     "release_date": "2025-09-30",
@@ -42,7 +42,7 @@
     "description_long": "Welcome to Maratona! This is your comprehensive running calculator designed to quickly help you plan your training and race strategies."
   },
   {
-    "icon": "\ud83e\udde0",
+    "icon": "🧠",
     "title": "Quizium",
     "tag": "Personal",
     "release_date": "2025-10-11",
@@ -99,7 +99,7 @@
     "description_long": "A collection of high-performance prompts for coding, note-taking and architectural tasks."
   },
   {
-    "icon": "\ud83d\udcb0",
+    "icon": "💰",
     "title": "Expense Tracker",
     "tag": "Personal",
     "release_date": "2026-04-27",
@@ -131,7 +131,142 @@
       }
     ],
     "id": "running-data-analysis",
-    "description_short": "Analysis of my personal running data",
-    "description_long": "A comprehensive analysis of my personal running data recorded in the last years to understand my training and performance trends over time."
+    "description_short": "Data analysis of nearly a decade of personal running data",
+    "description_long": "This repository contains a data science project analyzing nearly a decade of personal running data. The data has been collected across various devices and platforms (Garmin, Xiaomi, manual Excel entries) and represents a complete timeline of athletic evolution, from early beginnings to structured, polarized training."
+  },
+  {
+    "title": "MotorONE News",
+    "tag": "Academic",
+    "release_date": "2022-07-01",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/Gutenberg-Project-AS2122",
+        "class": "me-3"
+      }
+    ],
+    "id": "gutenberg-project-as2122",
+    "description_short": "High school project about Motorsport news web application",
+    "description_long": "MotorONE News is a web application designed to deliver motorsport news and event schedules cleanly and effectively. Unregistered visitors can view Formula 1 timetables and access news for Formula 1, MotoGP, and WEC (World Endurance Competition). Registered users can personalize their news feeds through a preferences form to receive updates on additional motorsport series, including WRC, SuperBike, and NASCAR."
+  },
+  {
+    "title": "Jasmin JVM Compiler",
+    "tag": "Academic",
+    "release_date": "2024-01-30",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/LFT-project-AA2324",
+        "class": "me-3"
+      }
+    ],
+    "id": "lft-project-aa2324",
+    "description_short": "Java compiler translating custom language P into JVM bytecode",
+    "description_long": "A complete compiler and formal language toolkit developed in Java for the Formal Languages and Compilers course. Features Deterministic Finite Automata (DFAs), a custom lexical analyzer with comment handling, an LL(1) recursive-descent parser for prefix expressions and control structures (if, for, assign), and a syntax-directed code generator emitting Jasmin assembly targeting executable JVM bytecode."
+  },
+  {
+    "title": "Nuclear Reactor Simulator",
+    "tag": "Academic",
+    "release_date": "2024-06-03",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/SO-project-AA2324",
+        "class": "me-3"
+      }
+    ],
+    "id": "so-project-aa2324",
+    "description_short": "Concurrent C simulation modeling atomic fission and energy production",
+    "description_long": "A concurrent atomic chain reaction simulator developed in C for the Operating Systems course. Features a multi-process architecture consisting of Master, Atom, Activator, Feeder, and probabilistic Inhibitor processes. Implements POSIX shared memory, semaphores, message queues, UNIX signals, and modular execve process management without busy waiting, complete with real-time energy statistics and safe IPC cleanup handlers."
+  },
+  {
+    "title": "Cibora Database",
+    "tag": "Academic",
+    "release_date": "2024-06-21",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/DB-project-AA2324",
+        "class": "me-3"
+      }
+    ],
+    "id": "db-project-aa2324",
+    "description_short": "Relational database design and SQL implementation for food delivery",
+    "description_long": "A comprehensive database engineering project for a food delivery ecosystem named Cibora, developed for the Database Systems course. Includes complete domain analysis, ER conceptual modeling, relational normalization, and complex SQL implementation featuring e-wallet transactions, Top Partner performance metrics, GPS-based rider dispatch constraints, user review systems, and automated monthly analytics rankings."
+  },
+  {
+    "title": "Algorithms & Data Structures",
+    "tag": "Academic",
+    "release_date": "2024-06-24",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/ASD-project-AA2324",
+        "class": "me-3"
+      }
+    ],
+    "id": "asd-project-aa2324",
+    "description_short": "Generic data structures and algorithms library in C and Java",
+    "description_long": "A dual-language algorithms and data structures laboratory developed in C and Java. Features generic sorting implementations (Merge Sort, Quick Sort) benchmarked over 20M records, a dynamic programming Edit Distance spell checker, a generic Heap-based Priority Queue, and a Sparse Graph library implementing Prim's Minimum Spanning Forest algorithm benchmarked on real Italian geographical datasets."
+  },
+  {
+    "title": "JavaFX Mail Client",
+    "tag": "Academic",
+    "release_date": "2025-02-28",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/PROG3-project-AA2324",
+        "class": "me-3"
+      }
+    ],
+    "id": "prog3-project-aa2324",
+    "description_short": "Multi-threaded JavaFX client-server email desktop application",
+    "description_long": "A desktop mail system developed in Java for the Programming III course. Built on an asynchronous client-server architecture, it features a reactive JavaFX GUI with real-time inbox notifications, auto-reconnection resilience, and email operations (compose, reply, reply-all, forward) communicating over custom TCP sockets with object serialization and file-based server persistence."
+  },
+  {
+    "title": "Radio@UniTo Prototype",
+    "tag": "Academic",
+    "release_date": "2025-06-11",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/IUM-project-AA2425",
+        "class": "me-3"
+      }
+    ],
+    "id": "ium-project-aa2425",
+    "description_short": "HCI user research, accessibility audit, and Figma web prototype",
+    "description_long": "A Human-Computer Interaction project focused on user-centered design for Radio@UniTo, a university radio platform. Includes Nielsen heuristic usability evaluation on commercial radio sites, automated accessibility audits (WCAG), User Personas and Journey Mapping, structured Information Architecture, and a comprehensive high-fidelity interactive Figma prototype."
+  },
+  {
+    "title": "Movie Analytics Platform",
+    "tag": "Academic",
+    "release_date": "2025-06-11",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/TWEB-project-AA2425",
+        "class": "me-3"
+      }
+    ],
+    "id": "tweb-project-aa2425",
+    "description_short": "Full-stack cinema analytics platform with microservices and WebSockets",
+    "description_long": "A distributed full-stack cinema analytics platform built for the Web Technologies course. Features an Express.js API gateway coordinating Express and Java Spring Boot microservices, dual persistence in MongoDB (reviews, ratings) and PostgreSQL (940k+ movies, 5.7M+ actors), real-time Socket.io topic chatrooms, an interactive Handlebars frontend, and Jupyter Notebooks for large-scale data analytics and geographical visualizations."
+  },
+  {
+    "title": "Cat & Ring",
+    "tag": "Academic",
+    "release_date": "2025-06-18",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/SAS-project-AA2425",
+        "class": "me-3"
+      }
+    ],
+    "id": "sas-project-aa2425",
+    "description_short": "Object-oriented Java system for catering event and menu management",
+    "description_long": "An enterprise software engineering project developed for the Software Architecture & Systems course. Applies Object-Oriented Analysis & Design (OOAD), GoF design patterns, UML class and sequence diagrams, and a Java domain implementation for Cat & Ring—a catering platform orchestrating event management, chef menu composition, multi-role shift scheduling, kitchen task delegation, and recipe lifecycle states."
   }
 ]
