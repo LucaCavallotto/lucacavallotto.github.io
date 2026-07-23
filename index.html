@@ -81,7 +81,7 @@
             diploma at ITIS G.B. Pininfarina, which allowed me to build a solid technical foundation in the sector since
             high school. <br />
             Passionate about <strong>technology</strong>, <strong>video editing</strong>, <strong>motorsport</strong>,
-            and <strong>competitive running</strong>, I bring the same
+            and <strong>running</strong>, I bring the same
             determination to my work that I do to the track.
           </p>
           <div class="cta-wrap">
@@ -90,13 +90,25 @@
         </div>
       </section>
 
-      <!-- Featured Projects Carousel -->
+      <!-- Featured Projects -->
       <section class="home-section reveal">
         <div class="home-section-inner">
-          <div class="eyebrow">Featured</div>
-          <h2 class="home-section-title">Projects</h2>
+          <div class="row align-items-center mb-4">
+            <div class="col-md-6 mb-4 mb-md-0">
+              <div class="eyebrow">Featured</div>
+              <h2 class="home-section-title">Projects</h2>
+              <p class="home-section-body" style="margin-top: 1rem;">
+                Here are some of my personal projects.
+                Check out the project of the day, browse through some other casual projects below, or click to see all
+                projects.
+              </p>
+            </div>
+            <div class="col-md-6" id="project-of-the-day-container">
+              <!-- Project of the Day injected by carousel.js -->
+            </div>
+          </div>
 
-          <div class="carousel-outer">
+          <div class="carousel-outer" style="margin-top: 2rem;">
             <div id="featuredCarousel" class="custom-slider">
               <!-- Cards injected by carousel.js -->
               <div class="custom-slider-track" id="featured-carousel-inner"></div>
@@ -108,7 +120,6 @@
 
           <!-- CTA + carousel arrows in one bottom row -->
           <div class="cta-wrap">
-            <a href="#projects" class="btn-outline-custom">View All Projects →</a>
             <div style="display: flex; gap: 1rem; align-items: center;">
               <button class="carousel-ctrl" id="carousel-play-pause" type="button" aria-label="Toggle Auto-play">
                 <span class="carousel-ctrl-icon" id="play-pause-icon"><i class="bi bi-pause"></i></span>
@@ -122,6 +133,7 @@
                 </button>
               </div>
             </div>
+            <a href="#projects" class="btn-outline-custom">View All Projects →</a>
           </div>
         </div>
       </section>
@@ -129,7 +141,7 @@
 
     <!-- Skills & Background -->
     <div id="view-skills" class="page-view" style="display: none;">
-      <section id="skills" class="container skills-page" style="padding-top: 5rem; padding-bottom: 5rem;">
+      <section id="skills-section" class="container skills-page" style="padding-top: 5rem; padding-bottom: 5rem;">
         <div class="hero" style="text-align: center; margin-bottom: 3rem;">
           <div class="eyebrow">Profile</div>
           <h2 class="home-section-title" style="margin-bottom: 1rem;">Skills & Background</h2>
@@ -152,7 +164,7 @@
 
     <!-- All Projects Grid -->
     <div id="view-projects" class="page-view" style="display: none;">
-      <section id="projects" class="container" style="padding-bottom: 5rem;">
+      <section id="projects-section" class="container" style="padding-top: 5rem; padding-bottom: 5rem;">
         <div class="hero" style="text-align: center; margin-bottom: 3rem;">
           <div class="eyebrow">Portfolio</div>
           <h2 class="home-section-title" style="margin-bottom: 1rem;">Projects</h2>
@@ -160,7 +172,51 @@
             projects on GitHub.</p>
         </div>
 
-        <div class="row g-4 projects-grid justify-content-center" id="projects-grid">
+        <!-- Toolbar -->
+        <div class="projects-toolbar mb-5">
+          <div class="d-flex gap-2 justify-content-center align-items-center">
+            <div class="search-input-wrapper flex-grow-1" style="max-width: 400px;">
+              <input type="text" id="project-search" class="form-control glass-input" placeholder="Search projects...">
+              <button type="button" id="project-search-clear" class="search-clear-btn" aria-label="Clear search"
+                style="display: none;">
+                <i class="bi bi-x"></i>
+              </button>
+            </div>
+            <button class="glass-btn" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse"
+              aria-expanded="false" aria-controls="filterCollapse">
+              <i class="bi bi-sliders"></i> Filters
+            </button>
+          </div>
+
+          <div class="collapse" id="filterCollapse">
+            <div class="pt-4 pb-0">
+              <div class="row g-3 justify-content-center align-items-center">
+                <div class="col-12 col-md-4">
+                  <select id="project-tag-filter" class="form-select glass-select" aria-label="Filter by Label">
+                    <option value="">All Labels</option>
+                    <!-- Tags injected by JS -->
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <select id="project-year-filter" class="form-select glass-select" aria-label="Filter by Year">
+                    <option value="">All Years</option>
+                    <!-- Years injected by JS -->
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <select id="project-sort" class="form-select glass-select" aria-label="Sort By">
+                    <option value="name" selected>Sort by: Name (A-Z)</option>
+                    <option value="newest">Sort by: Newest</option>
+                    <option value="oldest">Sort by: Oldest</option>
+                    <option value="label">Sort by: Label</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 projects-grid" id="projects-grid">
           <!-- Projects injected here -->
           <div class="col-12 d-flex justify-content-center align-items-center py-5" style="min-height: 300px;">
             <div class="spinner-border" role="status"
@@ -168,6 +224,37 @@
               <span class="visually-hidden">Loading...</span>
             </div>
           </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Project Detail View -->
+    <div id="view-project-detail" class="page-view" style="display: none;">
+      <section class="container" style="padding-top: 5rem; padding-bottom: 5rem; max-width: 800px;">
+        <button id="project-detail-back" class="glass-btn mb-5" style="border-radius: 999px;">
+          <i class="bi bi-arrow-left"></i> Back to Projects
+        </button>
+
+        <div class="project-detail-header mb-5">
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <div id="project-detail-icon" style="font-size: 4rem; line-height: 1;"></div>
+            <h1 id="project-detail-title" class="home-section-title" style="margin-bottom: 0;"></h1>
+          </div>
+
+          <div class="d-flex flex-column gap-2 mb-4" style="color: var(--muted); font-size: 1rem;">
+            <div id="project-detail-tag-container"><strong style="color: var(--text);">Tag:</strong> <span
+                id="project-detail-tag"></span></div>
+            <div id="project-detail-date-container"><strong style="color: var(--text);">Release Date:</strong> <span
+                id="project-detail-date"></span></div>
+          </div>
+        </div>
+
+        <div class="project-detail-body mb-5" style="font-size: 1.15rem; line-height: 1.7; color: var(--text);">
+          <p id="project-detail-description"></p>
+        </div>
+
+        <div id="project-detail-links" class="d-flex flex-wrap align-items-center gap-3">
+          <!-- Links injected here -->
         </div>
       </section>
     </div>

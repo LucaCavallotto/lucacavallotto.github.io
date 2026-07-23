@@ -16,8 +16,8 @@ export function initCarousel(projects) {
   let isManualPause = false;
 
   const DESKTOP_BREAKPOINT = 641;
-  const AUTOPLAY_INTERVAL = 5000;
-  const RESUME_DELAY = 8000;
+  const AUTOPLAY_INTERVAL = 3000;
+  const RESUME_DELAY = 5000;
 
   function visibleCount() {
     return window.innerWidth >= DESKTOP_BREAKPOINT ? 2 : 1;
@@ -88,11 +88,18 @@ export function initCarousel(projects) {
 
   // Populate
   const todayIdx = Math.floor(Date.now() / 86_400_000) % projects.length;
+  const potdProject = projects[todayIdx];
   const others = projects.filter((_, i) => i !== todayIdx);
-  const featured = [projects[todayIdx], ...others.slice(0, 3)];
+  const featured = others.slice(0, 4);
 
-  featured.forEach((project, idx) => {
-    const card = buildProjectCard(project, idx === 0);
+  const potdContainer = document.getElementById("project-of-the-day-container");
+  if (potdContainer && potdProject) {
+    potdContainer.innerHTML = "";
+    potdContainer.appendChild(buildProjectCard(potdProject, true));
+  }
+
+  featured.forEach((project) => {
+    const card = buildProjectCard(project, false);
     track.appendChild(card);
     sliderCards.push(card);
   });

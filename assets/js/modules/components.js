@@ -1,3 +1,5 @@
+export const DEFAULT_PROJECT_ICON = "📁";
+
 /**
  * Builds a project card element.
  * @param {any} project - Project data.
@@ -16,7 +18,7 @@ export function buildProjectCard(project, isAppOfDay) {
   iconWrap.className = "card-icon-wrap";
   const iconEl = document.createElement("div");
   iconEl.className = "card-icon";
-  iconEl.textContent = project.icon || "📁";
+  iconEl.textContent = (project.icon && project.icon.trim()) ? project.icon : DEFAULT_PROJECT_ICON;
   iconWrap.appendChild(iconEl);
 
   const title = document.createElement("h2");
@@ -25,11 +27,19 @@ export function buildProjectCard(project, isAppOfDay) {
 
   header.appendChild(iconWrap);
   header.appendChild(title);
+
+  if (project.tag) {
+    const tagEl = document.createElement("span");
+    tagEl.className = "carousel-card-tag";
+    tagEl.textContent = project.tag;
+    card.appendChild(tagEl);
+  }
+
   card.appendChild(header);
 
   const desc = document.createElement("p");
   desc.className = "carousel-card-desc";
-  desc.textContent = project.description;
+  desc.textContent = project.description_short;
   card.appendChild(desc);
 
   const links = document.createElement("div");
@@ -42,9 +52,18 @@ export function buildProjectCard(project, isAppOfDay) {
     a.textContent = link.text;
     if (link.text === "View on GitHub") a.className = "carousel-link-ghost";
     if (link.text === "Try it Live") a.className = "carousel-link-primary";
+    
+    // Prevent clicking the link from triggering the card click
+    a.addEventListener("click", (e) => e.stopPropagation());
     links.appendChild(a);
   });
   card.appendChild(links);
+
+  // Make the entire card clickable
+  card.style.cursor = "pointer";
+  card.addEventListener("click", () => {
+    window.location.hash = "#project/" + project.id;
+  });
 
   return card;
 }
@@ -104,7 +123,7 @@ export function buildEducationCard(educationList) {
 
   educationList.forEach((edu) => {
     const li = document.createElement("li");
-    
+
     const strong = document.createElement("strong");
     strong.textContent = edu.degree;
     li.appendChild(strong);

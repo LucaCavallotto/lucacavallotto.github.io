@@ -145,6 +145,12 @@
   flex-direction: column;
   gap: 0.8rem;
   position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.carousel-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px color-mix(in srgb, var(--text) 5%, transparent);
 }
 
 .carousel-card-header {
@@ -160,6 +166,18 @@
   letter-spacing: -0.02em;
   margin: 0;
   line-height: 1.25;
+}
+
+.carousel-card-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--muted);
+  white-space: nowrap;
+  z-index: 10;
 }
 
 .carousel-card-desc {
