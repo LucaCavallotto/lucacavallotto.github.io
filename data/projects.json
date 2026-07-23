@@ -43,22 +43,22 @@
   },
   {
     "icon": "🧠",
-    "title": "Quizium",
+    "title": "Active Recall Hub",
     "tag": "Personal",
     "release_date": "2025-10-11",
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/Quizium",
+        "url": "https://github.com/LucaCavallotto/active-recall-hub",
         "class": "me-3"
       },
       {
         "text": "Try it Live",
-        "url": "https://lucacavallotto.github.io/Quizium/",
+        "url": "https://lucacavallotto.github.io/active-recall-hub/",
         "class": ""
       }
     ],
-    "id": "quizium",
+    "id": "active-recall-hub",
     "description_short": "The ultimate tool to test your knowledge and create custom quizzes with ease",
     "description_long": "The ultimate tool to test your knowledge and create custom quizzes with ease (This is a placeholder for the long description. You can edit this in projects.json to provide rich, detailed information about the project, its features, and the technologies used.)"
   },
@@ -212,7 +212,7 @@
   {
     "title": "JavaFX Mail Client",
     "tag": "Academic",
-    "release_date": "2025-02-28",
+    "release_date": "2025-01-28",
     "links": [
       {
         "text": "View on GitHub",
@@ -227,7 +227,7 @@
   {
     "title": "Radio@UniTo Prototype",
     "tag": "Academic",
-    "release_date": "2025-06-11",
+    "release_date": "2024-12-18",
     "links": [
       {
         "text": "View on GitHub",
