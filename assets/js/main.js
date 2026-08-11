@@ -184,15 +184,18 @@ function initProjectsPage(projects) {
 
   const searchInput = document.getElementById("project-search");
   const tagFilter = document.getElementById("project-tag-filter");
+  const languageFilter = document.getElementById("project-language-filter");
   const yearFilter = document.getElementById("project-year-filter");
   const sortSelect = document.getElementById("project-sort");
 
-  // 1. Extract unique tags and years
+  // 1. Extract unique tags, languages, and years
   const tags = new Set();
+  const languages = new Set();
   const years = new Set();
 
   projects.forEach(p => {
     if (p.tag) tags.add(p.tag);
+    if (p.language) languages.add(p.language);
     if (p.release_date) {
       const year = p.release_date.split("-")[0];
       years.add(year);
@@ -201,20 +204,33 @@ function initProjectsPage(projects) {
   });
 
   // 2. Populate Selects
-  tags.forEach(tag => {
-    const opt = document.createElement("option");
-    opt.value = tag;
-    opt.textContent = tag;
-    tagFilter.appendChild(opt);
-  });
+  if (tagFilter) {
+    tags.forEach(tag => {
+      const opt = document.createElement("option");
+      opt.value = tag;
+      opt.textContent = tag;
+      tagFilter.appendChild(opt);
+    });
+  }
+
+  if (languageFilter) {
+    Array.from(languages).sort((a, b) => a.localeCompare(b)).forEach(lang => {
+      const opt = document.createElement("option");
+      opt.value = lang;
+      opt.textContent = lang;
+      languageFilter.appendChild(opt);
+    });
+  }
 
   // Sort years descending
-  Array.from(years).sort((a, b) => b - a).forEach(year => {
-    const opt = document.createElement("option");
-    opt.value = year;
-    opt.textContent = year;
-    yearFilter.appendChild(opt);
-  });
+  if (yearFilter) {
+    Array.from(years).sort((a, b) => b - a).forEach(year => {
+      const opt = document.createElement("option");
+      opt.value = year;
+      opt.textContent = year;
+      yearFilter.appendChild(opt);
+    });
+  }
 
   // 3. Render function
   const todayIdx = Math.floor(Date.now() / 86_400_000) % projects.length;
@@ -303,20 +319,24 @@ function initProjectsPage(projects) {
   }
 
   function filterAndSort() {
-    const query = (searchInput.value || "").toLowerCase();
-    const tag = tagFilter.value;
-    const year = yearFilter.value;
-    const sort = sortSelect.value;
+    const query = (searchInput ? searchInput.value || "" : "").toLowerCase();
+    const tag = tagFilter ? tagFilter.value : "";
+    const lang = languageFilter ? languageFilter.value : "";
+    const year = yearFilter ? yearFilter.value : "";
+    const sort = sortSelect ? sortSelect.value : "name";
 
     if (searchClearBtn) {
       searchClearBtn.style.display = query.length > 0 ? "flex" : "none";
     }
 
     let filtered = projects.filter(p => {
-      const matchSearch = (p.title || "").toLowerCase().includes(query) || (p.description || "").toLowerCase().includes(query);
+      const matchSearch = (p.title || "").toLowerCase().includes(query) || 
+                          (p.description_short || "").toLowerCase().includes(query) ||
+                          (p.description_long || "").toLowerCase().includes(query);
       const matchTag = tag ? p.tag === tag : true;
+      const matchLang = lang ? p.language === lang : true;
       const matchYear = year ? p.release_year === year : true;
-      return matchSearch && matchTag && matchYear;
+      return matchSearch && matchTag && matchLang && matchYear;
     });
 
     // Sorting applies to the array, which will also sort the projects inside their year groups when grouping is on
@@ -346,6 +366,7 @@ function initProjectsPage(projects) {
     });
   }
   if (tagFilter) tagFilter.addEventListener("change", filterAndSort);
+  if (languageFilter) languageFilter.addEventListener("change", filterAndSort);
   if (yearFilter) yearFilter.addEventListener("change", filterAndSort);
   if (sortSelect) sortSelect.addEventListener("change", filterAndSort);
 
