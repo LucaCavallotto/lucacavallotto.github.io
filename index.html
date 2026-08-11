@@ -191,25 +191,38 @@
           <div class="collapse" id="filterCollapse">
             <div class="pt-4 pb-0">
               <div class="row g-3 justify-content-center align-items-center">
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 col-lg-3">
                   <select id="project-tag-filter" class="form-select glass-select" aria-label="Filter by Label">
                     <option value="">All Labels</option>
                     <!-- Tags injected by JS -->
                   </select>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 col-lg-3">
+                  <select id="project-language-filter" class="form-select glass-select" aria-label="Filter by Language">
+                    <option value="">All Languages</option>
+                    <!-- Languages injected by JS -->
+                  </select>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
                   <select id="project-year-filter" class="form-select glass-select" aria-label="Filter by Year">
                     <option value="">All Years</option>
                     <!-- Years injected by JS -->
                   </select>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 col-lg-3">
                   <select id="project-sort" class="form-select glass-select" aria-label="Sort By">
                     <option value="name" selected>Sort by: Name (A-Z)</option>
                     <option value="newest">Sort by: Newest</option>
                     <option value="oldest">Sort by: Oldest</option>
                     <option value="label">Sort by: Label</option>
                   </select>
+                </div>
+              </div>
+              <div id="project-filters-clear-wrap" class="pt-3" style="display: none;">
+                <div class="d-flex justify-content-center">
+                  <button type="button" id="project-filters-clear" class="glass-btn" style="border-radius: 999px; padding: 0.35rem 0.85rem; font-size: 0.875rem;">
+                    <i class="bi bi-x-circle"></i> Clear Filters
+                  </button>
                 </div>
               </div>
             </div>
@@ -244,6 +257,8 @@
           <div class="d-flex flex-column gap-2 mb-4" style="color: var(--muted); font-size: 1rem;">
             <div id="project-detail-tag-container"><strong style="color: var(--text);">Tag:</strong> <span
                 id="project-detail-tag"></span></div>
+            <div id="project-detail-language-container"><strong style="color: var(--text);">Language:</strong> <span
+                id="project-detail-language"></span></div>
             <div id="project-detail-date-container"><strong style="color: var(--text);">Release Date:</strong> <span
                 id="project-detail-date"></span></div>
           </div>
