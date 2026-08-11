@@ -3,6 +3,7 @@
     "icon": "🏎️",
     "title": "RaceTechAssistant",
     "tag": "Personal",
+    "language": "JavaScript",
     "release_date": "2025-09-08",
     "links": [
       {
@@ -24,6 +25,7 @@
     "icon": "🏃",
     "title": "Maratona",
     "tag": "Personal",
+    "language": "JavaScript",
     "release_date": "2025-09-30",
     "links": [
       {
@@ -45,6 +47,7 @@
     "icon": "🧠",
     "title": "Active Recall Hub",
     "tag": "Personal",
+    "language": "JavaScript",
     "release_date": "2025-10-11",
     "links": [
       {
@@ -63,9 +66,10 @@
     "description_long": "The ultimate tool to test your knowledge and create custom quizzes with ease (This is a placeholder for the long description. You can edit this in projects.json to provide rich, detailed information about the project, its features, and the technologies used.)"
   },
   {
-    "icon": "\ud83c\udfc1",
+    "icon": "🏁",
     "title": "TripleCrown",
     "tag": "Personal",
+    "language": "JavaScript",
     "release_date": "2026-03-24",
     "links": [
       {
@@ -86,6 +90,7 @@
   {
     "title": "Prompt-Library",
     "tag": "Personal",
+    "language": "Markdown",
     "release_date": "2026-04-02",
     "links": [
       {
@@ -102,6 +107,7 @@
     "icon": "💰",
     "title": "Expense Tracker",
     "tag": "Personal",
+    "language": "JavaScript",
     "release_date": "2026-04-27",
     "links": [
       {
@@ -122,6 +128,7 @@
   {
     "title": "Running Data Analysis",
     "tag": "Personal",
+    "language": "Python",
     "release_date": "2026-07-21",
     "links": [
       {
@@ -137,6 +144,7 @@
   {
     "title": "MotorONE News",
     "tag": "Academic",
+    "language": "PHP",
     "release_date": "2022-07-01",
     "links": [
       {
@@ -152,6 +160,7 @@
   {
     "title": "Jasmin JVM Compiler",
     "tag": "Academic",
+    "language": "Java",
     "release_date": "2024-01-30",
     "links": [
       {
@@ -167,6 +176,7 @@
   {
     "title": "Nuclear Reactor Simulator",
     "tag": "Academic",
+    "language": "C",
     "release_date": "2024-06-03",
     "links": [
       {
@@ -182,6 +192,7 @@
   {
     "title": "Cibora Database",
     "tag": "Academic",
+    "language": "SQL",
     "release_date": "2024-06-21",
     "links": [
       {
@@ -197,6 +208,7 @@
   {
     "title": "Algorithms & Data Structures",
     "tag": "Academic",
+    "language": "C / Java",
     "release_date": "2024-06-24",
     "links": [
       {
@@ -212,6 +224,7 @@
   {
     "title": "JavaFX Mail Client",
     "tag": "Academic",
+    "language": "Java",
     "release_date": "2025-01-28",
     "links": [
       {
@@ -227,6 +240,7 @@
   {
     "title": "Radio@UniTo Prototype",
     "tag": "Academic",
+    "language": "Figma",
     "release_date": "2024-12-18",
     "links": [
       {
@@ -242,6 +256,7 @@
   {
     "title": "Movie Analytics Platform",
     "tag": "Academic",
+    "language": "JavaScript",
     "release_date": "2025-06-11",
     "links": [
       {
@@ -257,6 +272,7 @@
   {
     "title": "Cat & Ring",
     "tag": "Academic",
+    "language": "Java",
     "release_date": "2025-06-18",
     "links": [
       {

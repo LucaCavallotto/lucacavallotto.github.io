@@ -61,6 +61,15 @@ document.addEventListener("DOMContentLoaded", async () => {
           } else {
             tagContainer.style.display = 'none';
           }
+
+          const languageContainer = document.getElementById('project-detail-language-container');
+          const languageEl = document.getElementById('project-detail-language');
+          if (project.language) {
+            languageEl.textContent = project.language;
+            languageContainer.style.display = 'block';
+          } else {
+            languageContainer.style.display = 'none';
+          }
           
           const dateContainer = document.getElementById('project-detail-date-container');
           const dateEl = document.getElementById('project-detail-date');
