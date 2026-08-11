@@ -86,11 +86,26 @@ export function initCarousel(projects) {
     });
   }
 
-  // Populate
-  const todayIdx = Math.floor(Date.now() / 86_400_000) % projects.length;
+  // Helper to deterministically shuffle an array based on a seed (e.g. current day)
+  function seededShuffle(array, seed) {
+    const arr = [...array];
+    let s = seed;
+    for (let i = arr.length - 1; i > 0; i--) {
+      const x = Math.sin(s++) * 10000;
+      const randomVal = x - Math.floor(x);
+      const j = Math.floor(randomVal * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  // Populate: Project of the Day & Featured Projects are deterministically
+  // selected based on today's date, staying stable for 24h across all devices.
+  const dayIndex = Math.floor(Date.now() / 86_400_000);
+  const todayIdx = dayIndex % projects.length;
   const potdProject = projects[todayIdx];
   const others = projects.filter((_, i) => i !== todayIdx);
-  const featured = others.slice(0, 4);
+  const featured = seededShuffle(others, dayIndex).slice(0, 4);
 
   const potdContainer = document.getElementById("project-of-the-day-container");
   if (potdContainer && potdProject) {
