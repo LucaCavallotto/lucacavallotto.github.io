@@ -239,6 +239,8 @@ function initProjectsPage(projects) {
 
   // 4. Filter and Sort function
   const searchClearBtn = document.getElementById("project-search-clear");
+  const filtersClearWrap = document.getElementById("project-filters-clear-wrap");
+  const filtersClearBtn = document.getElementById("project-filters-clear");
   
   function renderGrid(filteredProjects, sortType) {
     container.innerHTML = "";
@@ -325,6 +327,12 @@ function initProjectsPage(projects) {
     const year = yearFilter ? yearFilter.value : "";
     const sort = sortSelect ? sortSelect.value : "name";
 
+    // Show Clear Filters button when any filter (or search query) is active
+    const hasActiveFilters = Boolean(tag || lang || year || query);
+    if (filtersClearWrap) {
+      filtersClearWrap.style.display = hasActiveFilters ? "block" : "none";
+    }
+
     if (searchClearBtn) {
       searchClearBtn.style.display = query.length > 0 ? "flex" : "none";
     }
@@ -369,6 +377,16 @@ function initProjectsPage(projects) {
   if (languageFilter) languageFilter.addEventListener("change", filterAndSort);
   if (yearFilter) yearFilter.addEventListener("change", filterAndSort);
   if (sortSelect) sortSelect.addEventListener("change", filterAndSort);
+
+  if (filtersClearBtn) {
+    filtersClearBtn.addEventListener("click", () => {
+      if (tagFilter) tagFilter.value = "";
+      if (languageFilter) languageFilter.value = "";
+      if (yearFilter) yearFilter.value = "";
+      if (searchInput) searchInput.value = "";
+      filterAndSort();
+    });
+  }
 
   // Initial render
   filterAndSort();
