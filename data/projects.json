@@ -149,7 +149,7 @@
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/Gutenberg-Project-AS2122",
+        "url": "https://github.com/LucaCavallotto/Gutenberg-News",
         "class": "me-3"
       }
     ],
@@ -158,14 +158,14 @@
     "description_long": "MotorONE News is a web application designed to deliver motorsport news and event schedules cleanly and effectively. Unregistered visitors can view Formula 1 timetables and access news for Formula 1, MotoGP, and WEC (World Endurance Competition). Registered users can personalize their news feeds through a preferences form to receive updates on additional motorsport series, including WRC, SuperBike, and NASCAR."
   },
   {
-    "title": "Jasmin JVM Compiler",
+    "title": "JVM Compiler",
     "tag": "Academic",
     "language": "Java",
     "release_date": "2024-01-30",
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/LFT-project-AA2324",
+        "url": "https://github.com/LucaCavallotto/JVM-Compiler",
         "class": "me-3"
       }
     ],
@@ -181,7 +181,7 @@
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/SO-project-AA2324",
+        "url": "https://github.com/LucaCavallotto/Nuclear-Reactor-Simulator",
         "class": "me-3"
       }
     ],
@@ -197,7 +197,7 @@
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/DB-project-AA2324",
+        "url": "https://github.com/LucaCavallotto/Cibora-Database",
         "class": "me-3"
       }
     ],
@@ -213,7 +213,7 @@
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/ASD-project-AA2324",
+        "url": "https://github.com/LucaCavallotto/Algorithms-Data-Structures",
         "class": "me-3"
       }
     ],
@@ -229,7 +229,7 @@
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/PROG3-project-AA2324",
+        "url": "https://github.com/LucaCavallotto/JavaFX-Mail-Client",
         "class": "me-3"
       }
     ],
@@ -245,7 +245,7 @@
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/IUM-project-AA2425",
+        "url": "https://github.com/LucaCavallotto/Radio-UniTo-Prototype",
         "class": "me-3"
       }
     ],
@@ -261,7 +261,7 @@
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/TWEB-project-AA2425",
+        "url": "https://github.com/LucaCavallotto/Movie-Analytics-Platform",
         "class": "me-3"
       }
     ],
@@ -277,7 +277,7 @@
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/SAS-project-AA2425",
+        "url": "https://github.com/LucaCavallotto/Cat-Ring",
         "class": "me-3"
       }
     ],
