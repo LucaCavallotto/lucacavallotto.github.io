@@ -114,15 +114,9 @@ nav {
   opacity: 0;
 }
 
-/* Desktop overrides for Bootstrap's .collapse */
-@media (min-width: 769px) {
-  .nav-collapse.collapse {
-    display: block !important;
-    height: auto !important;
-  }
-}
-
-/* Mobile dropdown */
+/* ===== Mobile dropdown =====
+   Replaces Bootstrap's .collapse plumbing: React toggles .is-open and the
+   panel animates via grid-template-rows, which needs no JS height measuring. */
 @media (max-width: 768px) {
   .nav-toggle {
     display: inline-flex;
@@ -133,43 +127,106 @@ nav {
     top: 100%;
     left: 0;
     width: 100%;
-    background: color-mix(in srgb, var(--bg) 96%, transparent);
-    backdrop-filter: saturate(180%) blur(14px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  }
-
-  /* Border only when fully open — gone the instant close starts */
-  .nav-collapse.show {
-    border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
-  }
-
-  .nav-collapse.collapsing {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
+    display: grid;
+    grid-template-rows: 0fr;
     background: color-mix(in srgb, var(--bg) 96%, transparent);
     backdrop-filter: saturate(180%) blur(14px);
     -webkit-backdrop-filter: saturate(180%) blur(14px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: grid-template-rows 0.28s ease;
+  }
+
+  /* The clipping wrapper must carry no padding of its own: with
+     box-sizing: border-box a 0fr row still reserves the padding box, which
+     left the collapsed menu visibly ajar. Spacing lives on .nav-links. */
+  .nav-collapse > * {
+    overflow: hidden;
+    min-height: 0;
+    visibility: hidden;
+    transition: visibility 0s linear 0.28s;
+  }
+
+  .nav-collapse.is-open > * {
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  /* Border only when fully open — gone the instant close starts */
+  .nav-collapse.is-open {
+    grid-template-rows: 1fr;
+    border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
   }
 
   .nav-links {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-    padding: 1rem 1.2rem;
+    align-items: stretch;
+    gap: 0.15rem;
+    padding: 0.6rem 0.8rem 0.9rem;
   }
 
   .nav-links a {
-    padding: 0.5rem 0.2rem;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 0.9rem;
+    border-radius: 12px;
     color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 500;
+    /* Items slide in behind the panel as it opens. */
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.22s ease, transform 0.22s ease, background 0.18s ease;
+  }
+
+  /* Chevron: pure decoration, drawn from the border of an empty box.
+     Also overrides the desktop active underline, which is the same
+     pseudo-element — hence the .active selector carrying equal weight. */
+  .nav-links a::after,
+  .nav-links a.active::after {
+    content: "";
+    position: static;
+    display: block;
+    width: 7px;
+    height: 7px;
+    background: none;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    border-radius: 1px;
+    transform: rotate(-45deg);
+    opacity: 0.35;
+    flex-shrink: 0;
+    margin-right: 2px;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:active {
+    background: color-mix(in srgb, var(--text) 6%, transparent);
+  }
+
+  .nav-links a.active {
+    background: color-mix(in srgb, var(--text) 9%, transparent);
+    font-weight: 600;
   }
 
   .nav-links a.active::after {
-    display: none;
+    opacity: 0.7;
   }
+
+  .nav-collapse.is-open .nav-links a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger, so the two items resolve one after the other. */
+  .nav-collapse.is-open .nav-links li:nth-child(1) a {
+    transition-delay: 0.08s;
+  }
+
+  .nav-collapse.is-open .nav-links li:nth-child(2) a {
+    transition-delay: 0.14s;
+  }
+
 }
 
 /* ===== Layout ===== */

@@ -1,10 +1,4 @@
 /* ===== Cards ===== */
-.grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
 .card {
   width: 100%;
   background: var(--bg);
@@ -126,4 +120,20 @@
   background: var(--text);
   border-color: var(--text);
   color: var(--bg);
+}
+/* Pills are a real list now (they are a set of links), so the disc bullets
+   and indentation inherited from .card ul have to be undone. The .card
+   prefix is what makes these win: bare .pills loses to .card ul, which is
+   what pushed the pills 1.2rem right of their category heading. */
+.card .pills {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  /* A touch more air under the category heading than the .card ul default. */
+  margin-top: 0.75rem;
+}
+
+.card .pills li {
+  margin-bottom: 0;
+  display: flex;
 }

@@ -8,6 +8,10 @@
   --pill-text: #222;
   --nav-h: 56px;
   /* used for body padding when nav is fixed */
+
+  /* Lets the browser theme native controls (selects, scrollbars, focus rings)
+     to match the active palette. */
+  color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,4 +61,32 @@ h6 {
 /* ===== Utilities ===== */
 .text-muted {
   color: var(--muted) !important;
+}
+
+/* React mounts here; it sits between <body> and the app chrome, so it has to
+   carry the column layout that used to live directly on <body>. */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* ===== Focus visibility =====
+   The original site had no focus styles at all: keyboard users saw nothing. */
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ===== Motion preferences ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

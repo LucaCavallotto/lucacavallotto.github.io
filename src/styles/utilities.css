@@ -1,0 +1,126 @@
+/* ===== Minimal utility layer =====
+   Replaces the handful of Bootstrap classes the markup actually relied on
+   (flex helpers, the responsive grids and the screen-reader helper).
+   Breakpoints mirror Bootstrap's md/lg/xl so the layout keeps its old rhythm. */
+
+/* --- Flex helpers --- */
+.u-flex { display: flex; }
+.u-flex-col { flex-direction: column; }
+.u-items-center { align-items: center; }
+.u-items-start { align-items: flex-start; }
+.u-justify-center { justify-content: center; }
+.u-justify-between { justify-content: space-between; }
+.u-wrap { flex-wrap: wrap; }
+.u-grow { flex: 1 1 auto; }
+
+.u-gap-xs { gap: 0.5rem; }
+.u-gap-sm { gap: 0.75rem; }
+.u-gap-md { gap: 1rem; }
+.u-gap-lg { gap: 1.5rem; }
+
+.u-text-center { text-align: center; }
+
+/* --- Responsive grids --- */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Project cards: 1 col → 2 (md) → 3 (xl), matching the old col-md-6 col-xl-4 */
+.grid-projects {
+  grid-template-columns: 1fr;
+}
+
+/* Skills: full-width technical card, then two side-by-side columns from lg up */
+.grid-skills {
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+/* Filter selects: 1 col → 2 (md) → 4 (lg) */
+.grid-filters {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Home "Featured" intro next to the Project of the Day */
+.grid-featured {
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .grid-projects { grid-template-columns: repeat(2, 1fr); }
+  .grid-filters { grid-template-columns: repeat(2, 1fr); }
+  .grid-featured { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 992px) {
+  .grid-skills { grid-template-columns: repeat(2, 1fr); }
+  .grid-filters { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .grid-projects { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* The technical-skills card always spans the full skills grid */
+.grid-skills > .skills-full-width { grid-column: 1 / -1; }
+
+/* --- Accessibility helper (formerly Bootstrap's .visually-hidden) --- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Visible again on focus — used by the skip link */
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 2000;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* The skip link is a button, not an anchor: under HashRouter an href="#main"
+   would clobber the route in the URL. */
+.skip-link {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+main:focus {
+  outline: none;
+}
+
+.u-inline { display: inline; }
+
+/* Cards inside a grid cell stretch to the tallest sibling in their row. */
+.grid-projects > * {
+  display: flex;
+}
+
+.grid-projects .carousel-project-card {
+  flex: 1;
+}
