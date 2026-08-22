@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     initProjectsPage(projects);
     initSkillsPage(skillsData);
 
+    let lastMainView = '#projects';
+
     // Routing logic
     function handleRoute() {
       const hash = window.location.hash || '#home';
@@ -46,6 +48,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (hash.startsWith('#project/')) {
         activeView = '#project-detail';
+
+        // Update dynamic back button label
+        const backBtnText = document.getElementById('project-detail-back-text');
+        if (backBtnText) {
+          if (lastMainView === '#home') {
+            backBtnText.textContent = 'Back to Home';
+          } else if (lastMainView === '#skills') {
+            backBtnText.textContent = 'Back to Skills';
+          } else {
+            backBtnText.textContent = 'Back to Projects';
+          }
+        }
+
         const projectId = hash.split('/')[1];
         const project = projects.find(p => p.id === projectId);
         if (project) {
@@ -117,6 +132,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       } else {
         activeView = views.includes(hash) ? hash : '#home';
+        lastMainView = activeView;
       }
 
       // Show active view
@@ -162,7 +178,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const backBtn = document.getElementById('project-detail-back');
     if (backBtn) {
       backBtn.addEventListener('click', () => {
-        window.location.hash = '#projects';
+        window.location.hash = lastMainView || '#projects';
       });
     }
 
