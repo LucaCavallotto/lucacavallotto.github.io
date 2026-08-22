@@ -32,11 +32,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     initSkillsPage(skillsData);
 
     let lastMainView = '#projects';
+    let currentView = null;
+    const scrollPositions = {
+      '#home': 0,
+      '#skills': 0,
+      '#projects': 0
+    };
 
     // Routing logic
     function handleRoute() {
       const hash = window.location.hash || '#home';
       const views = ['#home', '#skills', '#projects', '#project-detail'];
+
+      // Save scroll position of the previous view if it was a main view
+      if (currentView && currentView !== '#project-detail' && views.includes(currentView)) {
+        scrollPositions[currentView] = window.scrollY;
+      }
+
+      const isReturningFromDetail = (currentView === '#project-detail');
 
       // Hide all views
       views.forEach(view => {
@@ -154,11 +167,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.body.style.paddingTop = '';
       }
 
+      // Restore scroll position when returning from detail view, otherwise reset to top
+      if (isReturningFromDetail && scrollPositions[activeView] !== undefined) {
+        window.scrollTo(0, scrollPositions[activeView]);
+      } else {
+        window.scrollTo(0, 0);
+      }
+
       // Re-initialize reveal animations for the shown view
       initReveal();
 
-      // Scroll to top
-      window.scrollTo(0, 0);
+      // Track active view as current for next transition
+      currentView = activeView;
 
       // Update navbar active state
       const links = document.querySelectorAll(".nav-links a, .brand");
