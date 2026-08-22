@@ -304,3 +304,38 @@
     padding: 3.5rem 1rem;
   }
 }
+/* ===== Card click target =====
+   The whole card opens the project, but the accessible name and focus ring
+   belong to the title link — the ::after overlay just widens its hit area. */
+.carousel-card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-link-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.carousel-project-card:has(.card-link-overlay) {
+  cursor: pointer;
+}
+
+.carousel-project-card:has(.card-link-overlay:focus-visible) {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+/* Focus is shown on the card instead, so the inline ring would be a duplicate. */
+.card-link-overlay:focus-visible {
+  outline: none;
+}
+
+/* Sits above the overlay so it stays clickable on its own. */
+.carousel-card-links {
+  position: relative;
+  z-index: 2;
+}
