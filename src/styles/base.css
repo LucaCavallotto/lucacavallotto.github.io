@@ -9,6 +9,10 @@
   --nav-h: 56px;
   /* used for body padding when nav is fixed */
 
+  /* One glass recipe, so every frosted surface of the navigation matches. */
+  --glass-bg: color-mix(in srgb, var(--bg) 85%, transparent);
+  --glass-blur: saturate(180%) blur(20px);
+
   /* Lets the browser theme native controls (selects, scrollbars, focus rings)
      to match the active palette. */
   color-scheme: light dark;

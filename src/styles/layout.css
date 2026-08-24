@@ -6,8 +6,21 @@ nav {
   left: 0;
   right: 0;
   z-index: 1000;
-  backdrop-filter: saturate(180%) blur(14px);
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
+}
+
+/* The bar's glass lives on a pseudo-element rather than on <nav> itself: a
+   backdrop-filter on the element would turn it into a backdrop root, and the
+   dropdown panel nested inside it could then only blur the bar's own fill
+   instead of the page. As a sibling of .nav-wrap, this layer stays out of the
+   panel's way, so bar and dropdown each frost the page with the same recipe. */
+nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  background: var(--glass-bg);
 }
 
 .nav-wrap {
@@ -31,7 +44,7 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.8rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -40,6 +53,7 @@ nav {
 .nav-links a {
   text-decoration: none;
   color: var(--muted);
+  font-size: 0.9rem;
   font-weight: 500;
   position: relative;
 }
@@ -67,12 +81,13 @@ nav {
   display: none;
   width: 40px;
   height: 40px;
-  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
-  border-radius: 10px;
+  border: none;
+  background: transparent;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 0;
+  color: var(--text);
 }
 
 .nav-toggle .hamburger,
@@ -118,22 +133,28 @@ nav {
    Replaces Bootstrap's .collapse plumbing: React toggles .is-open and the
    panel animates via grid-template-rows, which needs no JS height measuring. */
 @media (max-width: 768px) {
+  /* The dropdown wraps onto its own line inside the bar instead of floating
+     under it, so <nav> grows to contain it and nav::before can frost bar and
+     panel as ONE surface. Two separate glass layers always showed a seam
+     where each clamped its blur at its own edge. */
+  .nav-wrap {
+    flex-wrap: wrap;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
 
   .nav-collapse {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
+    /* Full-bleed line of its own: the basis exceeds the wrap's content box by
+       its horizontal padding, which both forces the wrap and lets the panel
+       reach the viewport edges. The margins cancel out at zero height, so the
+       closed bar keeps exactly its old height. */
+    flex: 0 0 calc(100% + 2.4rem);
+    margin: 0.9rem -1.2rem -0.9rem;
     display: grid;
     grid-template-rows: 0fr;
-    background: color-mix(in srgb, var(--bg) 96%, transparent);
-    backdrop-filter: saturate(180%) blur(14px);
-    -webkit-backdrop-filter: saturate(180%) blur(14px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    transition: grid-template-rows 0.28s ease;
+    transition: grid-template-rows 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* The clipping wrapper must carry no padding of its own: with
@@ -151,82 +172,75 @@ nav {
     transition-delay: 0s;
   }
 
-  /* Border only when fully open — gone the instant close starts */
   .nav-collapse.is-open {
     grid-template-rows: 1fr;
-    border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
   }
 
   .nav-links {
     flex-direction: column;
-    align-items: stretch;
-    gap: 0.15rem;
-    padding: 0.6rem 0.8rem 0.9rem;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.85rem 1.3rem 1.1rem;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .nav-links li {
+    width: 100%;
   }
 
   .nav-links a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.85rem 0.9rem;
-    border-radius: 12px;
+    display: block;
+    width: 100%;
+    padding: 0.45rem 0;
+    border-radius: 0;
     color: var(--text);
-    font-size: 1.05rem;
-    font-weight: 500;
-    /* Items slide in behind the panel as it opens. */
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    background: none;
     opacity: 0;
     transform: translateY(-6px);
-    transition: opacity 0.22s ease, transform 0.22s ease, background 0.18s ease;
+    transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Chevron: pure decoration, drawn from the border of an empty box.
-     Also overrides the desktop active underline, which is the same
-     pseudo-element — hence the .active selector carrying equal weight. */
+  /* Remove chevron/arrow and underline on mobile */
   .nav-links a::after,
   .nav-links a.active::after {
-    content: "";
-    position: static;
-    display: block;
-    width: 7px;
-    height: 7px;
-    background: none;
-    border-right: 1.5px solid currentColor;
-    border-bottom: 1.5px solid currentColor;
-    border-radius: 1px;
-    transform: rotate(-45deg);
-    opacity: 0.35;
-    flex-shrink: 0;
-    margin-right: 2px;
+    display: none;
+    content: none;
   }
 
   .nav-links a:hover,
   .nav-links a:active {
-    background: color-mix(in srgb, var(--text) 6%, transparent);
+    background: none;
+    opacity: 1;
   }
 
   .nav-links a.active {
-    background: color-mix(in srgb, var(--text) 9%, transparent);
-    font-weight: 600;
-  }
-
-  .nav-links a.active::after {
-    opacity: 0.7;
+    background: none;
+    opacity: 1;
+    color: var(--text);
   }
 
   .nav-collapse.is-open .nav-links a {
-    opacity: 1;
+    opacity: 0.85;
     transform: translateY(0);
+  }
+
+  .nav-collapse.is-open .nav-links a:hover,
+  .nav-collapse.is-open .nav-links a.active {
+    opacity: 1;
   }
 
   /* Stagger, so the two items resolve one after the other. */
   .nav-collapse.is-open .nav-links li:nth-child(1) a {
-    transition-delay: 0.08s;
+    transition-delay: 0.05s;
   }
 
   .nav-collapse.is-open .nav-links li:nth-child(2) a {
-    transition-delay: 0.14s;
+    transition-delay: 0.1s;
   }
-
 }
 
 /* ===== Layout ===== */
