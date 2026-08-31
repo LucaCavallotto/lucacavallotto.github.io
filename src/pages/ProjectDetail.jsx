@@ -1,5 +1,6 @@
 import { Link, Navigate, useLocation, useParams } from 'react-router-dom';
 import Icon from '../components/layout/Icon.jsx';
+import Reveal from '../components/layout/Reveal.jsx';
 import ProjectLinks from '../components/project/ProjectLinks.jsx';
 import { useDocumentTitle } from '../hooks/useDocumentTitle.js';
 import projects from '../data/projects.json';
@@ -32,15 +33,13 @@ export default function ProjectDetail() {
   ].filter(([, value]) => Boolean(value));
 
   return (
-    <section
-      className="container project-detail-page"
-      style={{ paddingTop: '5rem', paddingBottom: '5rem', maxWidth: '800px' }}
-    >
-      <Link to={backTo} className="glass-btn btn-pill">
-        <Icon name="arrow-left" size={18} /> {backLabel(backTo)}
+    <Reveal as="section" className="container project-detail-page">
+      <Link to={backTo} className="glass-btn btn-pill project-detail-back">
+        <Icon name="arrow-left" size={16} />
+        <span>{backLabel(backTo)}</span>
       </Link>
 
-      <header style={{ marginTop: '3rem' }}>
+      <header className="project-detail-header">
         <div className="project-detail-title-row">
           <div className="project-detail-icon" aria-hidden="true">
             {projectIcon(project)}
@@ -49,13 +48,11 @@ export default function ProjectDetail() {
         </div>
 
         {meta.length ? (
-          <dl className="project-detail-meta">
+          <dl className="project-detail-meta" aria-label="Project details">
             {meta.map(([label, value]) => (
-              <div key={label}>
-                <dt className="u-inline">
-                  <strong>{label}:</strong>
-                </dt>{' '}
-                <dd className="u-inline">{value}</dd>
+              <div key={label} className="project-detail-meta-item">
+                <dt className="project-detail-meta-label">{label}</dt>
+                <dd className="project-detail-meta-value">{value}</dd>
               </div>
             ))}
           </dl>
@@ -71,6 +68,7 @@ export default function ProjectDetail() {
         projectTitle={project.title}
         className="project-detail-links"
       />
-    </section>
+    </Reveal>
   );
 }
+

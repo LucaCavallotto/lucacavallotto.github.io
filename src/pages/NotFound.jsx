@@ -5,10 +5,7 @@ export default function NotFound() {
   useDocumentTitle('Page not found');
 
   return (
-    <section
-      className="container u-text-center"
-      style={{ paddingTop: '6rem', paddingBottom: '6rem' }}
-    >
+    <section className="container not-found-page u-text-center">
       <p className="eyebrow">404</p>
       <h1 className="home-section-title">Page not found</h1>
       <p className="subtitle" style={{ maxWidth: '480px', margin: '0 auto 2rem' }}>
