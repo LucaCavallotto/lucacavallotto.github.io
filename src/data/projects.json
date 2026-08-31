@@ -19,7 +19,7 @@
     ],
     "id": "racetechassistant",
     "description_short": "Simple fuel and setup strategy tools for sim racing",
-    "description_long": "A premium, responsive engineering assistant for sim racers to calculate optimal fuel strategy and precise tyre cold pressure adjustments. Designed with a retro-futuristic engineering-style interface, harmonized dark-mode color scheme, and smooth interactive micro-animations."
+    "description_long": "A strategic sim racing assistant designed to calculate optimal fuel loads and tyre cold pressure adjustments. Features a "
   },
   {
     "icon": "🏃",
@@ -41,7 +41,7 @@
     ],
     "id": "maratona",
     "description_short": "A calculator for training zones, paces, and distances for runners",
-    "description_long": "Welcome to Maratona! This is your comprehensive running calculator designed to quickly help you plan your training and race strategies."
+    "description_long": "A high-precision running companion and calculator designed for runners. Features dedicated pace, time, and distance solvers, quick Distance-Time-Pace (DTP) smart formulas, speed metric conversions, split calculations, and personalized 7-zone training pace profiles based on 10K benchmarks."
   },
   {
     "icon": "🧠",
@@ -63,7 +63,7 @@
     ],
     "id": "active-recall-hub",
     "description_short": "The ultimate tool to test your knowledge and create custom quizzes with ease",
-    "description_long": "The ultimate tool to test your knowledge and create custom quizzes with ease (This is a placeholder for the long description. You can edit this in projects.json to provide rich, detailed information about the project, its features, and the technologies used.)"
+    "description_long": "A dynamic and interactive multi-quiz web application for active recall learning. It hosts multiple quizzes across diverse topics and categories within a single platform, featuring customizable question sets, stopwatch and timer modes, instant vs. final correction feedback, a desktop quiz grill navigation sidebar, keyboard shortcuts, and detailed post-quiz answer reviews."
   },
   {
     "icon": "🏁",
@@ -85,7 +85,7 @@
     ],
     "id": "triplecrown",
     "description_short": "The all-in-one racing dashboard for schedules and news",
-    "description_long": "The all-in-one racing dashboard for schedules and news."
+    "description_long": "An all-in-one motorsport dashboard providing real-time race weekend schedules, session timetables, and consolidated paddock news feeds across major motorsport championships."
   },
   {
     "title": "Prompt-Library",
@@ -101,7 +101,7 @@
     ],
     "id": "prompt-library",
     "description_short": "Collection of reusable AI prompts, organized by use case",
-    "description_long": "A collection of high-performance prompts for coding, note-taking and architectural tasks."
+    "description_long": "A collection of AI prompts for coding, note-taking and architectural tasks."
   },
   {
     "icon": "💰",
@@ -139,7 +139,7 @@
     ],
     "id": "running-data-analysis",
     "description_short": "Data analysis of nearly a decade of personal running data",
-    "description_long": "This repository contains a data science project analyzing nearly a decade of personal running data. The data has been collected across various devices and platforms (Garmin, Xiaomi, manual Excel entries) and represents a complete timeline of athletic evolution, from early beginnings to structured, polarized training."
+    "description_long": "Data science project that analyzes almost a decade of personal running data. The data has been collected across various devices and platforms (Garmin, Xiaomi, manual Excel entries) and represents a complete timeline of athletic evolution, from early beginnings to structured, polarized training."
   },
   {
     "title": "MotorONE News",
@@ -155,7 +155,7 @@
     ],
     "id": "gutenberg-project-as2122",
     "description_short": "High school project about Motorsport news web application",
-    "description_long": "MotorONE News is a web application designed to deliver motorsport news and event schedules cleanly and effectively. Unregistered visitors can view Formula 1 timetables and access news for Formula 1, MotoGP, and WEC (World Endurance Competition). Registered users can personalize their news feeds through a preferences form to receive updates on additional motorsport series, including WRC, SuperBike, and NASCAR."
+    "description_long": "MotorONE News is a web application designed to deliver motorsport news and event schedules cleanly and effectively. Unregistered visitors can view Formula 1 timetables and access news for Formula 1, MotoGP, and WEC (World Endurance Championship). Registered users can personalize their news feeds through a preferences form to receive updates on additional motorsport series, including WRC, SuperBike, and NASCAR."
   },
   {
     "title": "JVM Compiler",
