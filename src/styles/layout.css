@@ -192,17 +192,18 @@ nav::before {
 
   .nav-links a {
     display: block;
-    width: 100%;
-    padding: 0.45rem 0;
-    border-radius: 0;
+    width: calc(100% + 1.6rem);
+    padding: 0.5rem 0.8rem;
+    margin: 0 -0.8rem;
+    border-radius: 8px;
     color: var(--text);
     font-size: 1.15rem;
     font-weight: 600;
     letter-spacing: -0.015em;
-    background: none;
+    background: transparent;
     opacity: 0;
     transform: translateY(-6px);
-    transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
   }
 
   /* Remove chevron/arrow and underline on mobile */
@@ -212,26 +213,20 @@ nav::before {
     content: none;
   }
 
-  .nav-links a:hover,
-  .nav-links a:active {
-    background: none;
-    opacity: 1;
-  }
-
-  .nav-links a.active {
-    background: none;
-    opacity: 1;
-    color: var(--text);
-  }
-
   .nav-collapse.is-open .nav-links a {
     opacity: 0.85;
     transform: translateY(0);
   }
 
-  .nav-collapse.is-open .nav-links a:hover,
-  .nav-collapse.is-open .nav-links a.active {
+  .nav-collapse.is-open .nav-links a:hover {
+    background: color-mix(in srgb, var(--text) 4%, transparent);
     opacity: 1;
+  }
+
+  .nav-collapse.is-open .nav-links a.active {
+    background: color-mix(in srgb, var(--text) 8%, transparent);
+    opacity: 1;
+    color: var(--text);
   }
 
   /* Stagger, so the two items resolve one after the other. */
@@ -241,6 +236,25 @@ nav::before {
 
   .nav-collapse.is-open .nav-links li:nth-child(2) a {
     transition-delay: 0.1s;
+  }
+
+  /* Reverse animation for closing */
+  .nav-collapse.is-open.is-closing {
+    grid-template-rows: 0fr;
+    border-bottom-color: transparent;
+  }
+
+  .nav-collapse.is-open.is-closing .nav-links a {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  .nav-collapse.is-open.is-closing .nav-links li:nth-child(2) a {
+    transition-delay: 0s;
+  }
+
+  .nav-collapse.is-open.is-closing .nav-links li:nth-child(1) a {
+    transition-delay: 0.05s;
   }
 }
 
