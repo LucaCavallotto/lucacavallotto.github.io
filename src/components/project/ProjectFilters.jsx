@@ -19,7 +19,7 @@ export default function ProjectFilters({
   hasActiveFilters,
   resultCount,
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(hasActiveFilters);
   const panelId = useId();
 
   const selects = [
@@ -79,7 +79,10 @@ export default function ProjectFilters({
                     id={`${panelId}-${key}`}
                     className="form-select glass-select"
                     value={filters[key]}
-                    onChange={(e) => onChange({ [key]: e.target.value })}
+                    onChange={(e) => {
+                      onChange({ [key]: e.target.value });
+                      e.target.blur();
+                    }}
                   >
                     <option value="">{all}</option>
                     {values.map((value) => (
@@ -99,7 +102,10 @@ export default function ProjectFilters({
                   id={`${panelId}-sort`}
                   className="form-select glass-select"
                   value={filters.sort}
-                  onChange={(e) => onChange({ sort: e.target.value })}
+                  onChange={(e) => {
+                    onChange({ sort: e.target.value });
+                    e.target.blur();
+                  }}
                 >
                   {SORT_OPTIONS.map(({ value, label }) => (
                     <option key={value} value={value}>

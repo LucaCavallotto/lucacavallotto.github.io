@@ -44,7 +44,7 @@ export default function Projects() {
   const groups = useMemo(() => groupProjects(visible, filters.sort), [visible, filters.sort]);
 
   const hasActiveFilters = Object.keys(DEFAULTS).some(
-    (key) => key !== 'sort' && filters[key] !== DEFAULTS[key]
+    (key) => filters[key] !== DEFAULTS[key]
   );
 
   const renderCard = (project, headingLevel) => (
