@@ -1,19 +1,19 @@
 [
   {
-    "icon": "🏎️",
-    "title": "RaceTechAssistant",
+    "icon": "⚙️",
+    "title": "RaceNG",
     "tag": "Personal",
     "language": "JavaScript",
     "release_date": "2025-09-08",
     "links": [
       {
         "text": "View on GitHub",
-        "url": "https://github.com/LucaCavallotto/RaceTechAssistant",
+        "url": "https://github.com/LucaCavallotto/RaceNG",
         "class": "me-3"
       },
       {
         "text": "Try it Live",
-        "url": "https://lucacavallotto.github.io/RaceTechAssistant/",
+        "url": "https://lucacavallotto.github.io/RaceNG/",
         "class": ""
       }
     ],
@@ -284,5 +284,21 @@
     "id": "sas-project-aa2425",
     "description_short": "Object-oriented Java system for catering event and menu management",
     "description_long": "An enterprise software engineering project developed for the Software Architecture & Systems course. Applies Object-Oriented Analysis & Design (OOAD), GoF design patterns, UML class and sequence diagrams, and a Java domain implementation for Cat & Ring—a catering platform orchestrating event management, chef menu composition, multi-role shift scheduling, kitchen task delegation, and recipe lifecycle states."
+  },
+  {
+    "title": "Oil-App",
+    "tag": "Personal",
+    "language": "Flutter",
+    "release_date": "2020-12-06",
+    "links": [
+      {
+        "text": "View on GitHub",
+        "url": "https://github.com/LucaCavallotto/Oil-App",
+        "class": "me-3"
+      }
+    ],
+    "id": "oil-app",
+    "description_short": "Calculate the fuel necessary for a race with Oil!",
+    "description_long": "A Flutter mobile application to accurately calculate fuel necessary for an Assetto Corsa Competizione Race."
   }
 ]
