@@ -17,7 +17,7 @@
         "class": ""
       }
     ],
-    "id": "racetechassistant",
+    "id": "raceng",
     "description_short": "Simple fuel and setup strategy tools for sim racing",
     "description_long": "A strategic sim racing assistant designed to calculate optimal fuel loads and tyre cold pressure adjustments. Features a "
   },
@@ -153,7 +153,7 @@
         "class": "me-3"
       }
     ],
-    "id": "gutenberg-project-as2122",
+    "id": "motorone-news",
     "description_short": "High school project about Motorsport news web application",
     "description_long": "MotorONE News is a web application designed to deliver motorsport news and event schedules cleanly and effectively. Unregistered visitors can view Formula 1 timetables and access news for Formula 1, MotoGP, and WEC (World Endurance Championship). Registered users can personalize their news feeds through a preferences form to receive updates on additional motorsport series, including WRC, SuperBike, and NASCAR."
   },
@@ -169,7 +169,7 @@
         "class": "me-3"
       }
     ],
-    "id": "lft-project-aa2324",
+    "id": "jvm-compiler",
     "description_short": "Java compiler translating custom language P into JVM bytecode",
     "description_long": "A complete compiler and formal language toolkit developed in Java for the Formal Languages and Compilers course. Features Deterministic Finite Automata (DFAs), a custom lexical analyzer with comment handling, an LL(1) recursive-descent parser for prefix expressions and control structures (if, for, assign), and a syntax-directed code generator emitting Jasmin assembly targeting executable JVM bytecode."
   },
@@ -185,7 +185,7 @@
         "class": "me-3"
       }
     ],
-    "id": "so-project-aa2324",
+    "id": "nuclear-reactor-simulator",
     "description_short": "Concurrent C simulation modeling atomic fission and energy production",
     "description_long": "A concurrent atomic chain reaction simulator developed in C for the Operating Systems course. Features a multi-process architecture consisting of Master, Atom, Activator, Feeder, and probabilistic Inhibitor processes. Implements POSIX shared memory, semaphores, message queues, UNIX signals, and modular execve process management without busy waiting, complete with real-time energy statistics and safe IPC cleanup handlers."
   },
@@ -201,7 +201,7 @@
         "class": "me-3"
       }
     ],
-    "id": "db-project-aa2324",
+    "id": "cibora-database",
     "description_short": "Relational database design and SQL implementation for food delivery",
     "description_long": "A comprehensive database engineering project for a food delivery ecosystem named Cibora, developed for the Database Systems course. Includes complete domain analysis, ER conceptual modeling, relational normalization, and complex SQL implementation featuring e-wallet transactions, Top Partner performance metrics, GPS-based rider dispatch constraints, user review systems, and automated monthly analytics rankings."
   },
@@ -217,7 +217,7 @@
         "class": "me-3"
       }
     ],
-    "id": "asd-project-aa2324",
+    "id": "algorithms-data-structures",
     "description_short": "Generic data structures and algorithms library in C and Java",
     "description_long": "A dual-language algorithms and data structures laboratory developed in C and Java. Features generic sorting implementations (Merge Sort, Quick Sort) benchmarked over 20M records, a dynamic programming Edit Distance spell checker, a generic Heap-based Priority Queue, and a Sparse Graph library implementing Prim's Minimum Spanning Forest algorithm benchmarked on real Italian geographical datasets."
   },
@@ -233,7 +233,7 @@
         "class": "me-3"
       }
     ],
-    "id": "prog3-project-aa2324",
+    "id": "javafx-mail-client",
     "description_short": "Multi-threaded JavaFX client-server email desktop application",
     "description_long": "A desktop mail system developed in Java for the Programming III course. Built on an asynchronous client-server architecture, it features a reactive JavaFX GUI with real-time inbox notifications, auto-reconnection resilience, and email operations (compose, reply, reply-all, forward) communicating over custom TCP sockets with object serialization and file-based server persistence."
   },
@@ -249,7 +249,7 @@
         "class": "me-3"
       }
     ],
-    "id": "ium-project-aa2425",
+    "id": "radio-unito-prototype",
     "description_short": "HCI user research, accessibility audit, and Figma web prototype",
     "description_long": "A Human-Computer Interaction project focused on user-centered design for Radio@UniTo, a university radio platform. Includes Nielsen heuristic usability evaluation on commercial radio sites, automated accessibility audits (WCAG), User Personas and Journey Mapping, structured Information Architecture, and a comprehensive high-fidelity interactive Figma prototype."
   },
@@ -265,7 +265,7 @@
         "class": "me-3"
       }
     ],
-    "id": "tweb-project-aa2425",
+    "id": "movie-analytics-platform",
     "description_short": "Full-stack cinema analytics platform with microservices and WebSockets",
     "description_long": "A distributed full-stack cinema analytics platform built for the Web Technologies course. Features an Express.js API gateway coordinating Express and Java Spring Boot microservices, dual persistence in MongoDB (reviews, ratings) and PostgreSQL (940k+ movies, 5.7M+ actors), real-time Socket.io topic chatrooms, an interactive Handlebars frontend, and Jupyter Notebooks for large-scale data analytics and geographical visualizations."
   },
@@ -281,7 +281,7 @@
         "class": "me-3"
       }
     ],
-    "id": "sas-project-aa2425",
+    "id": "cat-ring",
     "description_short": "Object-oriented Java system for catering event and menu management",
     "description_long": "An enterprise software engineering project developed for the Software Architecture & Systems course. Applies Object-Oriented Analysis & Design (OOAD), GoF design patterns, UML class and sequence diagrams, and a Java domain implementation for Cat & Ring—a catering platform orchestrating event management, chef menu composition, multi-role shift scheduling, kitchen task delegation, and recipe lifecycle states."
   },
