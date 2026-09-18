@@ -20,7 +20,7 @@ export default function Home() {
   const featured = useMemo(() => getFeaturedProjects(projects), []);
 
   return (
-    <>
+    <div className="page-fade-in">
       <section className="home-hero" aria-labelledby="hero-title">
         <div className="home-hero-inner">
           <h1 className="main-title" id="hero-title">
@@ -97,6 +97,6 @@ export default function Home() {
           />
         </div>
       </Reveal>
-    </>
+    </div>
   );
 }

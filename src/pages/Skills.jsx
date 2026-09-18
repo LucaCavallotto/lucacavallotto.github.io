@@ -21,7 +21,7 @@ export default function Skills() {
   }));
 
   return (
-    <section className="container skills-page">
+    <section className="container skills-page page-fade-in">
       <header className="hero u-text-center">
         <p className="eyebrow">Profile</p>
         <h1 className="home-section-title" style={{ marginBottom: '1rem' }}>
