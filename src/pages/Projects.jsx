@@ -58,7 +58,7 @@ export default function Projects() {
   );
 
   return (
-    <section className="container">
+    <section className="container page-fade-in">
       <header className="hero u-text-center">
         <p className="eyebrow">Portfolio</p>
         <h1 className="home-section-title" style={{ marginBottom: '1rem' }}>

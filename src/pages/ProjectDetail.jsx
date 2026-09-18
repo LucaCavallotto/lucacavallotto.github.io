@@ -33,7 +33,7 @@ export default function ProjectDetail() {
   ].filter(([, value]) => Boolean(value));
 
   return (
-    <Reveal as="section" className="container project-detail-page">
+    <Reveal as="section" className="container project-detail-page page-fade-in">
       <Link to={backTo} className="glass-btn btn-pill project-detail-back">
         <Icon name="arrow-left" size={16} />
         <span>{backLabel(backTo)}</span>

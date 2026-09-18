@@ -329,17 +329,6 @@ footer {
   margin: 0;
 }
 
-/* ===== Scroll reveal animation ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* ===== Social links (used in Footer and Hero) ===== */
 .social-links {
