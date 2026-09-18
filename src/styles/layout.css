@@ -53,7 +53,6 @@ nav::before {
 .nav-links a {
   text-decoration: none;
   color: var(--muted);
-  font-size: 0.9rem;
   font-weight: 500;
   position: relative;
 }
