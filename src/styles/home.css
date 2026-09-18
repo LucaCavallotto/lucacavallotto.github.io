@@ -199,6 +199,7 @@
 }
 
 .carousel-link-primary {
+  display: inline-block;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--bg);
@@ -206,15 +207,16 @@
   text-decoration: none;
   padding: 0.35rem 1rem;
   border-radius: 999px;
-  transition: opacity 0.18s ease;
+  transition: transform 0.2s ease;
   white-space: nowrap;
 }
 
 .carousel-link-primary:hover {
-  opacity: 0.8;
+  transform: scale(1.05);
 }
 
 .carousel-link-ghost {
+  display: inline-block;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--muted);
