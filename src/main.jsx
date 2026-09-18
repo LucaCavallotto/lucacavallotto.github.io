@@ -10,12 +10,26 @@ import './styles/components.css';
 import './styles/home.css';
 import './styles/pages.css';
 
-// The pre-React site used bare hashes (#skills, #project/foo); HashRouter
-// expects a path (#/skills). Rewrite old links before the router reads them.
-const legacyHash = window.location.hash.slice(1);
-if (legacyHash && !legacyHash.startsWith('/')) {
-  const path = legacyHash === 'home' ? '' : legacyHash;
-  window.history.replaceState(null, '', `${window.location.pathname}#/${path}`);
+let currentPathname = window.location.pathname;
+let currentHash = window.location.hash;
+let needsRewrite = false;
+
+// 1. Remove index.html from the path to keep URLs clean
+if (currentPathname.endsWith('index.html')) {
+  currentPathname = currentPathname.replace(/index\.html$/, '');
+  needsRewrite = true;
+}
+
+// 2. Rewrite old bare hashes to HashRouter paths
+const legacyHashStr = currentHash.slice(1);
+if (legacyHashStr && !legacyHashStr.startsWith('/')) {
+  const routerPath = legacyHashStr === 'home' ? '' : legacyHashStr;
+  currentHash = `#/${routerPath}`;
+  needsRewrite = true;
+}
+
+if (needsRewrite) {
+  window.history.replaceState(null, '', `${currentPathname}${currentHash}`);
 }
 
 createRoot(document.getElementById('root')).render(
