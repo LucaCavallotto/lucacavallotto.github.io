@@ -62,7 +62,11 @@ export default function Navbar() {
   return (
     <nav ref={navRef} aria-label="Main">
       <div className="nav-wrap">
-        <NavLink className="brand" to="/">
+        <NavLink 
+          className="brand" 
+          to="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
           Luca Cavallotto
         </NavLink>
 
