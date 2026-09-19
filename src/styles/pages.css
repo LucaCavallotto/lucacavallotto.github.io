@@ -149,8 +149,8 @@
   font-weight: 800;
   color: var(--text);
   letter-spacing: -0.02em;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
   width: 100%;
 }
 
@@ -204,7 +204,7 @@ a.glass-btn {
 
 /* ===== Project group headings (year / label sorting) ===== */
 .project-group+.project-group {
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 /* ===== Skills page cards stack ===== */
