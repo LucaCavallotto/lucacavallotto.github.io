@@ -211,7 +211,27 @@ a.glass-btn {
   gap: 0.5rem;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--text) 30%, transparent);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  color: var(--text);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .project-detail-back:hover {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--bg);
+  }
+}
+
+.project-detail-back:active {
+  transform: scale(0.95);
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
 }
 
 .project-detail-header {

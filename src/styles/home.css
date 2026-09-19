@@ -213,8 +213,14 @@
   white-space: nowrap;
 }
 
-.carousel-link-primary:hover {
-  transform: scale(1.05);
+@media (hover: hover) {
+  .carousel-link-primary:hover {
+    transform: scale(1.05);
+  }
+}
+
+.carousel-link-primary:active {
+  transform: scale(0.95);
 }
 
 .carousel-link-ghost {
@@ -229,7 +235,13 @@
   padding: 0.35rem 0;
 }
 
-.carousel-link-ghost:hover {
+@media (hover: hover) {
+  .carousel-link-ghost:hover {
+    color: var(--text);
+  }
+}
+
+.carousel-link-ghost:active {
   color: var(--text);
 }
 
@@ -244,7 +256,7 @@
   padding: calc(0.65rem - 1px) calc(1.4rem - 1px);
   border: 1px solid color-mix(in srgb, var(--text) 30%, transparent);
   border-radius: 999px;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
 }
 
@@ -252,10 +264,19 @@
   margin-left: auto;
 }
 
-.carousel-link-outline:hover {
+@media (hover: hover) {
+  .carousel-link-outline:hover {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--bg);
+  }
+}
+
+.carousel-link-outline:active {
   background: var(--text);
   border-color: var(--text);
   color: var(--bg);
+  transform: scale(0.95);
 }
 
 .carousel-ctrl {
@@ -269,18 +290,28 @@
   align-items: center;
   justify-content: center;
   opacity: 0.75;
-  transition: opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
   backdrop-filter: blur(8px);
   flex-shrink: 0;
   cursor: pointer;
   color: var(--text);
 }
 
-.carousel-ctrl:hover {
+@media (hover: hover) {
+  .carousel-ctrl:hover {
+    opacity: 1;
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--bg);
+  }
+}
+
+.carousel-ctrl:active {
   opacity: 1;
   background: var(--text);
   border-color: var(--text);
   color: var(--bg);
+  transform: scale(0.95);
 }
 
 .carousel-ctrl-icon {
