@@ -28,8 +28,7 @@ export default function Skills() {
           Skills &amp; Background
         </h1>
         <p className="subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
-          Computer Engineering student driven by curiosity. I love building digital experiences,
-          exploring new technologies, and continuously learning.
+          Explore my technical skills and academic background.
         </p>
       </header>
 
