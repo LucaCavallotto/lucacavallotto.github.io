@@ -196,10 +196,12 @@
   gap: 0.75rem;
   align-items: center;
   flex-shrink: 0;
+  min-height: 40px;
 }
 
 .carousel-link-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--bg);
@@ -216,17 +218,44 @@
 }
 
 .carousel-link-ghost {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.2s ease;
   white-space: nowrap;
+  padding: 0.35rem 0;
 }
 
 .carousel-link-ghost:hover {
   color: var(--text);
+}
+
+.carousel-link-outline {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  background: transparent;
+  text-decoration: none;
+  padding: calc(0.65rem - 1px) calc(1.4rem - 1px);
+  border: 1px solid color-mix(in srgb, var(--text) 30%, transparent);
+  border-radius: 999px;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.carousel-card-links .carousel-link-outline {
+  margin-left: auto;
+}
+
+.carousel-link-outline:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
 }
 
 .carousel-ctrl {
@@ -306,6 +335,7 @@
     padding: 3.5rem 1rem;
   }
 }
+
 /* ===== Card click target =====
    The whole card opens the project, but the accessible name and focus ring
    belong to the title link — the ::after overlay just widens its hit area. */

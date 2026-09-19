@@ -28,7 +28,7 @@ export function formatReleaseDate(value) {
 export function linkVariant(link) {
   if (link.text === 'View on GitHub') return 'carousel-link-ghost';
   if (link.text === 'Try it Live') return 'carousel-link-primary';
-  return 'btn-outline-custom';
+  return 'carousel-link-outline';
 }
 
 /** Index of the day, shared by POTD and the featured shuffle so both rotate together. */
