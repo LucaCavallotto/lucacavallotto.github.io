@@ -98,7 +98,8 @@
   }
 }
 
-.glass-btn:active {
+.glass-btn:active,
+.glass-btn.is-pressed {
   background: var(--text);
   border-color: var(--text);
   color: var(--bg);
@@ -243,7 +244,8 @@ a.glass-btn {
   }
 }
 
-.project-detail-back:active {
+.project-detail-back:active,
+.project-detail-back.is-pressed {
   transform: scale(0.95);
   background: var(--text);
   border-color: var(--text);

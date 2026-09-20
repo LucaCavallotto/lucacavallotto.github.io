@@ -124,7 +124,8 @@
   }
 }
 
-.btn-outline-custom:active {
+.btn-outline-custom:active,
+.btn-outline-custom.is-pressed {
   background: var(--text);
   border-color: var(--text);
   color: var(--bg);

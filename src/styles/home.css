@@ -219,7 +219,8 @@
   }
 }
 
-.carousel-link-primary:active {
+.carousel-link-primary:active,
+.carousel-link-primary.is-pressed {
   transform: scale(0.95);
 }
 
@@ -241,7 +242,8 @@
   }
 }
 
-.carousel-link-ghost:active {
+.carousel-link-ghost:active,
+.carousel-link-ghost.is-pressed {
   color: var(--text);
 }
 
@@ -272,7 +274,8 @@
   }
 }
 
-.carousel-link-outline:active {
+.carousel-link-outline:active,
+.carousel-link-outline.is-pressed {
   background: var(--text);
   border-color: var(--text);
   color: var(--bg);
@@ -306,7 +309,8 @@
   }
 }
 
-.carousel-ctrl:active {
+.carousel-ctrl:active,
+.carousel-ctrl.is-pressed {
   opacity: 1;
   background: var(--text);
   border-color: var(--text);

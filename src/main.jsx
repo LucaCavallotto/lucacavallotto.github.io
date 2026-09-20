@@ -32,6 +32,43 @@ if (needsRewrite) {
   window.history.replaceState(null, '', `${currentPathname}${currentHash}`);
 }
 
+// 3. Reliable mobile tap feedback — iOS Safari does not fire :active on
+//    elements that trigger client-side navigation (React Router <Link>) or
+//    on <button> elements in many contexts. This event-delegated approach
+//    toggles a .is-pressed class so CSS can style taps reliably.
+const PRESSED_SELECTOR =
+  '.btn-outline-custom, .carousel-ctrl, .carousel-link-primary, ' +
+  '.carousel-link-outline, .glass-btn, .project-detail-back';
+
+document.addEventListener(
+  'touchstart',
+  (e) => {
+    const el = e.target.closest(PRESSED_SELECTOR);
+    if (el) el.classList.add('is-pressed');
+  },
+  { passive: true },
+);
+
+document.addEventListener(
+  'touchend',
+  () => {
+    document.querySelectorAll('.is-pressed').forEach((el) => {
+      el.classList.remove('is-pressed');
+    });
+  },
+  { passive: true },
+);
+
+document.addEventListener(
+  'touchcancel',
+  () => {
+    document.querySelectorAll('.is-pressed').forEach((el) => {
+      el.classList.remove('is-pressed');
+    });
+  },
+  { passive: true },
+);
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HashRouter>
