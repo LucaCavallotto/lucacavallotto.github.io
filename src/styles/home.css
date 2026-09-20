@@ -153,6 +153,13 @@
   box-shadow: 0 12px 24px color-mix(in srgb, var(--text) 5%, transparent);
 }
 
+.carousel-project-card:has(.card-link-overlay:active),
+.carousel-project-card.is-pressed {
+  transform: scale(0.97);
+  box-shadow: none;
+  transition-duration: 0.1s;
+}
+
 .carousel-card-header {
   display: flex;
   align-items: center;

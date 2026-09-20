@@ -38,7 +38,8 @@ if (needsRewrite) {
 //    toggles a .is-pressed class so CSS can style taps reliably.
 const PRESSED_SELECTOR =
   '.btn-outline-custom, .carousel-ctrl, .carousel-link-primary, ' +
-  '.carousel-link-outline, .glass-btn, .project-detail-back';
+  '.carousel-link-outline, .glass-btn, .project-detail-back, ' +
+  '.carousel-project-card';
 
 document.addEventListener(
   'touchstart',
