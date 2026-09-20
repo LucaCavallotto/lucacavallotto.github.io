@@ -230,7 +230,7 @@ a.glass-btn {
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--text) 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
   color: var(--text);
   text-decoration: none;
