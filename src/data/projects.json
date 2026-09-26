@@ -143,7 +143,7 @@
   },
   {
     "title": "MotorONE News",
-    "tag": "Academic",
+    "tag": "High School",
     "language": "PHP",
     "release_date": "2022-07-01",
     "links": [
@@ -159,7 +159,7 @@
   },
   {
     "title": "JVM Compiler",
-    "tag": "Academic",
+    "tag": "BSc",
     "language": "Java",
     "release_date": "2024-01-30",
     "links": [
@@ -175,7 +175,7 @@
   },
   {
     "title": "Nuclear Reactor Simulator",
-    "tag": "Academic",
+    "tag": "BSc",
     "language": "C",
     "release_date": "2024-06-03",
     "links": [
@@ -191,7 +191,7 @@
   },
   {
     "title": "Cibora Database",
-    "tag": "Academic",
+    "tag": "BSc",
     "language": "SQL",
     "release_date": "2024-06-21",
     "links": [
@@ -207,7 +207,7 @@
   },
   {
     "title": "Algorithms & Data Structures",
-    "tag": "Academic",
+    "tag": "BSc",
     "language": "C / Java",
     "release_date": "2024-06-24",
     "links": [
@@ -223,7 +223,7 @@
   },
   {
     "title": "JavaFX Mail Client",
-    "tag": "Academic",
+    "tag": "BSc",
     "language": "Java",
     "release_date": "2025-01-28",
     "links": [
@@ -239,7 +239,7 @@
   },
   {
     "title": "Radio@UniTo Prototype",
-    "tag": "Academic",
+    "tag": "BSc",
     "language": "Figma",
     "release_date": "2024-12-18",
     "links": [
@@ -255,7 +255,7 @@
   },
   {
     "title": "Movie Analytics Platform",
-    "tag": "Academic",
+    "tag": "BSc",
     "language": "JavaScript",
     "release_date": "2025-06-11",
     "links": [
@@ -271,7 +271,7 @@
   },
   {
     "title": "Cat & Ring",
-    "tag": "Academic",
+    "tag": "BSc",
     "language": "Java",
     "release_date": "2025-06-18",
     "links": [
@@ -300,5 +300,15 @@
     "id": "oil-app",
     "description_short": "Calculate the fuel necessary for a race with Oil!",
     "description_long": "A Flutter mobile application to accurately calculate fuel necessary for an Assetto Corsa Competizione Race."
+  },
+  {
+    "title": "Protocol Compiler",
+    "tag": "BSc",
+    "language": "Java / ANTLR",
+    "release_date": "2025-11-06",
+    "id": "protocol-compiler",
+    "description_short": "Formal language compiler translating multi-agent protocol specifications into executable rules",
+    "description_long": "My Bachelor's Thesis project developing a formal language compiler to support the design and validation of informational protocols for multi-agent systems. Built with Java and ANTLR 4, the software implements a complete translation pipeline—from parsing to syntactic-semantic checking and code generation. It converts declarative BSPL specifications into the CLIPS expert system language, leveraging a modular Visitor-pattern architecture to bridge abstract conceptual modeling with automated rule-based verification.",
+    "links": []
   }
 ]
