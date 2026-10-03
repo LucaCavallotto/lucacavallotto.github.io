@@ -12,8 +12,21 @@ import { NAV_ITEMS } from '../../lib/constants.js';
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef(null);
   const { pathname } = useLocation();
+
+  const isHome = pathname === '/';
+
+  // Handle scroll to fade in brand
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    handleScroll(); // Check initial position
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Any navigation closes the menu.
   useEffect(() => {
@@ -63,7 +76,7 @@ export default function Navbar() {
     <nav ref={navRef} aria-label="Main">
       <div className="nav-wrap">
         <NavLink 
-          className="brand" 
+          className={`brand ${isHome && !isScrolled && !open ? 'brand-hidden' : ''}`.trim()} 
           to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >

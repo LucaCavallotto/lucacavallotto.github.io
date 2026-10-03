@@ -39,6 +39,12 @@ nav::before {
   letter-spacing: -0.015em;
   text-decoration: none;
   color: var(--text);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.brand.brand-hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .nav-links {
