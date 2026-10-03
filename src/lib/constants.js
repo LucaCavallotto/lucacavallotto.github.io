@@ -18,7 +18,7 @@ export const CAROUSEL_AUTOPLAY_INTERVAL = 3000;
 /** How long autoplay stays paused after a manual navigation. */
 export const CAROUSEL_RESUME_DELAY = 5000;
 
-export const FEATURED_PROJECT_COUNT = 4;
+export const FEATURED_PROJECT_COUNT = 5;
 
 export const SORT_OPTIONS = [
   { value: 'name', label: 'Sort by: Name (A-Z)' },

@@ -29,7 +29,22 @@ export function useCarousel(itemCount) {
   const [hovered, setHovered] = useState(false);
   // Set after a manual interaction, so autoplay does not fight the visitor.
   const [suspended, setSuspended] = useState(false);
+  const [inView, setInView] = useState(false);
   const resumeTimer = useRef(null);
+  const containerRef = useRef(null);
+
+  // Track visibility to pause when off-screen
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Snap back to the first slide when the breakpoint changes the page count.
   useEffect(() => {
@@ -69,7 +84,7 @@ export function useCarousel(itemCount) {
   );
 
   const autoplayRunning =
-    !reducedMotion && !manuallyPaused && !hovered && !suspended && pageCount > 1;
+    !reducedMotion && !manuallyPaused && !hovered && !suspended && inView && pageCount > 1;
 
   useEffect(() => {
     if (!autoplayRunning) return undefined;
@@ -98,5 +113,6 @@ export function useCarousel(itemCount) {
       onMouseEnter: () => setHovered(true),
       onMouseLeave: () => setHovered(false),
     },
+    containerRef,
   };
 }

@@ -20,6 +20,7 @@ export default function ProjectCarousel({ projects, actions }) {
     manuallyPaused,
     toggleManualPause,
     hoverHandlers,
+    containerRef,
   } = useCarousel(projects.length);
 
   const swipeHandlers = useSwipe(next, prev);
@@ -27,7 +28,7 @@ export default function ProjectCarousel({ projects, actions }) {
   if (!projects.length) return null;
 
   return (
-    <div {...hoverHandlers}>
+    <div ref={containerRef} {...hoverHandlers}>
       <div className="carousel-outer" style={{ marginTop: '2rem' }}>
         <div
           className="custom-slider"
