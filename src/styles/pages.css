@@ -231,7 +231,7 @@ a.glass-btn {
   padding: 0.5rem 1rem;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
   color: var(--text);
   text-decoration: none;
 }
@@ -239,8 +239,15 @@ a.glass-btn {
 @media (hover: hover) {
   .project-detail-back:hover {
     background: var(--text);
-    border-color: var(--text);
+    border-color: transparent;
     color: var(--bg);
+  }
+
+  .project-detail-back:active {
+    background: var(--text);
+    border-color: transparent;
+    color: var(--bg);
+    transform: scale(0.95);
   }
 }
 
@@ -248,8 +255,10 @@ a.glass-btn {
 .project-detail-back.is-pressed {
   transform: scale(0.95);
   background: var(--text);
-  border-color: var(--text);
+  border-color: transparent;
   color: var(--bg);
+  box-shadow: none;
+  transition-duration: 0.08s;
 }
 
 .project-detail-header {
@@ -323,7 +332,8 @@ a.glass-btn {
   color: var(--text);
   margin-bottom: 1.5rem;
   padding-top: 0;
-  max-width: 75ch; /* Constrain reading width */
+  max-width: 75ch;
+  /* Constrain reading width */
 }
 
 .project-detail-body p {

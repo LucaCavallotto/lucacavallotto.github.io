@@ -41,9 +41,12 @@ const PRESSED_SELECTOR =
   '.carousel-link-outline, .glass-btn, .project-detail-back, ' +
   '.carousel-project-card';
 
+let touchStartTime = 0;
+
 document.addEventListener(
   'touchstart',
   (e) => {
+    touchStartTime = Date.now();
     const el = e.target.closest(PRESSED_SELECTOR);
     if (el) el.classList.add('is-pressed');
   },
@@ -53,9 +56,13 @@ document.addEventListener(
 document.addEventListener(
   'touchend',
   () => {
-    document.querySelectorAll('.is-pressed').forEach((el) => {
-      el.classList.remove('is-pressed');
-    });
+    const elapsed = Date.now() - touchStartTime;
+    const delay = Math.max(0, 100 - elapsed);
+    setTimeout(() => {
+      document.querySelectorAll('.is-pressed').forEach((el) => {
+        el.classList.remove('is-pressed');
+      });
+    }, delay);
   },
   { passive: true },
 );

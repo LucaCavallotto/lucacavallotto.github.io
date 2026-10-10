@@ -4,21 +4,57 @@
    Breakpoints mirror Bootstrap's md/lg/xl so the layout keeps its old rhythm. */
 
 /* --- Flex helpers --- */
-.u-flex { display: flex; }
-.u-flex-col { flex-direction: column; }
-.u-items-center { align-items: center; }
-.u-items-start { align-items: flex-start; }
-.u-justify-center { justify-content: center; }
-.u-justify-between { justify-content: space-between; }
-.u-wrap { flex-wrap: wrap; }
-.u-grow { flex: 1 1 auto; }
+.u-flex {
+  display: flex;
+}
 
-.u-gap-xs { gap: 0.5rem; }
-.u-gap-sm { gap: 0.75rem; }
-.u-gap-md { gap: 1rem; }
-.u-gap-lg { gap: 1.5rem; }
+.u-flex-col {
+  flex-direction: column;
+}
 
-.u-text-center { text-align: center; }
+.u-items-center {
+  align-items: center;
+}
+
+.u-items-start {
+  align-items: flex-start;
+}
+
+.u-justify-center {
+  justify-content: center;
+}
+
+.u-justify-between {
+  justify-content: space-between;
+}
+
+.u-wrap {
+  flex-wrap: wrap;
+}
+
+.u-grow {
+  flex: 1 1 auto;
+}
+
+.u-gap-xs {
+  gap: 0.5rem;
+}
+
+.u-gap-sm {
+  gap: 0.75rem;
+}
+
+.u-gap-md {
+  gap: 1rem;
+}
+
+.u-gap-lg {
+  gap: 1.5rem;
+}
+
+.u-text-center {
+  text-align: center;
+}
 
 /* --- Responsive grids --- */
 .grid {
@@ -51,22 +87,39 @@
 }
 
 @media (min-width: 768px) {
-  .grid-projects { grid-template-columns: repeat(2, 1fr); }
-  .grid-filters { grid-template-columns: repeat(2, 1fr); }
-  .grid-featured { grid-template-columns: repeat(2, 1fr); }
+  .grid-projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-filters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-featured {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 992px) {
-  .grid-skills { grid-template-columns: repeat(2, 1fr); }
-  .grid-filters { grid-template-columns: repeat(4, 1fr); }
+  .grid-skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-filters {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (min-width: 1200px) {
-  .grid-projects { grid-template-columns: repeat(3, 1fr); }
+  .grid-projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* The technical-skills card always spans the full skills grid */
-.grid-skills > .skills-full-width { grid-column: 1 / -1; }
+.grid-skills>.skills-full-width {
+  grid-column: 1 / -1;
+}
 
 /* --- Accessibility helper (formerly Bootstrap's .visually-hidden) --- */
 .visually-hidden {
@@ -114,10 +167,12 @@ main:focus {
   outline: none;
 }
 
-.u-inline { display: inline; }
+.u-inline {
+  display: inline;
+}
 
 /* Cards inside a grid cell stretch to the tallest sibling in their row. */
-.grid-projects > * {
+.grid-projects>* {
   display: flex;
 }
 

@@ -145,18 +145,16 @@
   flex-direction: column;
   gap: 0.8rem;
   position: relative;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .carousel-project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px color-mix(in srgb, var(--text) 5%, transparent);
 }
 
 .carousel-project-card:has(.card-link-overlay:active),
 .carousel-project-card.is-pressed {
   transform: scale(0.97);
-  box-shadow: none;
   transition-duration: 0.1s;
 }
 
@@ -265,7 +263,7 @@
   padding: calc(0.65rem - 1px) calc(1.4rem - 1px);
   border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
   border-radius: 999px;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
   white-space: nowrap;
 }
 
@@ -276,17 +274,26 @@
 @media (hover: hover) {
   .carousel-link-outline:hover {
     background: var(--text);
-    border-color: var(--text);
+    border-color: transparent;
     color: var(--bg);
+  }
+
+  .carousel-link-outline:active {
+    background: var(--text);
+    border-color: transparent;
+    color: var(--bg);
+    transform: scale(0.95);
   }
 }
 
 .carousel-link-outline:active,
 .carousel-link-outline.is-pressed {
   background: var(--text);
-  border-color: var(--text);
+  border-color: transparent;
   color: var(--bg);
+  box-shadow: none;
   transform: scale(0.95);
+  transition-duration: 0.08s;
 }
 
 .carousel-ctrl {
@@ -300,19 +307,31 @@
   align-items: center;
   justify-content: center;
   opacity: 0.75;
-  transition: opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
   backdrop-filter: blur(8px);
   flex-shrink: 0;
   cursor: pointer;
   color: var(--text);
 }
 
+.carousel-ctrl:focus:not(:focus-visible) {
+  outline: none;
+}
+
 @media (hover: hover) {
   .carousel-ctrl:hover {
     opacity: 1;
     background: var(--text);
-    border-color: var(--text);
+    border-color: transparent;
     color: var(--bg);
+  }
+
+  .carousel-ctrl:active {
+    opacity: 1;
+    background: var(--text);
+    border-color: transparent;
+    color: var(--bg);
+    transform: scale(0.95);
   }
 }
 
@@ -320,9 +339,11 @@
 .carousel-ctrl.is-pressed {
   opacity: 1;
   background: var(--text);
-  border-color: var(--text);
+  border-color: transparent;
   color: var(--bg);
+  box-shadow: none;
   transform: scale(0.95);
+  transition-duration: 0.08s;
 }
 
 .carousel-ctrl-icon {
