@@ -243,15 +243,20 @@ nav::before {
     transition-delay: 0.1s;
   }
 
-  /* Reverse animation for closing */
+  /* Reverse animation for closing: ease the collapse gently so link slide/fade remains visible */
   .nav-collapse.is-open.is-closing {
     grid-template-rows: 0fr;
     border-bottom-color: transparent;
+    transition: grid-template-rows 0.26s cubic-bezier(0.4, 0, 0.2, 1), border-bottom-color 0.2s ease;
   }
 
-  .nav-collapse.is-open.is-closing .nav-links a {
+  .nav-collapse.is-open.is-closing .nav-links a,
+  .nav-collapse.is-open.is-closing .nav-links a:hover,
+  .nav-collapse.is-open.is-closing .nav-links a.active {
     opacity: 0;
     transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease;
   }
 
   .nav-collapse.is-open.is-closing .nav-links li:nth-child(2) a {
@@ -259,7 +264,7 @@ nav::before {
   }
 
   .nav-collapse.is-open.is-closing .nav-links li:nth-child(1) a {
-    transition-delay: 0.05s;
+    transition-delay: 0.04s;
   }
 }
 

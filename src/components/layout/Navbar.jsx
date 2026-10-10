@@ -28,24 +28,44 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Any navigation closes the menu.
+  // Helper to trigger smooth closing animation
+  const closeMenu = () => {
+    if (open && !isClosing) {
+      setIsClosing(true);
+    }
+  };
+
+  // Any navigation closes the menu with animation.
   useEffect(() => {
     if (open && !isClosing) {
       setIsClosing(true);
     }
   }, [pathname]);
 
+  // Safety timer to finalize state if transitionend is ever dropped by the browser
+  useEffect(() => {
+    if (!isClosing) return undefined;
+    const timer = setTimeout(() => {
+      setOpen(false);
+      setIsClosing(false);
+    }, 350);
+    return () => clearTimeout(timer);
+  }, [isClosing]);
+
   useEffect(() => {
     if (!open) return undefined;
 
-    const close = () => {
-      if (!isClosing) setIsClosing(true);
-    };
     const onPointerDown = (e) => {
-      if (navRef.current && !navRef.current.contains(e.target)) close();
+      if (navRef.current && !navRef.current.contains(e.target)) closeMenu();
+    };
+    const onTouchStart = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) closeMenu();
     };
     const onKeyDown = (e) => {
-      if (e.key === 'Escape') close();
+      if (e.key === 'Escape') closeMenu();
+    };
+    const onScroll = () => {
+      closeMenu();
     };
     const onResize = () => {
       if (window.innerWidth > 768) {
@@ -55,18 +75,22 @@ export default function Navbar() {
     };
 
     document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('touchstart', onTouchStart, { passive: true });
     document.addEventListener('keydown', onKeyDown);
+    window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);
 
     return () => {
       document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('touchstart', onTouchStart);
       document.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
     };
   }, [open, isClosing]);
 
   const handleTransitionEnd = (e) => {
-    if (isClosing && e.target.classList.contains('nav-collapse') && e.propertyName === 'grid-template-rows') {
+    if (isClosing && e.target === e.currentTarget && e.propertyName === 'grid-template-rows') {
       setOpen(false);
       setIsClosing(false);
     }
@@ -78,7 +102,10 @@ export default function Navbar() {
         <NavLink 
           className={`brand ${isHome && !isScrolled && !open ? 'brand-hidden' : ''}`.trim()} 
           to="/"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => {
+            closeMenu();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
         >
           Luca Cavallotto
         </NavLink>
@@ -108,7 +135,11 @@ export default function Navbar() {
             <ul className="nav-links">
               {NAV_ITEMS.map(({ label, to }) => (
                 <li key={to}>
-                  <NavLink to={to} className={({ isActive }) => (isActive ? 'active' : undefined)}>
+                  <NavLink
+                    to={to}
+                    className={({ isActive }) => (isActive ? 'active' : undefined)}
+                    onClick={closeMenu}
+                  >
                     {label}
                   </NavLink>
                 </li>
