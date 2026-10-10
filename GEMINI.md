@@ -12,7 +12,7 @@ A high-performance, minimalist personal portfolio website for Luca Cavallotto. T
 | **Build** | Vite 7 | Dev server and production bundling. |
 | **Routing** | React Router 7 (HashRouter) | `#/`, `#/skills`, `#/projects`, `#/project/:id`. |
 | **Styling** | Vanilla CSS3 | Custom design system using CSS Variables and Flexbox/Grid. No CSS framework. |
-| **Icons** | Inline SVG (`components/layout/Icon.jsx`) | Nine hand-rolled glyphs; no icon font. |
+| **Icons** | Inline SVG (`components/layout/Icon.jsx`) | Eleven hand-rolled glyphs; no icon font. |
 | **Typography** | System font stack | Modern, clean sans-serif stack for high readability. |
 | **Data** | JSON | Local manifests imported at build time (no runtime fetch). |
 | **Deployment** | GitHub Pages via GitHub Actions | `.github/workflows/deploy.yml`, official Pages actions. |
@@ -56,6 +56,7 @@ Adaptive themes handled via `prefers-color-scheme`, plus `color-scheme: light da
     - **Carousel**: bottom control bar with autoplay pause/play and arrows on the left, "View All Projects →" CTA on the right. The track shifts by a percentage of its own width — never by measured pixels.
     - **Pills**: pill-shaped badges for skill tags with hover scaling.
     - **Search & Filtering**: live search with clear button, label/language/year filters and four sort modes; state lives in the query string (`?q=&tag=&lang=&year=&sort=`) so filtered views are shareable and survive navigation.
+    - **Custom Select**: accessible glassmorphic dropdown replacing native `<select>` controls for filters and sort options. Implements ARIA `listbox`/`option` semantics, full keyboard navigation (Enter, Space, Arrows, Escape, Tab), fade-in/fade-out closing animations, custom scrollbars, and automatic blur/close when clicking outside.
 
 ---
 
@@ -78,7 +79,7 @@ Adaptive themes handled via `prefers-color-scheme`, plus `color-scheme: light da
     │   └── NotFound.jsx
     ├── components/
     │   ├── layout/   Navbar · Footer · SocialLinks · Reveal · Icon
-    │   ├── project/  ProjectCard · ProjectLinks · ProjectCarousel · ProjectFilters
+    │   ├── project/  ProjectCard · ProjectLinks · ProjectCarousel · ProjectFilters · CustomSelect
     │   └── skills/   TechnicalSkillsCard · TimelineCard · ListCard · RichText
     ├── hooks/
     │   ├── useCarousel.js         # Index, autoplay, pause rules, track transform
@@ -105,3 +106,6 @@ Adaptive themes handled via `prefers-color-scheme`, plus `color-scheme: light da
 - **HashRouter paths**: routes are `#/skills`, not `#skills`. `src/main.jsx` rewrites the legacy bare-hash URLs before the router reads them, and in-page anchors must never be plain `href="#…"`.
 - **Data as modules**: importing the JSON removes the fetch waterfall and the loading spinners entirely; the whole catalogue is only ~16KB.
 - **Date Formatting**: raw dates in JSON (`YYYY-MM-DD`) are formatted to `DD/MM/YYYY` in `lib/projects.js` before rendering.
+- **Custom dropdown vs native select**: Native `<select>` elements retain browser-native persistent focus rings even after selection. Replacing them with an accessible custom listbox (`CustomSelect`) ensures the active border state strictly reflects `aria-expanded="true"`, dismisses focus upon outside clicks, and enables custom scrollbar styling and fade animations.
+- **Filter panel dropdown overflow**: When using `grid-template-rows` collapse on filter containers, child wrappers need `overflow: visible` when `.filter-panel.is-open` so absolute dropdown menus can extend beyond the panel without clipping.
+- **Touch active feedback**: A duration floor (`Math.max(0, 100 - elapsed)`) on touch termination ensures `.is-pressed` micro-animations remain visible during rapid taps on mobile devices.

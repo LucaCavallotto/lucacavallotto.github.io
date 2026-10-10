@@ -28,9 +28,10 @@ shift, no JavaScript doing work the browser already does well.
 - **Featured carousel** with autoplay, pause-on-interaction, arrow buttons, clickable
   dot indicators and touch swipe. The track shifts by a percentage of its own width, which survives
   resize, zoom and late font loading.
-- **Search, filter and sort** on the projects page — live text search, plus label /
-  language / year filters and four sort modes. All of it lives in the query string
-  (`?q=&tag=&lang=&year=&sort=`), so a filtered view is shareable and survives navigation.
+- **Search, filter and sort** on the projects page — live text search, plus accessible custom
+  dropdowns for label / language / year filters and four sort modes. Full keyboard navigation,
+  outside-click dismissal, and URL query string state (`?q=&tag=&lang=&year=&sort=`), so a
+  filtered view is shareable and survives navigation.
 - **Scroll restoration** — opening a project detail and going back returns you to
   where you were in the grid.
 - **Accessibility** — skip link, stretched links that keep their accessible name and
@@ -110,7 +111,7 @@ lines are in `src/data/phrases.json`.
     ├── pages/                     # Home · Skills · Projects · ProjectDetail · NotFound
     ├── components/
     │   ├── layout/                # Navbar · Footer · SocialLinks · Reveal · Icon
-    │   ├── project/               # ProjectCard · ProjectLinks · ProjectCarousel · ProjectFilters
+    │   ├── project/               # ProjectCard · ProjectLinks · ProjectCarousel · ProjectFilters · CustomSelect
     │   └── skills/                # TechnicalSkillsCard · TimelineCard · ListCard · RichText
     ├── hooks/                     # carousel · typing · swipe · media query · scroll · title
     ├── lib/                       # constants.js · projects.js (POTD, filter/sort/group)
