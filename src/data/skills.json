@@ -254,7 +254,7 @@
     },
     {
       "name": "English",
-      "level": "Fluent (B2 First – Score 166, Jun 2021)"
+      "level": "Fluent (B2 First – Score 166, Jun 2022)"
     }
   ],
   "interests": [
@@ -264,11 +264,15 @@
     },
     {
       "name": "Running",
-      "details": "Competitive amateur races"
+      "details": ""
+    },
+    {
+      "name": "Product Design",
+      "details": ""
     },
     {
       "name": "Video Editing",
-      "details": "Filmora and DaVinci Resolve"
+      "details": ""
     }
   ]
 }

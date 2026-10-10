@@ -307,8 +307,8 @@
     "language": "Java / ANTLR",
     "release_date": "2025-11-06",
     "id": "protocol-compiler",
-    "description_short": "Formal language compiler translating multi-agent protocol specifications into executable rules",
-    "description_long": "My Bachelor's Thesis project developing a formal language compiler to support the design and validation of informational protocols for multi-agent systems. Built with Java and ANTLR 4, the software implements a complete translation pipeline—from parsing to syntactic-semantic checking and code generation. It converts declarative BSPL specifications into the CLIPS expert system language, leveraging a modular Visitor-pattern architecture to bridge abstract conceptual modeling with automated rule-based verification.",
+    "description_short": "Formal language compiler translating BSPL multi-agent protocols into executable CLIPS rules",
+    "description_long": "This project was developed as my Bachelor's Thesis in Computer Science to support the design and validation of informational protocols in multi-agent systems. It features a custom compiler that translates high-level, declarative BSPL specifications into executable rules for the CLIPS expert system, enabling automated verification. Built with Java and ANTLR 4, the software implements a complete translation pipeline from syntax parsing to semantic checking and code generation. It leverages a modular Visitor-pattern architecture to traverse the syntax tree and bridge abstract conceptual modeling with automated rule-based verification.",
     "links": []
   }
 ]
