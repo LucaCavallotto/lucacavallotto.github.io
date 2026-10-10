@@ -1,5 +1,6 @@
-import { useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import Icon from '../layout/Icon.jsx';
+import CustomSelect from './CustomSelect.jsx';
 import { SORT_OPTIONS } from '../../lib/constants.js';
 
 /**
@@ -22,10 +23,48 @@ export default function ProjectFilters({
   const [open, setOpen] = useState(hasActiveFilters);
   const panelId = useId();
 
+  /* Blur focused inputs when clicking outside them so the focus ring doesn't linger. */
+  useEffect(() => {
+    const handler = (e) => {
+      const active = document.activeElement;
+      if (
+        active &&
+        active.classList.contains('glass-input') &&
+        !active.contains(e.target) &&
+        active !== e.target
+      ) {
+        active.blur();
+      }
+    };
+    document.addEventListener('pointerdown', handler);
+    return () => document.removeEventListener('pointerdown', handler);
+  }, []);
+
   const selects = [
-    { key: 'tag', label: 'Label', all: 'All Labels', values: options.tags },
-    { key: 'language', label: 'Language', all: 'All Languages', values: options.languages },
-    { key: 'year', label: 'Year', all: 'All Years', values: options.years },
+    {
+      key: 'tag',
+      label: 'Label',
+      options: [
+        { value: '', label: 'All Labels' },
+        ...options.tags.map((val) => ({ value: val, label: val })),
+      ],
+    },
+    {
+      key: 'language',
+      label: 'Language',
+      options: [
+        { value: '', label: 'All Languages' },
+        ...options.languages.map((val) => ({ value: val, label: val })),
+      ],
+    },
+    {
+      key: 'year',
+      label: 'Year',
+      options: [
+        { value: '', label: 'All Years' },
+        ...options.years.map((val) => ({ value: val, label: val })),
+      ],
+    },
   ];
 
   return (
@@ -70,27 +109,18 @@ export default function ProjectFilters({
         <div>
           <div className="filter-panel-inner">
             <div className="grid grid-filters">
-              {selects.map(({ key, label, all, values }) => (
+              {selects.map(({ key, label, options: selectOptions }) => (
                 <div key={key}>
                   <label className="visually-hidden" htmlFor={`${panelId}-${key}`}>
                     Filter by {label}
                   </label>
-                  <select
+                  <CustomSelect
                     id={`${panelId}-${key}`}
-                    className="form-select glass-select"
+                    ariaLabel={`Filter by ${label}`}
                     value={filters[key]}
-                    onChange={(e) => {
-                      onChange({ [key]: e.target.value });
-                      e.target.blur();
-                    }}
-                  >
-                    <option value="">{all}</option>
-                    {values.map((value) => (
-                      <option key={value} value={value}>
-                        {value}
-                      </option>
-                    ))}
-                  </select>
+                    options={selectOptions}
+                    onChange={(val) => onChange({ [key]: val })}
+                  />
                 </div>
               ))}
 
@@ -98,21 +128,13 @@ export default function ProjectFilters({
                 <label className="visually-hidden" htmlFor={`${panelId}-sort`}>
                   Sort by
                 </label>
-                <select
+                <CustomSelect
                   id={`${panelId}-sort`}
-                  className="form-select glass-select"
+                  ariaLabel="Sort by"
                   value={filters.sort}
-                  onChange={(e) => {
-                    onChange({ sort: e.target.value });
-                    e.target.blur();
-                  }}
-                >
-                  {SORT_OPTIONS.map(({ value, label }) => (
-                    <option key={value} value={value}>
-                      {label}
-                    </option>
-                  ))}
-                </select>
+                  options={SORT_OPTIONS}
+                  onChange={(val) => onChange({ sort: val })}
+                />
               </div>
             </div>
 

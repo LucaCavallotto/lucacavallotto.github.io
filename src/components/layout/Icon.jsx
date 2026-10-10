@@ -31,6 +31,8 @@ const PATHS = {
       <circle cx="11" cy="17" r="2" />
     </g>
   ),
+  'chevron-down': <path d="m6 9 6 6 6-6" {...STROKE_PROPS} />,
+  check: <path d="M20 6 9 17l-5-5" {...STROKE_PROPS} />,
   github: (
     <path
       fill="currentColor"
